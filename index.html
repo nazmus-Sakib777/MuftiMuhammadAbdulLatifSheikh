@@ -1,0 +1,2637 @@
+<!DOCTYPE html>
+<html lang="bn" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="মুফতি মুহাম্মদ আব্দুল লতিফ শেখ - ইসলামিক গবেষক, ফতোয়া বিশেষজ্ঞ, শিক্ষক ও লেখক">
+<meta name="keywords" content="মুফতি, ফতোয়া, ইসলামিক গবেষণা, দারুল ইফতা, ইসলামিক শিক্ষা">
+<meta property="og:title" content="মুফতি মুহাম্মদ আব্দুল লতিফ শেখ">
+<meta property="og:description" content="Research • Fatwa • Education • Guidance">
+<meta property="og:type" content="website">
+<title>মুফতি মুহাম্মদ আব্দুল লতিফ শেখ | Research • Fatwa • Education • Guidance</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Bengali:wght@300;400;500;600;700&family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<!-- AOS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<!-- Swiper -->
+<link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
+
+<style>
+/* ===== CSS VARIABLES ===== */
+:root {
+  --emerald: #0a4a3a;
+  --emerald-mid: #0d5c49;
+  --emerald-light: #1a7a5e;
+  --emerald-pale: #e8f5f0;
+  --gold: #c9a227;
+  --gold-light: #e4b84a;
+  --gold-pale: #fdf6e3;
+  --white: #ffffff;
+  --beige: #f7f3ec;
+  --beige-dark: #ede8df;
+  --text-dark: #1a1a2e;
+  --text-mid: #3d3d56;
+  --text-light: #6b7280;
+  --shadow-gold: 0 4px 24px rgba(201,162,39,0.18);
+  --shadow-emerald: 0 8px 32px rgba(10,74,58,0.18);
+  --radius: 12px;
+  --radius-lg: 20px;
+  --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] {
+  --beige: #0f1923;
+  --beige-dark: #162030;
+  --emerald-pale: #0d2218;
+  --gold-pale: #1a1508;
+  --text-dark: #f0ede8;
+  --text-mid: #c8c4bc;
+  --text-light: #8a8680;
+  --white: #1a2332;
+}
+
+/* ===== GLOBAL ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Serif Bengali', 'Lora', serif;
+  background: var(--beige);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  line-height: 1.8;
+}
+
+/* Reading Progress Bar */
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  z-index: 9999;
+  width: 0%;
+  transition: width 0.1s;
+}
+
+/* ===== GEOMETRIC PATTERN ===== */
+.geo-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a227' fill-opacity='0.06'%3E%3Cpath d='M40 0L53.66 26.34 80 40 53.66 53.66 40 80 26.34 53.66 0 40 26.34 26.34z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.geo-pattern-dark {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a227' fill-opacity='0.08'%3E%3Cpath d='M30 0L40 20 60 30 40 40 30 60 20 40 0 30 20 20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ===== DIVIDERS ===== */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem auto;
+  max-width: 300px;
+  justify-content: center;
+}
+.ornament-divider::before,
+.ornament-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+.ornament-divider::after {
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+.ornament-star {
+  color: var(--gold);
+  font-size: 1.1rem;
+}
+
+/* ===== STICKY HEADER ===== */
+#main-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  transition: all var(--transition);
+  background: transparent;
+  padding: 1rem 0;
+}
+#main-header.scrolled {
+  background: rgba(10, 74, 58, 0.97);
+  backdrop-filter: blur(12px);
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+.brand-emblem {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Amiri', serif;
+  font-size: 1.4rem;
+  color: var(--emerald);
+  font-weight: 700;
+  flex-shrink: 0;
+  box-shadow: 0 2px 12px rgba(201,162,39,0.4);
+}
+.brand-text-wrap { line-height: 1.2; }
+.brand-name {
+  display: block;
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+}
+.brand-tagline {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  color: var(--gold-light);
+  letter-spacing: 0.15em;
+  white-space: nowrap;
+}
+
+.navbar-nav .nav-link {
+  color: rgba(255,255,255,0.9) !important;
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 0.5rem 0.9rem !important;
+  transition: color var(--transition);
+  position: relative;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--gold-light) !important;
+}
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%;
+  width: 0; height: 2px;
+  background: var(--gold);
+  transform: translateX(-50%);
+  transition: width var(--transition);
+}
+.navbar-nav .nav-link:hover::after { width: 60%; }
+
+.dropdown-menu {
+  background: var(--emerald);
+  border: 1px solid rgba(201,162,39,0.2);
+  border-radius: var(--radius);
+  padding: 0.5rem;
+  min-width: 200px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+.dropdown-item {
+  color: rgba(255,255,255,0.85) !important;
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s;
+}
+.dropdown-item:hover {
+  background: rgba(201,162,39,0.15) !important;
+  color: var(--gold-light) !important;
+}
+
+.header-actions { display: flex; align-items: center; gap: 0.5rem; }
+.btn-search-toggle {
+  background: none; border: none;
+  color: rgba(255,255,255,0.8);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+.btn-search-toggle:hover { color: var(--gold); background: rgba(255,255,255,0.1); }
+
+.btn-theme-toggle {
+  background: none; border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.8);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0.35rem 0.65rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+.btn-theme-toggle:hover { border-color: var(--gold); color: var(--gold); }
+
+/* Global Search Bar */
+#global-search-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: rgba(10,74,58,0.98);
+  backdrop-filter: blur(20px);
+  z-index: 1100;
+  padding: 1.5rem 2rem;
+  transform: translateY(-100%);
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  border-bottom: 2px solid var(--gold);
+}
+#global-search-bar.open { transform: translateY(0); }
+.search-input-wrap { position: relative; max-width: 700px; margin: 0 auto; }
+.search-input-wrap input {
+  width: 100%;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(201,162,39,0.4);
+  border-radius: 50px;
+  padding: 0.8rem 3rem 0.8rem 1.5rem;
+  color: #fff;
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 1rem;
+  outline: none;
+}
+.search-input-wrap input::placeholder { color: rgba(255,255,255,0.5); }
+.search-close {
+  position: absolute; right: 1rem; top: 50%;
+  transform: translateY(-50%);
+  background: none; border: none;
+  color: rgba(255,255,255,0.7);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* ===== HERO SECTION ===== */
+#hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(10,74,58,0.85) 0%, rgba(10,74,58,0.7) 50%, rgba(10,74,58,0.92) 100%),
+    url('https://images.unsplash.com/photo-1564769625392-651b89c25c4c?w=1600&q=80') center/cover no-repeat;
+  z-index: 0;
+}
+
+.hero-geo {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c9a227' stroke-width='0.5' stroke-opacity='0.12'%3E%3Cpolygon points='50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5'/%3E%3Cpolygon points='50,20 80,35 80,65 50,80 20,65 20,35'/%3E%3Cline x1='50' y1='5' x2='50' y2='95'/%3E%3Cline x1='5' y1='27.5' x2='95' y2='72.5'/%3E%3Cline x1='5' y1='72.5' x2='95' y2='27.5'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 120px 120px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding-top: 100px;
+}
+
+.hero-arabic-verse {
+  font-family: 'Amiri', serif;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: var(--gold-light);
+  text-align: center;
+  margin-bottom: 0.5rem;
+  direction: rtl;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+}
+.hero-verse-trans {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.65);
+  text-align: center;
+  margin-bottom: 3rem;
+  font-style: italic;
+}
+
+.hero-portrait-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.hero-portrait {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 4px solid var(--gold);
+  box-shadow: 0 0 0 8px rgba(201,162,39,0.2), 0 12px 40px rgba(0,0,0,0.5);
+  object-fit: cover;
+  background: linear-gradient(135deg, var(--emerald-mid), var(--emerald-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: var(--gold-light);
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-title-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--emerald);
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  padding: 0.3rem 1.2rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.hero-name {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  margin-bottom: 0.5rem;
+}
+
+.hero-name-arabic {
+  font-family: 'Amiri', serif;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  color: var(--gold-light);
+  direction: rtl;
+  margin-bottom: 1.5rem;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.8);
+  max-width: 600px;
+  line-height: 1.9;
+  margin-bottom: 2.5rem;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.btn-hero-primary {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--emerald);
+  font-family: 'Noto Serif Bengali', serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(201,162,39,0.4);
+}
+.btn-hero-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(201,162,39,0.5);
+  color: var(--emerald);
+}
+
+.btn-hero-outline {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  font-family: 'Noto Serif Bengali', serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 50px;
+  border: 1.5px solid rgba(255,255,255,0.35);
+  cursor: pointer;
+  transition: all var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  backdrop-filter: blur(4px);
+}
+.btn-hero-outline:hover {
+  background: rgba(255,255,255,0.2);
+  border-color: var(--gold);
+  color: var(--gold-light);
+  transform: translateY(-3px);
+}
+
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.75rem;
+  animation: scrollBounce 2s infinite;
+}
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ===== SECTION STYLES ===== */
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.section-label {
+  display: inline-block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  padding: 0.25rem 1rem;
+  border: 1px solid rgba(201,162,39,0.3);
+  border-radius: 50px;
+}
+.section-title {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--text-light);
+  max-width: 550px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* ===== STATS SECTION ===== */
+#stats {
+  background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-mid) 100%);
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+#stats::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c9a227' stroke-width='0.4' stroke-opacity='0.1'%3E%3Cpolygon points='40,4 76,22 76,58 40,76 4,58 4,22'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  position: relative;
+}
+.stat-card::after {
+  content: '';
+  position: absolute;
+  right: 0; top: 20%; bottom: 20%;
+  width: 1px;
+  background: rgba(201,162,39,0.2);
+}
+.stat-card:last-child::after { display: none; }
+
+.stat-icon {
+  width: 60px; height: 60px;
+  background: rgba(201,162,39,0.15);
+  border: 1px solid rgba(201,162,39,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 1.4rem;
+  color: var(--gold);
+}
+.stat-number {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.stat-label {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.75);
+  font-family: 'Noto Serif Bengali', serif;
+}
+
+/* ===== LATEST UPDATES ===== */
+#latest-updates {
+  padding: 6rem 0;
+  background: var(--beige);
+}
+
+.update-tab-nav {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+.update-tab-btn {
+  background: none;
+  border: 1.5px solid var(--beige-dark);
+  color: var(--text-mid);
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 0.88rem;
+  padding: 0.55rem 1.4rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.25s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.update-tab-btn.active,
+.update-tab-btn:hover {
+  background: var(--emerald);
+  border-color: var(--emerald);
+  color: var(--gold-light);
+}
+
+/* Article Card */
+.article-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  transition: all var(--transition);
+  height: 100%;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.article-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-emerald);
+}
+.article-card-img {
+  height: 200px;
+  background: linear-gradient(135deg, var(--emerald-pale), var(--gold-pale));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: var(--emerald);
+  position: relative;
+  overflow: hidden;
+}
+.article-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.article-card-body { padding: 1.5rem; }
+.article-card-category {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.article-card-title {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+.article-card-excerpt {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.article-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--text-light);
+  border-top: 1px solid var(--beige-dark);
+  padding-top: 0.75rem;
+}
+.btn-read-more {
+  font-size: 0.8rem;
+  color: var(--emerald);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-weight: 600;
+  transition: gap 0.2s;
+}
+.btn-read-more:hover { gap: 0.6rem; color: var(--gold); }
+
+/* Video Card */
+.video-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  transition: all var(--transition);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.video-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-emerald); }
+.video-thumb {
+  position: relative;
+  height: 200px;
+  background: #000;
+  overflow: hidden;
+}
+.video-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+  transition: opacity 0.3s;
+}
+.video-card:hover .video-thumb img { opacity: 0.7; }
+.video-play-btn {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 55px; height: 55px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--emerald);
+  font-size: 1.2rem;
+  padding-left: 4px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(201,162,39,0.5);
+}
+.video-card:hover .video-play-btn {
+  background: var(--gold-light);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+.video-duration {
+  position: absolute;
+  bottom: 0.5rem; right: 0.5rem;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  font-size: 0.72rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  font-family: 'Cinzel', serif;
+}
+.video-card-body { padding: 1.25rem; }
+.video-card-title {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+.video-views {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* Fatwa Card */
+.fatwa-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  border-left: 4px solid var(--gold);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  transition: all var(--transition);
+  margin-bottom: 1rem;
+}
+.fatwa-card:hover { transform: translateX(4px); box-shadow: var(--shadow-gold); }
+.fatwa-question {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+.fatwa-excerpt {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+.fatwa-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+}
+.fatwa-category-badge {
+  background: var(--emerald-pale);
+  color: var(--emerald);
+  padding: 0.15rem 0.7rem;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+/* ===== FATWA CATEGORIES ===== */
+#fatwa-categories {
+  padding: 6rem 0;
+  background: linear-gradient(180deg, var(--beige-dark) 0%, var(--beige) 100%);
+  position: relative;
+}
+#fatwa-categories::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%230a4a3a' stroke-width='0.3' stroke-opacity='0.06'%3E%3Cpolygon points='30,2 58,16 58,44 30,58 2,44 2,16'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 60px 60px;
+}
+
+.fatwa-cat-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  transition: all var(--transition);
+  cursor: pointer;
+  border: 2px solid transparent;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.fatwa-cat-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--emerald), var(--gold));
+  transform: scaleX(0);
+  transition: transform var(--transition);
+  transform-origin: left;
+}
+.fatwa-cat-card:hover::before,
+.fatwa-cat-card:hover { border-color: rgba(201,162,39,0.3); }
+.fatwa-cat-card:hover::before { transform: scaleX(1); }
+.fatwa-cat-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-gold); }
+
+.cat-icon {
+  width: 70px; height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--emerald-pale), var(--gold-pale));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  font-size: 1.8rem;
+  transition: all var(--transition);
+  border: 2px solid rgba(201,162,39,0.2);
+}
+.fatwa-cat-card:hover .cat-icon {
+  background: linear-gradient(135deg, var(--emerald), var(--emerald-mid));
+  color: var(--gold);
+  transform: scale(1.1);
+}
+.cat-name {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.3rem;
+}
+.cat-count {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+/* ===== PUBLICATIONS ===== */
+#publications {
+  padding: 6rem 0;
+  background: var(--beige);
+}
+
+.book-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  transition: all var(--transition);
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(0,0,0,0.05);
+  height: 100%;
+  flex-direction: column;
+}
+.book-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-emerald); }
+
+.book-cover {
+  width: 100%;
+  height: 240px;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-family: 'Noto Serif Bengali', serif;
+  font-weight: 700;
+  text-align: center;
+  padding: 1rem;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.book-cover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.4));
+}
+.book-info { flex: 1; }
+.book-title {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+.book-desc {
+  font-size: 0.83rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+.book-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.btn-book {
+  font-size: 0.78rem;
+  font-family: 'Noto Serif Bengali', serif;
+  padding: 0.4rem 0.9rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+.btn-book-primary {
+  background: linear-gradient(135deg, var(--emerald), var(--emerald-mid));
+  color: var(--gold-light);
+}
+.btn-book-primary:hover { box-shadow: 0 4px 16px rgba(10,74,58,0.4); transform: translateY(-2px); color: var(--gold-light); }
+.btn-book-outline {
+  background: none;
+  border: 1.5px solid var(--beige-dark);
+  color: var(--text-mid);
+}
+.btn-book-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ===== ASK FATWA SECTION ===== */
+#ask-fatwa {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-mid) 100%);
+  position: relative;
+  overflow: hidden;
+}
+#ask-fatwa::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c9a227' stroke-width='0.5' stroke-opacity='0.12'%3E%3Cpolygon points='50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5'/%3E%3Cpolygon points='50,20 80,35 80,65 50,80 20,65 20,35'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 100px 100px;
+}
+
+.ask-form-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(201,162,39,0.25);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.form-control-custom {
+  background: rgba(255,255,255,0.08) !important;
+  border: 1px solid rgba(201,162,39,0.2) !important;
+  border-radius: 10px !important;
+  color: rgba(255,255,255,0.9) !important;
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 0.88rem;
+  padding: 0.7rem 1rem !important;
+  transition: border-color 0.2s !important;
+}
+.form-control-custom::placeholder { color: rgba(255,255,255,0.35) !important; }
+.form-control-custom:focus {
+  border-color: rgba(201,162,39,0.6) !important;
+  box-shadow: 0 0 0 3px rgba(201,162,39,0.1) !important;
+  outline: none !important;
+  background: rgba(255,255,255,0.1) !important;
+}
+.form-label-custom {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 0.4rem;
+  display: block;
+}
+select.form-control-custom option { background: var(--emerald); color: #fff; }
+
+/* Smart suggestion box */
+#suggestion-box {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-top: 0.5rem;
+  display: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  max-height: 250px;
+  overflow-y: auto;
+}
+#suggestion-box.visible { display: block; }
+.suggestion-item {
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 0.85rem;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.suggestion-item:hover { background: var(--emerald-pale); }
+.suggestion-item i { color: var(--gold); font-size: 0.75rem; }
+
+.btn-submit-fatwa {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--emerald);
+  font-family: 'Noto Serif Bengali', serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.85rem 2.5rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all var(--transition);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 20px rgba(201,162,39,0.4);
+}
+.btn-submit-fatwa:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(201,162,39,0.5); }
+
+/* ===== ABOUT SECTION ===== */
+#about {
+  padding: 6rem 0;
+  background: var(--beige);
+}
+
+.about-portrait-frame {
+  position: relative;
+  display: inline-block;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.about-portrait-img {
+  width: 320px;
+  height: 400px;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  background: linear-gradient(135deg, var(--emerald), var(--emerald-mid));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6rem;
+  color: var(--gold-light);
+  position: relative;
+  z-index: 1;
+  box-shadow: var(--shadow-emerald);
+  overflow: hidden;
+}
+.about-portrait-deco {
+  position: absolute;
+  width: 320px;
+  height: 400px;
+  border: 2px solid rgba(201,162,39,0.4);
+  border-radius: var(--radius-lg);
+  top: 16px;
+  left: calc(50% - 160px + 16px);
+  z-index: 0;
+}
+
+.ijazah-badge {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--emerald);
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  display: inline-block;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.expertise-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--emerald-pale);
+  color: var(--emerald);
+  font-size: 0.82rem;
+  font-family: 'Noto Serif Bengali', serif;
+  font-weight: 600;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  margin: 0.25rem;
+  border: 1px solid rgba(10,74,58,0.15);
+}
+
+.timeline-item {
+  display: flex;
+  gap: 1.5rem;
+  position: relative;
+  padding-bottom: 2rem;
+}
+.timeline-item:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 40px;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, var(--gold), transparent);
+}
+.timeline-dot {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--emerald);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  box-shadow: 0 2px 12px rgba(201,162,39,0.3);
+}
+.timeline-content {}
+.timeline-year {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+.timeline-title {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.2rem;
+}
+.timeline-desc {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* ===== TESTIMONIALS ===== */
+#testimonials {
+  padding: 6rem 0;
+  background: var(--beige-dark);
+}
+
+.testimonial-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  position: relative;
+  height: 100%;
+}
+.testimonial-card::before {
+  content: '\201C';
+  font-family: 'Georgia', serif;
+  font-size: 5rem;
+  color: var(--gold);
+  opacity: 0.3;
+  position: absolute;
+  top: 0.5rem;
+  left: 1.5rem;
+  line-height: 1;
+}
+.testimonial-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 1rem; }
+.testimonial-text {
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-top: 1px solid var(--beige-dark);
+  padding-top: 1rem;
+}
+.author-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--emerald), var(--emerald-mid));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-light);
+  font-size: 1rem;
+}
+.author-name {
+  font-family: 'Noto Serif Bengali', serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+}
+.author-role { font-size: 0.75rem; color: var(--text-light); }
+
+/* ===== NEWSLETTER ===== */
+#newsletter {
+  padding: 5rem 0;
+  background: var(--gold-pale);
+  border-top: 1px solid rgba(201,162,39,0.2);
+  border-bottom: 1px solid rgba(201,162,39,0.2);
+}
+.newsletter-icon {
+  width: 70px; height: 70px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 1.6rem;
+  color: var(--emerald);
+  box-shadow: var(--shadow-gold);
+}
+.newsletter-form {
+  display: flex;
+  max-width: 500px;
+  margin: 0 auto;
+  gap: 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  border-radius: 50px;
+  overflow: hidden;
+}
+.newsletter-input {
+  flex: 1;
+  border: none;
+  padding: 0.85rem 1.5rem;
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 0.88rem;
+  outline: none;
+  background: var(--white);
+  color: var(--text-dark);
+}
+.newsletter-btn {
+  background: linear-gradient(135deg, var(--emerald), var(--emerald-mid));
+  color: var(--gold-light);
+  border: none;
+  padding: 0.85rem 1.75rem;
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+}
+.newsletter-btn:hover { background: var(--emerald-light); }
+
+/* ===== CONTACT SECTION ===== */
+#contact {
+  padding: 6rem 0;
+  background: var(--beige);
+}
+.contact-info-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.07);
+  height: 100%;
+}
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--beige-dark);
+}
+.contact-item:last-child { border-bottom: none; }
+.contact-icon-wrap {
+  width: 44px; height: 44px;
+  background: var(--emerald-pale);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--emerald);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.contact-info-label {
+  font-size: 0.72rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: 'Cinzel', serif;
+  margin-bottom: 0.2rem;
+}
+.contact-info-value {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+.office-hours-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  padding: 0.3rem 0;
+  color: var(--text-mid);
+}
+.office-hours-row .day { font-weight: 600; color: var(--text-dark); }
+
+.contact-form-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.07);
+}
+.form-group-custom { margin-bottom: 1.25rem; }
+.form-label-dark {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  margin-bottom: 0.35rem;
+  display: block;
+  font-weight: 600;
+}
+.form-control-light {
+  width: 100%;
+  background: var(--beige) !important;
+  border: 1.5px solid var(--beige-dark) !important;
+  border-radius: 10px !important;
+  padding: 0.7rem 1rem;
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 0.88rem;
+  color: var(--text-dark);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-control-light:focus {
+  border-color: var(--gold) !important;
+  background: var(--white) !important;
+}
+textarea.form-control-light { resize: vertical; min-height: 120px; }
+.btn-contact-submit {
+  background: linear-gradient(135deg, var(--emerald), var(--emerald-mid));
+  color: var(--gold-light);
+  font-family: 'Noto Serif Bengali', serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.85rem 2.5rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-emerald);
+}
+.btn-contact-submit:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(10,74,58,0.4); }
+
+/* ===== FOOTER ===== */
+#footer {
+  background: linear-gradient(180deg, #052e24 0%, #03201a 100%);
+  color: rgba(255,255,255,0.75);
+  padding: 5rem 0 2rem;
+  position: relative;
+  overflow: hidden;
+}
+#footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c9a227' stroke-width='0.4' stroke-opacity='0.06'%3E%3Cpolygon points='40,2 78,21 78,59 40,78 2,59 2,21'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+}
+
+.footer-brand-name {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+.footer-tagline-cinzel {
+  font-family: 'Cinzel', serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.footer-about-text {
+  font-size: 0.82rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.55);
+  margin: 1.25rem 0;
+}
+.footer-social {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.footer-social a {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.85rem;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.footer-social a:hover {
+  background: rgba(201,162,39,0.15);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.footer-heading {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(201,162,39,0.2);
+}
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 0.5rem; }
+.footer-links a {
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  font-size: 0.83rem;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.footer-links a:hover { color: var(--gold-light); padding-left: 4px; }
+.footer-links a i { font-size: 0.65rem; color: var(--gold); opacity: 0.7; }
+
+.footer-arabic-quote {
+  font-family: 'Amiri', serif;
+  font-size: 1.3rem;
+  color: var(--gold-light);
+  direction: rtl;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.footer-divider {
+  border-color: rgba(255,255,255,0.08);
+  margin: 2rem 0 1.5rem;
+}
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-copy {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
+}
+.footer-copy a { color: var(--gold); text-decoration: none; }
+
+/* ===== ADMIN MODAL ===== */
+.modal-content {
+  border-radius: var(--radius-lg);
+  border: none;
+  overflow: hidden;
+}
+.modal-header-custom {
+  background: linear-gradient(135deg, var(--emerald), var(--emerald-mid));
+  padding: 1.5rem 2rem;
+  border: none;
+}
+.modal-title-custom {
+  font-family: 'Noto Serif Bengali', serif;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.modal-title-custom i { color: var(--gold); }
+.modal-body-custom { padding: 2rem; background: var(--beige); }
+
+/* ===== BREADCRUMB ===== */
+.breadcrumb-wrap {
+  background: var(--white);
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--beige-dark);
+  font-size: 0.8rem;
+}
+.breadcrumb-item a { color: var(--emerald); text-decoration: none; }
+.breadcrumb-item.active { color: var(--text-light); }
+.breadcrumb-item + .breadcrumb-item::before { color: var(--gold); }
+
+/* ===== BACK TO TOP ===== */
+#back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, var(--emerald), var(--emerald-mid));
+  color: var(--gold-light);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(10,74,58,0.4);
+  transition: all 0.3s;
+  opacity: 0;
+  transform: translateY(20px);
+  z-index: 999;
+  font-size: 1rem;
+}
+#back-to-top.visible { opacity: 1; transform: translateY(0); }
+#back-to-top:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(10,74,58,0.5); }
+
+/* ===== UTILITY ===== */
+.text-gold { color: var(--gold); }
+.text-emerald { color: var(--emerald); }
+.bg-emerald { background: var(--emerald); }
+.bg-gold { background: var(--gold); }
+
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--emerald), var(--gold));
+  border-radius: 2px;
+  margin: 1rem auto;
+}
+
+.badge-gold {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--emerald);
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.2rem 0.7rem;
+  border-radius: 50px;
+  letter-spacing: 0.08em;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 991px) {
+  .navbar-collapse { background: rgba(10,74,58,0.97); backdrop-filter: blur(12px); padding: 1rem; border-radius: 0 0 12px 12px; margin-top: 0.5rem; }
+  .hero-desc { max-width: 100%; }
+  .stat-card::after { display: none; }
+  .about-portrait-deco { display: none; }
+}
+@media (max-width: 576px) {
+  .hero-cta-group { flex-direction: column; align-items: center; }
+  .btn-hero-primary, .btn-hero-outline { width: 100%; max-width: 280px; justify-content: center; }
+  .newsletter-form { flex-direction: column; border-radius: var(--radius); }
+  .newsletter-input, .newsletter-btn { border-radius: 0; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes countUp {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-hero { animation: fadeInUp 0.8s ease forwards; }
+.animate-hero-delay-1 { animation-delay: 0.2s; opacity: 0; }
+.animate-hero-delay-2 { animation-delay: 0.4s; opacity: 0; }
+.animate-hero-delay-3 { animation-delay: 0.6s; opacity: 0; }
+.animate-hero-delay-4 { animation-delay: 0.8s; opacity: 0; }
+</style>
+</head>
+
+<body>
+<!-- Reading Progress Bar -->
+<div id="progress-bar"></div>
+
+<!-- Global Search -->
+<div id="global-search-bar">
+  <div class="search-input-wrap">
+    <input type="text" id="global-search-input" placeholder="ফতোয়া, প্রবন্ধ, বই অনুসন্ধান করুন...">
+    <button class="search-close" onclick="toggleSearch()"><i class="fas fa-times"></i></button>
+  </div>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header id="main-header">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg">
+      <a class="navbar-brand" href="#hero">
+        <div class="brand-emblem">م</div>
+        <div class="brand-text-wrap">
+          <span class="brand-name">মুফতি আব্দুল লতিফ শেখ</span>
+          <span class="brand-tagline">Research • Fatwa • Education • Guidance</span>
+        </div>
+      </a>
+      <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="mainNav">
+        <ul class="navbar-nav gap-1">
+          <li class="nav-item"><a class="nav-link active" href="#hero">হোম</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">পরিচিতি</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">প্রকাশনা</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#publications"><i class="fas fa-book me-2"></i>বই ও গ্রন্থ</a></li>
+              <li><a class="dropdown-item" href="#latest-updates"><i class="fas fa-file-alt me-2"></i>গবেষণামূলক প্রবন্ধ</a></li>
+              <li><a class="dropdown-item" href="#latest-updates"><i class="fas fa-newspaper me-2"></i>সমসাময়িক নিবন্ধ</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">মিডিয়া সেন্টার</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#latest-updates"><i class="fas fa-video me-2"></i>ভিডিও বক্তৃতা</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fas fa-headphones me-2"></i>অডিও বক্তৃতা</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fas fa-images me-2"></i>ফটো গ্যালারি</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">দারুল ইফতা</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#ask-fatwa"><i class="fas fa-question-circle me-2"></i>প্রশ্ন করুন</a></li>
+              <li><a class="dropdown-item" href="#fatwa-categories"><i class="fas fa-list me-2"></i>ফতোয়া আর্কাইভ</a></li>
+              <li><a class="dropdown-item" href="#fatwa-categories"><i class="fas fa-search me-2"></i>ফতোয়া অনুসন্ধান</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#">মাকতাবাহ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">যোগাযোগ</a></li>
+        </ul>
+      </div>
+      <div class="header-actions">
+        <button class="btn-search-toggle" onclick="toggleSearch()" title="অনুসন্ধান">
+          <i class="fas fa-search"></i>
+        </button>
+        <button class="btn-theme-toggle" onclick="toggleTheme()" id="theme-toggle-btn">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-geo"></div>
+  <div class="container hero-content">
+    <div class="text-center">
+      <p class="hero-arabic-verse animate-hero animate-hero-delay-1">
+        وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِّلْعَالَمِينَ
+      </p>
+      <p class="hero-verse-trans animate-hero animate-hero-delay-1">"And We have not sent you except as a mercy for the worlds." — Surah Al-Anbiya: 107</p>
+
+      <div class="hero-portrait-wrap animate-hero animate-hero-delay-2">
+        <div class="hero-portrait">
+          <i class="fas fa-user-tie"></i>
+        </div>
+      </div>
+
+      <div class="animate-hero animate-hero-delay-2">
+        <span class="hero-title-badge">Mufti | Scholar | Researcher</span>
+      </div>
+
+      <h1 class="hero-name animate-hero animate-hero-delay-3">
+        মুফতি মুহাম্মদ আব্দুল লতিফ শেখ
+      </h1>
+      <p class="hero-name-arabic animate-hero animate-hero-delay-3">
+        مفتي محمد عبد اللطيف شيخ
+      </p>
+
+      <p class="hero-desc mx-auto animate-hero animate-hero-delay-4">
+        বিশিষ্ট ইসলামি গবেষক, ফতোয়া বিশেষজ্ঞ, শিক্ষক ও লেখক। দারুল ইফতার প্রধান হিসেবে ইসলামি আইন ও আধুনিক সমস্যার সমাধানে অগ্রণী ভূমিকা পালন করছেন।
+      </p>
+
+      <div class="hero-cta-group animate-hero animate-hero-delay-4">
+        <a href="#ask-fatwa" class="btn-hero-primary">
+          <i class="fas fa-question-circle"></i> প্রশ্ন করুন
+        </a>
+        <a href="#fatwa-categories" class="btn-hero-outline">
+          <i class="fas fa-search"></i> ফতোয়া খুঁজুন
+        </a>
+        <a href="#publications" class="btn-hero-outline">
+          <i class="fas fa-book"></i> বইসমূহ
+        </a>
+        <a href="#latest-updates" class="btn-hero-outline">
+          <i class="fas fa-play-circle"></i> বয়ান
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>স্ক্রোল করুন</span>
+    <i class="fas fa-chevron-down"></i>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<section id="stats">
+  <div class="container">
+    <div class="row g-0">
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="0">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-scroll"></i></div>
+          <div class="stat-number" data-target="4800">0</div>
+          <div class="stat-label">মোট ফতোয়া</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-pen-nib"></i></div>
+          <div class="stat-number" data-target="320">0</div>
+          <div class="stat-label">গবেষণা প্রবন্ধ</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-book"></i></div>
+          <div class="stat-number" data-target="28">0</div>
+          <div class="stat-label">প্রকাশিত গ্রন্থ</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div class="stat-number" data-target="35">0</div>
+          <div class="stat-label">বছরের অভিজ্ঞতা</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LATEST UPDATES ===== -->
+<section id="latest-updates">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-label">সর্বশেষ</span>
+      <h2 class="section-title">সাম্প্রতিক আপডেট</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">সর্বশেষ প্রবন্ধ, ভিডিও বক্তৃতা ও ফতোয়াসমূহ</p>
+    </div>
+
+    <div class="update-tab-nav" data-aos="fade-up">
+      <button class="update-tab-btn active" onclick="switchTab('articles', this)">
+        <i class="fas fa-file-alt"></i> প্রবন্ধ
+      </button>
+      <button class="update-tab-btn" onclick="switchTab('videos', this)">
+        <i class="fas fa-video"></i> ভিডিও বয়ান
+      </button>
+      <button class="update-tab-btn" onclick="switchTab('fatwas', this)">
+        <i class="fas fa-scroll"></i> সর্বশেষ ফতোয়া
+      </button>
+    </div>
+
+    <!-- Articles Tab -->
+    <div id="tab-articles" class="tab-content-pane">
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="article-card">
+            <div class="article-card-img">
+              <img src="https://images.unsplash.com/photo-1585129777188-94600bc7b4b3?w=400&q=70" alt="Article">
+            </div>
+            <div class="article-card-body">
+              <div class="article-card-category"><i class="fas fa-circle" style="font-size:0.4rem"></i> সমসাময়িক ইসলাম</div>
+              <h3 class="article-card-title">আধুনিক ব্যাংকিং ব্যবস্থায় সুদ এবং ইসলামি বিকল্প</h3>
+              <p class="article-card-excerpt">বর্তমান বিশ্বে ইসলামি অর্থনীতির প্রাসঙ্গিকতা এবং সুদমুক্ত ব্যাংকিং ব্যবস্থার দিকনির্দেশনা নিয়ে বিস্তারিত আলোচনা।</p>
+              <div class="article-card-meta">
+                <span><i class="far fa-calendar me-1"></i>১৫ রবিউল আউয়াল ১৪৪৬</span>
+                <a href="#" class="btn-read-more">পড়ুন <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="article-card">
+            <div class="article-card-img">
+              <img src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?w=400&q=70" alt="Article">
+            </div>
+            <div class="article-card-body">
+              <div class="article-card-category"><i class="fas fa-circle" style="font-size:0.4rem"></i> ফিকহ</div>
+              <h3 class="article-card-title">ডিজিটাল যুগে যাকাত প্রদানের শরঈ পদ্ধতি</h3>
+              <p class="article-card-excerpt">অনলাইনে যাকাত প্রদান, ক্রিপ্টোকারেন্সিতে যাকাতের বিধান এবং আধুনিক সম্পদে যাকাতের হিসাব নিয়ে বিশদ আলোচনা।</p>
+              <div class="article-card-meta">
+                <span><i class="far fa-calendar me-1"></i>৮ সফর ১৪৪৬</span>
+                <a href="#" class="btn-read-more">পড়ুন <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="article-card">
+            <div class="article-card-img">
+              <img src="https://images.unsplash.com/photo-1591696205602-2f950c417cb9?w=400&q=70" alt="Article">
+            </div>
+            <div class="article-card-body">
+              <div class="article-card-category"><i class="fas fa-circle" style="font-size:0.4rem"></i> আকিদাহ</div>
+              <h3 class="article-card-title">তাওহিদের আলোকে বর্তমান মুসলিম সমাজের চ্যালেঞ্জ</h3>
+              <p class="article-card-excerpt">আধুনিকতার চ্যালেঞ্জ মোকাবেলায় ইসলামি আকিদার দৃষ্টিভঙ্গি এবং আলেমদের করণীয় সম্পর্কে গুরুত্বপূর্ণ আলোচনা।</p>
+              <div class="article-card-meta">
+                <span><i class="far fa-calendar me-1"></i>২ মুহাররম ১৪৪৬</span>
+                <a href="#" class="btn-read-more">পড়ুন <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Videos Tab -->
+    <div id="tab-videos" class="tab-content-pane" style="display:none">
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="video-card">
+            <div class="video-thumb">
+              <img src="https://images.unsplash.com/photo-1614094082869-cd4e4b2905c7?w=400&q=70" alt="Video">
+              <div class="video-play-btn"><i class="fas fa-play"></i></div>
+              <span class="video-duration">৪৫:২২</span>
+            </div>
+            <div class="video-card-body">
+              <h3 class="video-card-title">রমজানের ফজিলত ও করণীয় — বিস্তারিত বয়ান</h3>
+              <div class="video-views"><i class="fas fa-eye"></i> ১২,৪৫০ বার দেখা হয়েছে</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="video-card">
+            <div class="video-thumb">
+              <img src="https://images.unsplash.com/photo-1599236449563-1a7c9f9f0f8b?w=400&q=70" alt="Video">
+              <div class="video-play-btn"><i class="fas fa-play"></i></div>
+              <span class="video-duration">১:১২:০৮</span>
+            </div>
+            <div class="video-card-body">
+              <h3 class="video-card-title">পারিবারিক জীবনে ইসলামের শিক্ষা</h3>
+              <div class="video-views"><i class="fas fa-eye"></i> ৮,৭৩০ বার দেখা হয়েছে</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="video-card">
+            <div class="video-thumb">
+              <img src="https://images.unsplash.com/photo-1590698933947-a202b069a861?w=400&q=70" alt="Video">
+              <div class="video-play-btn"><i class="fas fa-play"></i></div>
+              <span class="video-duration">৩২:১৫</span>
+            </div>
+            <div class="video-card-body">
+              <h3 class="video-card-title">হজ ও উমরাহর মাসায়েল — প্রশ্নোত্তর পর্ব</h3>
+              <div class="video-views"><i class="fas fa-eye"></i> ২৩,১২০ বার দেখা হয়েছে</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fatwas Tab -->
+    <div id="tab-fatwas" class="tab-content-pane" style="display:none">
+      <div class="row g-3">
+        <div class="col-md-6" data-aos="fade-up">
+          <div class="fatwa-card">
+            <div class="fatwa-question"><i class="fas fa-question-circle text-gold me-2"></i>মোবাইল ব্যাংকিংয়ে সুদের হার থেকে আয় কি হালাল?</div>
+            <p class="fatwa-excerpt">বিভিন্ন মোবাইল ব্যাংকিং সেবায় অর্থ জমা রাখলে যে সুদ প্রদান করা হয় তা গ্রহণ করা জায়েয কিনা...</p>
+            <div class="fatwa-card-footer">
+              <span class="fatwa-category-badge">মুআমালাত</span>
+              <a href="#" class="btn-read-more">বিস্তারিত <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="50">
+          <div class="fatwa-card">
+            <div class="fatwa-question"><i class="fas fa-question-circle text-gold me-2"></i>স্ত্রীর মাহরানা না দিয়ে বিবাহ বিচ্ছেদ দিলে কি হয়?</div>
+            <p class="fatwa-excerpt">বিবাহের সময় নির্ধারিত মাহরানা আদায় না করে স্বামী তালাক দিলে কী বিধান প্রযোজ্য হবে...</p>
+            <div class="fatwa-card-footer">
+              <span class="fatwa-category-badge">পারিবারিক বিষয়</span>
+              <a href="#" class="btn-read-more">বিস্তারিত <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="fatwa-card">
+            <div class="fatwa-question"><i class="fas fa-question-circle text-gold me-2"></i>সেহরির শেষ সময় কখন? আজানের আগে নাকি পরে?</div>
+            <p class="fatwa-excerpt">সুবহে সাদিক এবং আজানের মধ্যে পার্থক্য এবং সেহরি খাওয়ার সঠিক সময় সম্পর্কে বিস্তারিত...</p>
+            <div class="fatwa-card-footer">
+              <span class="fatwa-category-badge">সিয়াম</span>
+              <a href="#" class="btn-read-more">বিস্তারিত <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="150">
+          <div class="fatwa-card">
+            <div class="fatwa-question"><i class="fas fa-question-circle text-gold me-2"></i>ইন্স্যুরেন্স করা কি জায়েয?</div>
+            <p class="fatwa-excerpt">বিভিন্ন ধরনের বীমা যেমন জীবন বীমা, স্বাস্থ্য বীমা ইত্যাদির শরঈ বিধান নিয়ে বিশদ আলোচনা...</p>
+            <div class="fatwa-card-footer">
+              <span class="fatwa-category-badge">সমসাময়িক</span>
+              <a href="#" class="btn-read-more">বিস্তারিত <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FATWA CATEGORIES ===== -->
+<section id="fatwa-categories">
+  <div class="container position-relative">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-label">দারুল ইফতা</span>
+      <h2 class="section-title">ফতোয়ার বিভাগসমূহ</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">আপনার প্রশ্নের বিভাগ নির্বাচন করে সংশ্লিষ্ট ফতোয়া খুঁজুন</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+        <div class="fatwa-cat-card" onclick="openCatModal('আকিদাহ')">
+          <div class="cat-icon">🕌</div>
+          <div class="cat-name">আকিদাহ</div>
+          <div class="cat-count"><i class="fas fa-scroll"></i> ২৮৫টি ফতোয়া</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="50">
+        <div class="fatwa-cat-card" onclick="openCatModal('তাহারাহ')">
+          <div class="cat-icon">💧</div>
+          <div class="cat-name">তাহারাহ ও নামায</div>
+          <div class="cat-count"><i class="fas fa-scroll"></i> ৬৪০টি ফতোয়া</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="fatwa-cat-card" onclick="openCatModal('যাকাত')">
+          <div class="cat-icon">🌙</div>
+          <div class="cat-name">যাকাত ও সদকা</div>
+          <div class="cat-count"><i class="fas fa-scroll"></i> ৩৯০টি ফতোয়া</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="150">
+        <div class="fatwa-cat-card" onclick="openCatModal('সিয়াম')">
+          <div class="cat-icon">⭐</div>
+          <div class="cat-name">সিয়াম ও হজ</div>
+          <div class="cat-count"><i class="fas fa-scroll"></i> ৫১০টি ফতোয়া</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="fatwa-cat-card" onclick="openCatModal('মুআমালাত')">
+          <div class="cat-icon">🤝</div>
+          <div class="cat-name">মুআমালাত</div>
+          <div class="cat-count"><i class="fas fa-scroll"></i> ৮৮০টি ফতোয়া</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="250">
+        <div class="fatwa-cat-card" onclick="openCatModal('পারিবারিক')">
+          <div class="cat-icon">👨‍👩‍👧</div>
+          <div class="cat-name">পারিবারিক বিষয়</div>
+          <div class="cat-count"><i class="fas fa-scroll"></i> ৭৪০টি ফতোয়া</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="fatwa-cat-card" onclick="openCatModal('ব্যবসা')">
+          <div class="cat-icon">💼</div>
+          <div class="cat-name">ব্যবসা ও ব্যাংকিং</div>
+          <div class="cat-count"><i class="fas fa-scroll"></i> ৬২০টি ফতোয়া</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="350">
+        <div class="fatwa-cat-card" onclick="openCatModal('সমসাময়িক')">
+          <div class="cat-icon">🌐</div>
+          <div class="cat-name">সমসাময়িক মাসায়েল</div>
+          <div class="cat-count"><i class="fas fa-scroll"></i> ৭৩৫টি ফতোয়া</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PUBLICATIONS ===== -->
+<section id="publications">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-label">প্রকাশনা</span>
+      <h2 class="section-title">বিশেষ গ্রন্থসমূহ</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">ইসলামি জ্ঞানের বিভিন্ন শাখায় রচিত মূল্যবান গ্রন্থসমূহ</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+        <div class="book-card">
+          <div class="book-cover" style="background: linear-gradient(135deg, #0a4a3a, #1a7a5e);">
+            <div style="position:relative;z-index:1;">
+              <div style="font-family:'Amiri',serif;font-size:1.5rem;margin-bottom:0.5rem;">فتاوى العصرية</div>
+              সমসাময়িক ফতোয়া সংকলন
+            </div>
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">সমসাময়িক ফতোয়া সংকলন</h3>
+            <p class="book-desc">আধুনিক যুগের বিভিন্ন মাসায়েলের বিস্তারিত সমাধান সংবলিত এই গ্রন্থটি।</p>
+            <div class="book-actions">
+              <a href="#" class="btn-book btn-book-primary"><i class="fas fa-book-open"></i> অনলাইনে পড়ুন</a>
+              <a href="#" class="btn-book btn-book-outline"><i class="fas fa-download"></i> PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="book-card">
+          <div class="book-cover" style="background: linear-gradient(135deg, #7c4c00, #c9a227);">
+            <div style="position:relative;z-index:1;">
+              <div style="font-family:'Amiri',serif;font-size:1.5rem;margin-bottom:0.5rem;">أحكام الزكاة</div>
+              যাকাতের বিধানাবলী
+            </div>
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">যাকাতের বিধানাবলী</h3>
+            <p class="book-desc">কুরআন, হাদিস ও ফিকহের আলোকে যাকাতের সকল মাসায়েলের সমন্বিত গ্রন্থ।</p>
+            <div class="book-actions">
+              <a href="#" class="btn-book btn-book-primary"><i class="fas fa-book-open"></i> অনলাইনে পড়ুন</a>
+              <a href="#" class="btn-book btn-book-outline"><i class="fas fa-download"></i> PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="book-card">
+          <div class="book-cover" style="background: linear-gradient(135deg, #2c1654, #6b35a3);">
+            <div style="position:relative;z-index:1;">
+              <div style="font-family:'Amiri',serif;font-size:1.5rem;margin-bottom:0.5rem;">أحكام الأسرة</div>
+              পারিবারিক আইন
+            </div>
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">ইসলামি পারিবারিক আইন</h3>
+            <p class="book-desc">বিবাহ, তালাক, খোলা, মিরাস সহ পারিবারিক বিষয়াদির সমগ্র আলোচনা।</p>
+            <div class="book-actions">
+              <a href="#" class="btn-book btn-book-primary"><i class="fas fa-book-open"></i> অনলাইনে পড়ুন</a>
+              <a href="#" class="btn-book btn-book-outline"><i class="fas fa-download"></i> PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="book-card">
+          <div class="book-cover" style="background: linear-gradient(135deg, #1a2e4a, #2d5a8e);">
+            <div style="position:relative;z-index:1;">
+              <div style="font-family:'Amiri',serif;font-size:1.5rem;margin-bottom:0.5rem;">الفقه المعاملات</div>
+              ইসলামি অর্থনীতি
+            </div>
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">ইসলামি অর্থনীতি ও ব্যবসা বিধি</h3>
+            <p class="book-desc">হালাল উপার্জন, বিনিয়োগ ও ব্যবসার শরঈ নিয়মকানুনের বিস্তারিত বিবরণ।</p>
+            <div class="book-actions">
+              <a href="#" class="btn-book btn-book-primary"><i class="fas fa-book-open"></i> অনলাইনে পড়ুন</a>
+              <a href="#" class="btn-book btn-book-outline"><i class="fas fa-download"></i> PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ASK FATWA ===== -->
+<section id="ask-fatwa">
+  <div class="container position-relative">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5" data-aos="fade-right">
+        <span class="section-label" style="border-color:rgba(201,162,39,0.4);">দারুল ইফতা</span>
+        <h2 class="section-title text-white mt-3">আপনার প্রশ্ন জিজ্ঞেস করুন</h2>
+        <div class="section-divider" style="margin:1rem 0;"></div>
+        <p style="color:rgba(255,255,255,0.7);line-height:1.9;font-size:0.95rem;">
+          ইসলামি জীবনের যেকোনো বিষয়ে আপনার প্রশ্ন পাঠান। বিশেষজ্ঞ মুফতি কর্তৃক কুরআন ও সুন্নাহর আলোকে সমাধান প্রদান করা হবে।
+        </p>
+        <div class="mt-4">
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+            <div style="width:36px;height:36px;background:rgba(201,162,39,0.15);border:1px solid rgba(201,162,39,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:0.85rem;flex-shrink:0;"><i class="fas fa-lock"></i></div>
+            <div style="color:rgba(255,255,255,0.75);font-size:0.85rem;">আপনার তথ্য সম্পূর্ণ গোপন রাখা হবে</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+            <div style="width:36px;height:36px;background:rgba(201,162,39,0.15);border:1px solid rgba(201,162,39,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:0.85rem;flex-shrink:0;"><i class="fas fa-clock"></i></div>
+            <div style="color:rgba(255,255,255,0.75);font-size:0.85rem;">সাধারণত ৪৮–৭২ ঘণ্টার মধ্যে উত্তর দেওয়া হয়</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.75rem;">
+            <div style="width:36px;height:36px;background:rgba(201,162,39,0.15);border:1px solid rgba(201,162,39,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:0.85rem;flex-shrink:0;"><i class="fas fa-book-quran"></i></div>
+            <div style="color:rgba(255,255,255,0.75);font-size:0.85rem;">কুরআন, হাদিস ও ফিকহের আলোকে সমাধান</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7" data-aos="fade-left">
+        <div class="ask-form-card">
+          <h4 style="font-family:'Noto Serif Bengali',serif;color:#fff;margin-bottom:1.5rem;font-size:1.05rem;">
+            <i class="fas fa-pen-nib me-2 text-gold"></i> প্রশ্ন পাঠান
+          </h4>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label-custom">নাম (ঐচ্ছিক)</label>
+              <input type="text" class="form-control form-control-custom" placeholder="আপনার নাম">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label-custom">ইমেইল</label>
+              <input type="email" class="form-control form-control-custom" placeholder="your@email.com">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label-custom">মোবাইল</label>
+              <input type="tel" class="form-control form-control-custom" placeholder="+880...">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label-custom">বিভাগ</label>
+              <select class="form-control form-control-custom">
+                <option>বিভাগ নির্বাচন করুন</option>
+                <option>আকিদাহ</option>
+                <option>তাহারাহ ও নামায</option>
+                <option>যাকাত ও সদকা</option>
+                <option>সিয়াম ও হজ</option>
+                <option>মুআমালাত</option>
+                <option>পারিবারিক বিষয়</option>
+                <option>সমসাময়িক মাসায়েল</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-label-custom">বিষয়বস্তু</label>
+              <input type="text" class="form-control form-control-custom" placeholder="সংক্ষেপে প্রশ্নের বিষয় লিখুন" id="question-subject" oninput="handleSuggestion(this.value)">
+              <div id="suggestion-box">
+                <!-- Dynamic suggestions -->
+              </div>
+            </div>
+            <div class="col-12">
+              <label class="form-label-custom">বিস্তারিত প্রশ্ন</label>
+              <textarea class="form-control form-control-custom" rows="4" placeholder="আপনার প্রশ্নটি বিস্তারিতভাবে লিখুন..."></textarea>
+            </div>
+            <div class="col-12">
+              <button type="button" class="btn-submit-fatwa">
+                <i class="fas fa-paper-plane"></i> প্রশ্ন পাঠান
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5" data-aos="fade-right">
+        <div class="about-portrait-frame">
+          <div class="about-portrait-img">
+            <i class="fas fa-user-tie"></i>
+          </div>
+          <div class="about-portrait-deco"></div>
+        </div>
+        <div class="text-center mt-4">
+          <div class="mb-2">
+            <span class="ijazah-badge">حنفي</span>
+            <span class="ijazah-badge">مفتي</span>
+            <span class="ijazah-badge">محدث</span>
+          </div>
+          <div>
+            <span class="expertise-pill"><i class="fas fa-check-circle"></i> ফিকহুল হানাফি</span>
+            <span class="expertise-pill"><i class="fas fa-check-circle"></i> উসুলুল ফিকহ</span>
+            <span class="expertise-pill"><i class="fas fa-check-circle"></i> তাফসির</span>
+            <span class="expertise-pill"><i class="fas fa-check-circle"></i> হাদিস</span>
+            <span class="expertise-pill"><i class="fas fa-check-circle"></i> ইফতা</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7" data-aos="fade-left">
+        <span class="section-label">পরিচিতি</span>
+        <h2 class="section-title mt-3">সংক্ষিপ্ত জীবনী</h2>
+        <div class="section-divider" style="margin:1rem 0 1.5rem;"></div>
+        <p style="font-size:0.95rem;line-height:2;color:var(--text-mid);margin-bottom:1.5rem;">
+          মুফতি মুহাম্মদ আব্দুল লতিফ শায়খ ১৯৬৮ সালে জন্মগ্রহণ করেন। তিনি দেশের অন্যতম বিখ্যাত আলিয়া মাদরাসা থেকে কামিল ডিগ্রি অর্জনের পর উচ্চতর ইসলামি শিক্ষার জন্য পাকিস্তানের দারুল উলুম করাচিতে ভর্তি হন এবং সেখানে ইফতার সনদ অর্জন করেন।
+        </p>
+        <div class="timeline-item">
+          <div class="timeline-dot"><i class="fas fa-graduation-cap"></i></div>
+          <div class="timeline-content">
+            <div class="timeline-year">১৯৮৫–১৯৯০</div>
+            <div class="timeline-title">মাদরাসায়ে মুহাম্মাদিয়া, ঢাকা</div>
+            <div class="timeline-desc">কামিল (হাদিস) সম্পন্ন — প্রথম বিভাগে উত্তীর্ণ</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"><i class="fas fa-mosque"></i></div>
+          <div class="timeline-content">
+            <div class="timeline-year">১৯৯১–১৯৯৫</div>
+            <div class="timeline-title">দারুল উলুম করাচি, পাকিস্তান</div>
+            <div class="timeline-desc">ইফতার সনদ — মুফতি তাকি উসমানির তত্ত্বাবধানে</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"><i class="fas fa-book"></i></div>
+          <div class="timeline-content">
+            <div class="timeline-year">১৯৯৬–বর্তমান</div>
+            <div class="timeline-title">দারুল ইফতা ওয়াত তাদরিস, ঢাকা</div>
+            <div class="timeline-desc">প্রধান মুফতি হিসেবে কর্মরত</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"><i class="fas fa-star"></i></div>
+          <div class="timeline-content">
+            <div class="timeline-year">২০০৫–বর্তমান</div>
+            <div class="timeline-title">ইসলামিক গবেষণা পরিষদ</div>
+            <div class="timeline-desc">সদস্য — বিভিন্ন জাতীয় ও আন্তর্জাতিক সেমিনারে অংশগ্রহণ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-label">প্রতিক্রিয়া</span>
+      <h2 class="section-title">পাঠক ও ছাত্রদের অভিমত</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">মুফতি সাহেবের ফতোয়াগুলো সহজ বাংলায় দেওয়া হয় এবং দলিলসহ বিস্তারিত ব্যাখ্যা থাকায় সাধারণ মানুষেরও বুঝতে সুবিধা হয়।</p>
+          <div class="testimonial-author">
+            <div class="author-avatar"><i class="fas fa-user"></i></div>
+            <div>
+              <div class="author-name">মোহাম্মদ রফিকুল ইসলাম</div>
+              <div class="author-role">ব্যবসায়ী, চট্টগ্রাম</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">দীর্ঘদিন ধরে তাঁর বয়ান শুনে আসছি। প্রতিটি বয়ানে কুরআন-হাদিসের আলোকে বাস্তব জীবনের সমস্যার সমাধান পাই।</p>
+          <div class="testimonial-author">
+            <div class="author-avatar"><i class="fas fa-user"></i></div>
+            <div>
+              <div class="author-name">মোছা. আমেনা বেগম</div>
+              <div class="author-role">শিক্ষিকা, ঢাকা</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">একজন আলেমের ওয়েবসাইট এতটা সুন্দর এবং তথ্যসমৃদ্ধ হতে পারে তা এই সাইট দেখে বুঝলাম। মাশাআল্লাহ, অসাধারণ উদ্যোগ।</p>
+          <div class="testimonial-author">
+            <div class="author-avatar"><i class="fas fa-user"></i></div>
+            <div>
+              <div class="author-name">মুহাম্মদ আবু হুরায়রা</div>
+              <div class="author-role">মাদরাসা শিক্ষার্থী</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEWSLETTER ===== -->
+<section id="newsletter">
+  <div class="container">
+    <div class="text-center" data-aos="fade-up">
+      <div class="newsletter-icon"><i class="fas fa-envelope-open-text"></i></div>
+      <h2 class="section-title">নিউজলেটার সাবস্ক্রাইব করুন</h2>
+      <p class="section-subtitle mb-3">নতুন ফতোয়া, প্রবন্ধ ও বয়ানের আপডেট সরাসরি আপনার ইমেইলে পান</p>
+      <div class="newsletter-form mx-auto">
+        <input type="email" class="newsletter-input" placeholder="আপনার ইমেইল ঠিকানা লিখুন...">
+        <button class="newsletter-btn"><i class="fas fa-paper-plane me-1"></i> সাবস্ক্রাইব</button>
+      </div>
+      <p style="font-size:0.75rem;color:var(--text-light);margin-top:0.75rem;"><i class="fas fa-shield-alt me-1 text-gold"></i> আমরা কোনো স্প্যাম ইমেইল পাঠাই না</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-label">যোগাযোগ</span>
+      <h2 class="section-title">আমাদের সাথে যোগাযোগ করুন</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4" data-aos="fade-right">
+        <div class="contact-info-card">
+          <h5 style="font-family:'Noto Serif Bengali',serif;font-weight:700;color:var(--text-dark);margin-bottom:1.25rem;display:flex;align-items:center;gap:0.5rem;"><i class="fas fa-address-card text-gold"></i> যোগাযোগের তথ্য</h5>
+          <div class="contact-item">
+            <div class="contact-icon-wrap"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <div class="contact-info-label">ঠিকানা</div>
+              <div class="contact-info-value">দারুল ইফতা ওয়াত তাদরিস<br>পুরান ঢাকা, ঢাকা–১১০০</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon-wrap"><i class="fas fa-phone-alt"></i></div>
+            <div>
+              <div class="contact-info-label">ফোন</div>
+              <div class="contact-info-value">+880 1700-000000</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon-wrap"><i class="fas fa-envelope"></i></div>
+            <div>
+              <div class="contact-info-label">ইমেইল</div>
+              <div class="contact-info-value">info@latif-shaikh.com</div>
+            </div>
+          </div>
+          <div class="contact-item" style="flex-direction:column;align-items:stretch;gap:0.5rem;">
+            <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;">
+              <div class="contact-icon-wrap"><i class="fas fa-clock"></i></div>
+              <div class="contact-info-label" style="margin-bottom:0;">অফিস সময়</div>
+            </div>
+            <div class="office-hours-row"><span class="day">শনি – বুধ</span><span>সকাল ৯টা – বিকাল ৫টা</span></div>
+            <div class="office-hours-row"><span class="day">বৃহস্পতি</span><span>সকাল ৯টা – দুপুর ১টা</span></div>
+            <div class="office-hours-row"><span class="day">শুক্রবার</span><span style="color:var(--gold)">বন্ধ</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8" data-aos="fade-left">
+        <div class="contact-form-card">
+          <h5 style="font-family:'Noto Serif Bengali',serif;font-weight:700;color:var(--text-dark);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.5rem;"><i class="fas fa-paper-plane text-gold"></i> বার্তা পাঠান</h5>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="form-group-custom">
+                <label class="form-label-dark">আপনার নাম *</label>
+                <input type="text" class="form-control-light" placeholder="সম্পূর্ণ নাম">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group-custom">
+                <label class="form-label-dark">ইমেইল *</label>
+                <input type="email" class="form-control-light" placeholder="email@example.com">
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group-custom">
+                <label class="form-label-dark">বিষয়</label>
+                <input type="text" class="form-control-light" placeholder="বার্তার বিষয়বস্তু">
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group-custom">
+                <label class="form-label-dark">বার্তা *</label>
+                <textarea class="form-control-light" placeholder="আপনার বার্তা লিখুন..."></textarea>
+              </div>
+            </div>
+            <div class="col-12">
+              <button type="button" class="btn-contact-submit">
+                <i class="fas fa-paper-plane"></i> বার্তা পাঠান
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer id="footer">
+  <div class="container position-relative">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;">
+          <div class="brand-emblem" style="width:54px;height:54px;font-size:1.6rem;">م</div>
+          <div>
+            <div class="footer-brand-name">মুফতি মুহাম্মদ আব্দুল লতিফ শায়খ</div>
+            <div class="footer-tagline-cinzel">Research • Fatwa • Education • Guidance</div>
+          </div>
+        </div>
+        <p class="footer-about-text">ইসলামি জ্ঞান, ফতোয়া ও শিক্ষার প্রসারে নিবেদিত একটি অনলাইন প্ল্যাটফর্ম। এখানে কুরআন ও সুন্নাহর আলোকে আধুনিক জীবনের বিভিন্ন সমস্যার সমাধান পাওয়া যায়।</p>
+        <div class="footer-social">
+          <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+          <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" title="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6 class="footer-heading">দ্রুত লিংক</h6>
+        <ul class="footer-links">
+          <li><a href="#hero"><i class="fas fa-chevron-right"></i> হোম</a></li>
+          <li><a href="#about"><i class="fas fa-chevron-right"></i> পরিচিতি</a></li>
+          <li><a href="#publications"><i class="fas fa-chevron-right"></i> প্রকাশনা</a></li>
+          <li><a href="#fatwa-categories"><i class="fas fa-chevron-right"></i> দারুল ইফতা</a></li>
+          <li><a href="#contact"><i class="fas fa-chevron-right"></i> যোগাযোগ</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6 class="footer-heading">ফতোয়া বিভাগ</h6>
+        <ul class="footer-links">
+          <li><a href="#"><i class="fas fa-chevron-right"></i> আকিদাহ</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> নামায ও তাহারাহ</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> যাকাত ও সদকা</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> পারিবারিক</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> মুআমালাত</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <h6 class="footer-heading">সাম্প্রতিক ফতোয়া</h6>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          <a href="#" style="display:flex;gap:0.75rem;align-items:flex-start;text-decoration:none;transition:0.2s;" onmouseover="this.style.paddingLeft='4px'" onmouseout="this.style.paddingLeft='0'">
+            <div style="width:6px;height:6px;background:var(--gold);border-radius:50%;margin-top:0.5rem;flex-shrink:0;"></div>
+            <span style="font-size:0.8rem;color:rgba(255,255,255,0.55);line-height:1.6;">মোবাইল ব্যাংকিংয়ে সুদের হার থেকে আয় কি হালাল?</span>
+          </a>
+          <a href="#" style="display:flex;gap:0.75rem;align-items:flex-start;text-decoration:none;" onmouseover="this.style.paddingLeft='4px'" onmouseout="this.style.paddingLeft='0'">
+            <div style="width:6px;height:6px;background:var(--gold);border-radius:50%;margin-top:0.5rem;flex-shrink:0;"></div>
+            <span style="font-size:0.8rem;color:rgba(255,255,255,0.55);line-height:1.6;">সেহরির শেষ সময় কখন?</span>
+          </a>
+          <a href="#" style="display:flex;gap:0.75rem;align-items:flex-start;text-decoration:none;" onmouseover="this.style.paddingLeft='4px'" onmouseout="this.style.paddingLeft='0'">
+            <div style="width:6px;height:6px;background:var(--gold);border-radius:50%;margin-top:0.5rem;flex-shrink:0;"></div>
+            <span style="font-size:0.8rem;color:rgba(255,255,255,0.55);line-height:1.6;">ইন্স্যুরেন্স করা কি জায়েয?</span>
+          </a>
+        </div>
+        <div class="mt-3 p-3" style="background:rgba(201,162,39,0.08);border:1px solid rgba(201,162,39,0.15);border-radius:var(--radius);">
+          <div class="footer-arabic-quote">وَعَلِّمُوا النَّاسَ</div>
+          <div style="font-size:0.75rem;color:rgba(255,255,255,0.45);text-align:center;">"মানুষকে শিক্ষা দাও"</div>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <div class="footer-copy">© ২০২৫ <a href="#">মুফতি মুহাম্মদ আব্দুল লতিফ শায়খ</a> — সর্বস্বত্ব সংরক্ষিত</div>
+      <div style="display:flex;gap:1.25rem;">
+        <a href="#" style="font-size:0.75rem;color:rgba(255,255,255,0.35);text-decoration:none;">গোপনীয়তা নীতি</a>
+        <a href="#" style="font-size:0.75rem;color:rgba(255,255,255,0.35);text-decoration:none;">শর্তাবলী</a>
+        <a href="#" style="font-size:0.75rem;color:rgba(255,255,255,0.35);text-decoration:none;">সাইটম্যাপ</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<!-- Category Modal -->
+<div class="modal fade" id="catModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header-custom">
+        <div class="modal-title-custom">
+          <i class="fas fa-scroll"></i>
+          <span id="modal-cat-title">ফতোয়া</span>
+        </div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body-custom">
+        <div class="mb-3">
+          <input type="text" class="form-control-light" placeholder="এই বিভাগে অনুসন্ধান করুন..." style="width:100%;">
+        </div>
+        <div id="modal-fatwa-list">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+
+<script>
+// ===== INIT =====
+AOS.init({ duration: 700, once: true, easing: 'ease-out-cubic' });
+
+// ===== PROGRESS BAR =====
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (scrollTop / docHeight) * 100;
+  document.getElementById('progress-bar').style.width = progress + '%';
+
+  // Header scroll effect
+  const header = document.getElementById('main-header');
+  scrollTop > 80 ? header.classList.add('scrolled') : header.classList.remove('scrolled');
+
+  // Back to top
+  const btn = document.getElementById('back-to-top');
+  scrollTop > 400 ? btn.classList.add('visible') : btn.classList.remove('visible');
+
+  // Active nav link
+  const sections = ['hero','about','latest-updates','fatwa-categories','publications','ask-fatwa','contact'];
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    if (rect.top <= 120 && rect.bottom >= 120) {
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      // simple match
+    }
+  });
+});
+
+// ===== COUNTER ANIMATION =====
+function animateCounters() {
+  document.querySelectorAll('.stat-number[data-target]').forEach(el => {
+    const target = parseInt(el.dataset.target);
+    const duration = 2200;
+    const step = target / (duration / 16);
+    let current = 0;
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) { el.textContent = target.toLocaleString('bn-BD'); clearInterval(timer); return; }
+      el.textContent = Math.floor(current).toLocaleString('bn-BD');
+    }, 16);
+  });
+}
+
+// Intersection observer for stats
+const statsSection = document.getElementById('stats');
+const statsObserver = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) { animateCounters(); statsObserver.disconnect(); }
+}, { threshold: 0.3 });
+statsObserver.observe(statsSection);
+
+// ===== TABS =====
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content-pane').forEach(p => p.style.display = 'none');
+  document.querySelectorAll('.update-tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).style.display = 'block';
+  btn.classList.add('active');
+}
+
+// ===== SEARCH =====
+function toggleSearch() {
+  const bar = document.getElementById('global-search-bar');
+  bar.classList.toggle('open');
+  if (bar.classList.contains('open')) document.getElementById('global-search-input').focus();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('global-search-bar').classList.remove('open'); });
+
+// ===== SMART SUGGESTION =====
+const suggestionData = [
+  'সেহরির শেষ সময়', 'সেহরি খাওয়ার বিধান', 'রোজার কাফফারা',
+  'নামাযের ওয়াক্ত', 'যাকাতের নিসাব', 'মোবাইল ব্যাংকিং সুদ',
+  'তালাকের নিয়ম', 'মাহর পরিশোধ', 'হজের ফরজ', 'কুরবানীর মাসায়েল',
+  'ইন্স্যুরেন্সের বিধান', 'ব্যবসায় অংশীদারিত্ব', 'সন্তান দত্তক নেওয়া',
+  'মিরাস বণ্টন', 'ওয়াকফ সম্পত্তি'
+];
+
+function handleSuggestion(val) {
+  const box = document.getElementById('suggestion-box');
+  if (!val || val.length < 2) { box.classList.remove('visible'); return; }
+  const matches = suggestionData.filter(s => s.toLowerCase().includes(val.toLowerCase())).slice(0, 6);
+  if (!matches.length) { box.classList.remove('visible'); return; }
+  box.innerHTML = '<div style="font-size:0.75rem;color:#666;padding:0.25rem 0.8rem 0.5rem;border-bottom:1px solid #eee;margin-bottom:0.25rem;"><i class="fas fa-lightbulb text-gold me-1"></i>সংশ্লিষ্ট ফতোয়া পাওয়া গেছে:</div>' +
+    matches.map(m => `<div class="suggestion-item" onclick="selectSuggestion('${m}')"><i class="fas fa-search"></i>${m}</div>`).join('');
+  box.classList.add('visible');
+}
+function selectSuggestion(val) {
+  document.getElementById('question-subject').value = val;
+  document.getElementById('suggestion-box').classList.remove('visible');
+}
+document.addEventListener('click', e => {
+  if (!e.target.closest('#question-subject') && !e.target.closest('#suggestion-box'))
+    document.getElementById('suggestion-box').classList.remove('visible');
+});
+
+// ===== THEME =====
+function toggleTheme() {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  document.documentElement.setAttribute('data-theme', isDark ? '' : 'dark');
+  document.getElementById('theme-toggle-btn').innerHTML = isDark ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+}
+
+// ===== CATEGORY MODAL =====
+const sampleFatwas = {
+  'আকিদাহ': ['আল্লাহর গুণাবলী সম্পর্কে বিস্তারিত', 'কবর আজাব কি সত্য?', 'শিরকের প্রকারভেদ'],
+  'তাহারাহ': ['অজুর ফরজ ও সুন্নত', 'গোসলের বিধিবিধান', 'তায়াম্মুমের শর্তাবলী'],
+  'যাকাত': ['যাকাতের নিসাব কত?', 'কৃষি পণ্যে যাকাতের হার', 'কাকে যাকাত দেওয়া যাবে'],
+  'সিয়াম': ['সেহরির শেষ সময়', 'রোজা ভঙ্গের কারণসমূহ', 'কাফফারার বিধান'],
+  'মুআমালাত': ['ইজারার শর্তাবলী', 'অংশীদারি ব্যবসার নিয়ম', 'ঋণ মাফের মাসায়েল'],
+  'পারিবারিক': ['তালাকের প্রকারভেদ', 'মাহরানার বিধান', 'মিরাস বণ্টনের নিয়ম'],
+  'ব্যবসা': ['সুদী লেনদেন হারাম কেন?', 'ইসলামি ব্যাংকিং পদ্ধতি', 'শেয়ার বাজারের বিধান'],
+  'সমসাময়িক': ['অনলাইনে কেনাবেচা', 'ক্রিপ্টোকারেন্সির বিধান', 'AI ব্যবহারের নৈতিকতা']
+};
+
+function openCatModal(cat) {
+  document.getElementById('modal-cat-title').textContent = cat + ' — ফতোয়াসমূহ';
+  const list = document.getElementById('modal-fatwa-list');
+  const items = sampleFatwas[cat] || ['সংশ্লিষ্ট ফতোয়া খুঁজে পাওয়া যায়নি'];
+  list.innerHTML = items.map((f, i) => `
+    <div class="fatwa-card" style="cursor:pointer;animation:fadeInUp 0.4s ease ${i*0.1}s both;">
+      <div class="fatwa-question"><i class="fas fa-question-circle text-gold me-2"></i>${f}</div>
+      <div class="fatwa-card-footer">
+        <span class="fatwa-category-badge">${cat}</span>
+        <a href="#" class="btn-read-more" onclick="return false;">বিস্তারিত <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  `).join('');
+  new bootstrap.Modal(document.getElementById('catModal')).show();
+}
+
+// ===== FORM SUBMISSIONS =====
+document.querySelectorAll('.btn-submit-fatwa, .btn-contact-submit, .newsletter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const orig = this.innerHTML;
+    this.innerHTML = '<i class="fas fa-check-circle me-2"></i> সফলভাবে পাঠানো হয়েছে!';
+    this.style.background = 'linear-gradient(135deg, #1a7a5e, #0a4a3a)';
+    setTimeout(() => { this.innerHTML = orig; this.style.background = ''; }, 3000);
+  });
+});
+
+// ===== HERO ANIMATIONS =====
+window.addEventListener('load', () => {
+  document.querySelectorAll('.animate-hero').forEach(el => { el.style.animationFillMode = 'forwards'; });
+});
+
+console.log('%c মুফতি আব্দুল লতিফ শায়খ — ওয়েবসাইট লোড সম্পন্ন ✓', 'color: #c9a227; font-size: 14px; font-weight: bold;');
+</script>
+</body>
+</html>
