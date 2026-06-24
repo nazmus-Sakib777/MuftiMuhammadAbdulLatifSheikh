@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="bn" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — মুফতি আব্দুল লতিফ শায়খ</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@300;400;500;600;700&family=Cinzel:wght@400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+<style>
+:root {
+  --emerald: #0a4a3a;
+  --emerald-mid: #0d5c49;
+  --emerald-light: #1a7a5e;
+  --emerald-pale: #e8f5f0;
+  --gold: #c9a227;
+  --gold-light: #e4b84a;
+  --gold-pale: #fdf6e3;
+  --sidebar-bg: #071e18;
+  --sidebar-width: 260px;
+  --sidebar-collapsed: 70px;
+  --topbar-h: 64px;
+  --bg: #f0f4f3;
+  --card-bg: #ffffff;
+  --text-dark: #1a2e28;
+  --text-mid: #4a5e58;
+  --text-light: #8a9e98;
+  --border: #e2ece9;
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow: 0 2px 16px rgba(10,74,58,0.08);
+  --shadow-md: 0 6px 30px rgba(10,74,58,0.12);
+  --transition: 0.3s cubic-bezier(.4,0,.2,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; }
+body { font-family: 'Noto Serif Bengali', serif; background: var(--bg); color: var(--text-dark); display: flex; }
+
+/* ===== SIDEBAR ===== */
+#sidebar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  background: var(--sidebar-bg);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0; top: 0;
+  z-index: 200;
+  transition: width var(--transition);
+  overflow: hidden;
+}
+#sidebar.collapsed { width: var(--sidebar-collapsed); }
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1.25rem 1.1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  min-height: var(--topbar-h);
+  flex-shrink: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.logo-emblem {
+  width: 40px; height: 40px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Amiri', serif;
+  font-size: 1.3rem; color: var(--emerald); font-weight: 700;
+  flex-shrink: 0;
+}
+.logo-text { overflow: hidden; }
+.logo-title {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 0.78rem; font-weight: 700; color: #fff;
+  white-space: nowrap;
+}
+.logo-sub {
+  font-family: 'Cinzel', serif;
+  font-size: 0.55rem; color: var(--gold); letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.sidebar-section-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.58rem; letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  padding: 1.25rem 1.1rem 0.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+#sidebar.collapsed .sidebar-section-label { opacity: 0; }
+
+.sidebar-nav { flex: 1; overflow-y: auto; overflow-x: hidden; padding: 0.5rem 0; }
+.sidebar-nav::-webkit-scrollbar { width: 3px; }
+.sidebar-nav::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+
+.nav-item-wrap { position: relative; }
+.sidebar-link {
+  display: flex; align-items: center; gap: 0.85rem;
+  padding: 0.65rem 1.1rem;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 0.83rem;
+  border-radius: 0;
+  transition: all 0.2s;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+  border: none; background: none; width: 100%; text-align: left;
+  position: relative;
+}
+.sidebar-link:hover { color: #fff; background: rgba(255,255,255,0.05); }
+.sidebar-link.active {
+  color: var(--gold);
+  background: rgba(201,162,39,0.1);
+}
+.sidebar-link.active::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--gold);
+  border-radius: 0 2px 2px 0;
+}
+.nav-icon {
+  width: 20px; text-align: center; font-size: 0.9rem; flex-shrink: 0;
+}
+.nav-label { overflow: hidden; white-space: nowrap; }
+.nav-badge {
+  margin-left: auto;
+  background: var(--gold);
+  color: var(--emerald);
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 0.1rem 0.45rem;
+  border-radius: 50px;
+  flex-shrink: 0;
+  font-family: 'Cinzel', serif;
+}
+#sidebar.collapsed .nav-badge,
+#sidebar.collapsed .nav-label { display: none; }
+
+.sidebar-footer {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 1rem 1.1rem;
+  display: flex; align-items: center; gap: 0.75rem;
+  overflow: hidden;
+}
+.avatar-sm {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, var(--emerald-light), var(--emerald));
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold-light); font-size: 0.9rem; flex-shrink: 0;
+}
+.user-info-sm { overflow: hidden; }
+.user-name-sm { font-size: 0.78rem; font-weight: 600; color: #fff; white-space: nowrap; }
+.user-role-sm { font-size: 0.65rem; color: rgba(255,255,255,0.4); }
+
+/* ===== MAIN AREA ===== */
+#main-area {
+  margin-left: var(--sidebar-width);
+  width: calc(100% - var(--sidebar-width));
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: margin-left var(--transition), width var(--transition);
+  overflow: hidden;
+}
+#main-area.expanded {
+  margin-left: var(--sidebar-collapsed);
+  width: calc(100% - var(--sidebar-collapsed));
+}
+
+/* ===== TOP BAR ===== */
+#topbar {
+  height: var(--topbar-h);
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center;
+  padding: 0 1.5rem;
+  gap: 1rem;
+  flex-shrink: 0;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+}
+.btn-toggle-sidebar {
+  background: none; border: none;
+  color: var(--text-mid);
+  font-size: 1.1rem; cursor: pointer;
+  padding: 0.35rem 0.5rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+}
+.btn-toggle-sidebar:hover { background: var(--emerald-pale); color: var(--emerald); }
+
+.breadcrumb-top {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.82rem; color: var(--text-light);
+  flex: 1;
+}
+.breadcrumb-top .bc-sep { color: var(--border); }
+.breadcrumb-top .bc-current { color: var(--text-dark); font-weight: 600; }
+
+.topbar-search {
+  display: flex; align-items: center; gap: 0.5rem;
+  background: var(--bg); border: 1.5px solid var(--border);
+  border-radius: 50px;
+  padding: 0.35rem 1rem;
+  transition: border-color 0.2s;
+}
+.topbar-search:focus-within { border-color: var(--gold); }
+.topbar-search input {
+  border: none; background: none; outline: none;
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 0.82rem; color: var(--text-dark);
+  width: 180px;
+}
+.topbar-search i { color: var(--text-light); font-size: 0.82rem; }
+
+.topbar-actions { display: flex; align-items: center; gap: 0.5rem; }
+.topbar-btn {
+  width: 36px; height: 36px;
+  background: none; border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-mid); font-size: 0.85rem;
+  cursor: pointer; transition: all 0.2s; position: relative;
+}
+.topbar-btn:hover { background: var(--emerald-pale); border-color: var(--emerald); color: var(--emerald); }
+.topbar-btn .notif-dot {
+  position: absolute; top: 5px; right: 5px;
+  width: 7px; height: 7px;
+  background: var(--gold); border-radius: 50%;
+  border: 1.5px solid var(--card-bg);
+}
+.topbar-avatar {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, var(--emerald), var(--emerald-mid));
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold-light); font-size: 0.85rem; cursor: pointer;
+  border: 2px solid var(--emerald-pale);
+  transition: all 0.2s;
+}
+.topbar-avatar:hover { border-color: var(--gold); }
+
+/* ===== PAGE CONTENT ===== */
+#page-content {
+  flex: 1; overflow-y: auto; padding: 1.75rem;
+  background: var(--bg);
+}
+#page-content::-webkit-scrollbar { width: 5px; }
+#page-content::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+/* Views */
+.view { display: none; }
+.view.active { display: block; }
+
+/* ===== PAGE HEADER ===== */
+.page-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 1.75rem; flex-wrap: wrap; gap: 1rem;
+}
+.page-title {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 1.4rem; font-weight: 700; color: var(--text-dark);
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.page-title i { color: var(--gold); font-size: 1.1rem; }
+.page-subtitle { font-size: 0.8rem; color: var(--text-light); margin-top: 0.15rem; }
+
+/* ===== STAT CARDS ===== */
+.stat-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+.dash-stat {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  display: flex; align-items: flex-start; gap: 1rem;
+  border: 1px solid var(--border);
+  transition: all var(--transition);
+  position: relative; overflow: hidden;
+}
+.dash-stat::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--stat-color, var(--emerald));
+}
+.dash-stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.stat-icon-wrap {
+  width: 48px; height: 48px; border-radius: 12px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+  background: var(--stat-bg, var(--emerald-pale));
+  color: var(--stat-color, var(--emerald));
+}
+.stat-val {
+  font-family: 'Cinzel', serif;
+  font-size: 1.9rem; font-weight: 700;
+  color: var(--text-dark); line-height: 1;
+  margin-bottom: 0.25rem;
+}
+.stat-lbl { font-size: 0.78rem; color: var(--text-light); }
+.stat-trend {
+  margin-top: 0.4rem; font-size: 0.72rem;
+  display: flex; align-items: center; gap: 0.25rem;
+}
+.trend-up { color: #16a34a; }
+.trend-down { color: #dc2626; }
+
+/* ===== CHART CARDS ===== */
+.chart-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+@media (max-width: 900px) { .chart-grid { grid-template-columns: 1fr; } }
+
+.card-box {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+.card-box-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+.card-box-title {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 0.95rem; font-weight: 700; color: var(--text-dark);
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.card-box-title i { color: var(--gold); }
+.card-box-action {
+  font-size: 0.75rem; color: var(--emerald);
+  text-decoration: none; font-weight: 600;
+  display: flex; align-items: center; gap: 0.25rem;
+}
+.card-box-action:hover { color: var(--gold); }
+
+/* ===== DATA TABLE ===== */
+.data-table-wrap {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.table-toolbar {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1.1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.table-title {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 0.95rem; font-weight: 700; color: var(--text-dark);
+  margin-right: auto;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.table-title i { color: var(--gold); }
+.table-search {
+  display: flex; align-items: center; gap: 0.4rem;
+  background: var(--bg); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 0.3rem 0.8rem;
+}
+.table-search input {
+  border: none; background: none; outline: none;
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 0.8rem; color: var(--text-dark); width: 160px;
+}
+.table-search i { color: var(--text-light); font-size: 0.78rem; }
+.btn-add {
+  background: linear-gradient(135deg, var(--emerald), var(--emerald-mid));
+  color: var(--gold-light);
+  border: none; border-radius: 8px;
+  padding: 0.4rem 1rem;
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 0.8rem; font-weight: 600;
+  cursor: pointer; display: flex; align-items: center; gap: 0.4rem;
+  transition: all 0.2s;
+}
+.btn-add:hover { box-shadow: 0 4px 14px rgba(10,74,58,0.3); transform: translateY(-1px); }
+
+table { width: 100%; border-collapse: collapse; }
+thead tr { background: var(--bg); border-bottom: 2px solid var(--border); }
+th {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-light); padding: 0.75rem 1.25rem;
+  font-weight: 600; white-space: nowrap; text-align: left;
+}
+td {
+  padding: 0.85rem 1.25rem;
+  font-size: 0.82rem; color: var(--text-dark);
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+tbody tr:hover { background: #fafffe; }
+tbody tr:last-child td { border-bottom: none; }
+
+.td-id { font-family: 'Cinzel', serif; font-size: 0.72rem; color: var(--text-light); }
+.td-bold { font-weight: 600; }
+.td-sub { font-size: 0.75rem; color: var(--text-light); margin-top: 0.15rem; }
+.td-trunc { max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.badge-status {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  padding: 0.2rem 0.65rem; border-radius: 50px;
+  font-size: 0.68rem; font-weight: 700; font-family: 'Cinzel', serif; letter-spacing: 0.05em;
+}
+.badge-published { background: #dcfce7; color: #16a34a; }
+.badge-pending { background: #fef9c3; color: #ca8a04; }
+.badge-draft { background: #f1f5f9; color: #64748b; }
+.badge-answered { background: #e0f2fe; color: #0369a1; }
+.badge-new { background: #fce7f3; color: #be185d; }
+
+.action-btns { display: flex; gap: 0.35rem; }
+.btn-action {
+  width: 30px; height: 30px;
+  border: 1.5px solid var(--border);
+  background: none; border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; color: var(--text-mid);
+  cursor: pointer; transition: all 0.2s;
+}
+.btn-action:hover { background: var(--emerald-pale); border-color: var(--emerald); color: var(--emerald); }
+.btn-action.danger:hover { background: #fef2f2; border-color: #fca5a5; color: #dc2626; }
+
+.table-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.85rem 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem; color: var(--text-light);
+  flex-wrap: wrap; gap: 0.5rem;
+}
+.pagination-btns { display: flex; gap: 0.3rem; }
+.pg-btn {
+  width: 30px; height: 30px;
+  border: 1.5px solid var(--border); background: none;
+  border-radius: 7px; display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; color: var(--text-mid); cursor: pointer; transition: all 0.2s;
+}
+.pg-btn.active { background: var(--emerald); border-color: var(--emerald); color: #fff; }
+.pg-btn:hover:not(.active) { border-color: var(--emerald); color: var(--emerald); }
+
+/* ===== QUICK STATS ROW ===== */
+.recent-activity {
+  display: flex; flex-direction: column; gap: 0; max-height: 340px; overflow-y: auto;
+}
+.activity-item {
+  display: flex; align-items: flex-start; gap: 0.75rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.activity-item:last-child { border-bottom: none; }
+.activity-dot {
+  width: 8px; height: 8px; border-radius: 50%; margin-top: 0.35rem; flex-shrink: 0;
+}
+.activity-text { font-size: 0.8rem; color: var(--text-mid); line-height: 1.5; }
+.activity-time { font-size: 0.7rem; color: var(--text-light); margin-top: 0.1rem; }
+
+/* Category breakdown */
+.cat-bar-item { margin-bottom: 0.85rem; }
+.cat-bar-label {
+  display: flex; justify-content: space-between;
+  font-size: 0.78rem; color: var(--text-mid); margin-bottom: 0.35rem;
+}
+.cat-bar-track { height: 6px; background: var(--bg); border-radius: 3px; overflow: hidden; }
+.cat-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--emerald), var(--gold)); transition: width 1s ease; }
+
+/* ===== MODAL / DRAWER ===== */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.45);
+  z-index: 500; display: none; align-items: center; justify-content: center;
+  backdrop-filter: blur(3px);
+}
+.modal-overlay.open { display: flex; }
+.modal-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  width: 100%; max-width: 560px; max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  animation: modalIn 0.3s ease;
+}
+@keyframes modalIn { from { transform: translateY(30px); opacity: 0; } to { transform: none; opacity: 1; } }
+.modal-header-em {
+  background: linear-gradient(135deg, var(--emerald), var(--emerald-mid));
+  padding: 1.25rem 1.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.modal-title-em {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 1rem; font-weight: 700; color: #fff;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.modal-title-em i { color: var(--gold); }
+.modal-close {
+  background: rgba(255,255,255,0.15); border: none;
+  width: 30px; height: 30px; border-radius: 7px;
+  color: #fff; cursor: pointer; font-size: 0.85rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.modal-close:hover { background: rgba(255,255,255,0.25); }
+.modal-body-em { padding: 1.75rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.form-row-single { margin-bottom: 1rem; }
+.lbl { font-size: 0.8rem; color: var(--text-mid); font-weight: 600; margin-bottom: 0.35rem; display: block; }
+.inp {
+  width: 100%; padding: 0.6rem 0.9rem;
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  font-family: 'Noto Serif Bengali', serif; font-size: 0.85rem; color: var(--text-dark);
+  background: var(--bg); outline: none; transition: border-color 0.2s;
+}
+.inp:focus { border-color: var(--gold); background: #fff; }
+select.inp option { background: #fff; }
+textarea.inp { resize: vertical; min-height: 100px; }
+.btn-save {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--emerald); border: none; border-radius: 8px;
+  padding: 0.65rem 1.75rem;
+  font-family: 'Noto Serif Bengali', serif; font-size: 0.88rem; font-weight: 700;
+  cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.4rem;
+  box-shadow: 0 3px 14px rgba(201,162,39,0.35);
+}
+.btn-save:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(201,162,39,0.45); }
+.btn-cancel {
+  background: none; border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 0.65rem 1.25rem;
+  font-family: 'Noto Serif Bengali', serif; font-size: 0.88rem; color: var(--text-mid);
+  cursor: pointer; transition: all 0.2s;
+}
+.btn-cancel:hover { border-color: var(--text-mid); }
+
+/* ===== TOAST ===== */
+#toast-wrap {
+  position: fixed; bottom: 1.5rem; right: 1.5rem;
+  z-index: 9999; display: flex; flex-direction: column; gap: 0.5rem;
+}
+.toast-msg {
+  background: var(--text-dark); color: #fff;
+  padding: 0.65rem 1.2rem; border-radius: 10px;
+  font-size: 0.82rem; display: flex; align-items: center; gap: 0.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  animation: toastIn 0.3s ease;
+}
+@keyframes toastIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+.toast-msg.success i { color: #4ade80; }
+.toast-msg.warning i { color: var(--gold); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  #sidebar { transform: translateX(-100%); }
+  #sidebar.mobile-open { transform: translateX(0); }
+  #main-area { margin-left: 0 !important; width: 100% !important; }
+  .stat-cards-grid { grid-template-columns: 1fr 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .topbar-search { display: none; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- ===== SIDEBAR ===== -->
+<aside id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-emblem">م</div>
+    <div class="logo-text">
+      <div class="logo-title">আব্দুল লতিফ শায়খ</div>
+      <div class="logo-sub">Admin Panel</div>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="sidebar-section-label">প্রধান</div>
+    <div class="nav-item-wrap">
+      <button class="sidebar-link active" onclick="showView('dashboard',this)">
+        <span class="nav-icon"><i class="fas fa-th-large"></i></span>
+        <span class="nav-label">ড্যাশবোর্ড</span>
+      </button>
+    </div>
+
+    <div class="sidebar-section-label">কনটেন্ট</div>
+    <div class="nav-item-wrap">
+      <button class="sidebar-link" onclick="showView('fatwas',this)">
+        <span class="nav-icon"><i class="fas fa-scroll"></i></span>
+        <span class="nav-label">ফতোয়া ব্যবস্থাপনা</span>
+        <span class="nav-badge">48</span>
+      </button>
+    </div>
+    <div class="nav-item-wrap">
+      <button class="sidebar-link" onclick="showView('questions',this)">
+        <span class="nav-icon"><i class="fas fa-question-circle"></i></span>
+        <span class="nav-label">প্রশ্নসমূহ</span>
+        <span class="nav-badge">12</span>
+      </button>
+    </div>
+    <div class="nav-item-wrap">
+      <button class="sidebar-link" onclick="showView('articles',this)">
+        <span class="nav-icon"><i class="fas fa-pen-nib"></i></span>
+        <span class="nav-label">প্রবন্ধ</span>
+      </button>
+    </div>
+    <div class="nav-item-wrap">
+      <button class="sidebar-link" onclick="showView('books',this)">
+        <span class="nav-icon"><i class="fas fa-book"></i></span>
+        <span class="nav-label">বই ও গ্রন্থ</span>
+      </button>
+    </div>
+    <div class="nav-item-wrap">
+      <button class="sidebar-link" onclick="showView('videos',this)">
+        <span class="nav-icon"><i class="fas fa-video"></i></span>
+        <span class="nav-label">ভিডিও ও অডিও</span>
+      </button>
+    </div>
+    <div class="nav-item-wrap">
+      <button class="sidebar-link" onclick="showView('gallery',this)">
+        <span class="nav-icon"><i class="fas fa-images"></i></span>
+        <span class="nav-label">ফটো গ্যালারি</span>
+      </button>
+    </div>
+
+    <div class="sidebar-section-label">অ্যাডমিন</div>
+    <div class="nav-item-wrap">
+      <button class="sidebar-link" onclick="showView('users',this)">
+        <span class="nav-icon"><i class="fas fa-users"></i></span>
+        <span class="nav-label">ব্যবহারকারী</span>
+      </button>
+    </div>
+    <div class="nav-item-wrap">
+      <button class="sidebar-link" onclick="showView('settings',this)">
+        <span class="nav-icon"><i class="fas fa-cog"></i></span>
+        <span class="nav-label">সেটিংস</span>
+      </button>
+    </div>
+    <div class="nav-item-wrap">
+      <a class="sidebar-link" href="index.html" target="_blank">
+        <span class="nav-icon"><i class="fas fa-external-link-alt"></i></span>
+        <span class="nav-label">ওয়েবসাইট দেখুন</span>
+      </a>
+    </div>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="avatar-sm"><i class="fas fa-user-shield"></i></div>
+    <div class="user-info-sm">
+      <div class="user-name-sm">Super Admin</div>
+      <div class="user-role-sm">সুপার অ্যাডমিন</div>
+    </div>
+  </div>
+</aside>
+
+<!-- ===== MAIN AREA ===== -->
+<div id="main-area">
+
+  <!-- TOP BAR -->
+  <div id="topbar">
+    <button class="btn-toggle-sidebar" onclick="toggleSidebar()">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="breadcrumb-top" id="breadcrumb-top">
+      <span>অ্যাডমিন</span>
+      <span class="bc-sep">/</span>
+      <span class="bc-current">ড্যাশবোর্ড</span>
+    </div>
+    <div class="topbar-search">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="কনটেন্ট অনুসন্ধান...">
+    </div>
+    <div class="topbar-actions">
+      <button class="topbar-btn" title="বিজ্ঞপ্তি" onclick="showToast('৩টি নতুন প্রশ্ন এসেছে', 'warning')">
+        <i class="fas fa-bell"></i>
+        <span class="notif-dot"></span>
+      </button>
+      <button class="topbar-btn" title="রিফ্রেশ" onclick="showToast('ডেটা আপডেট হয়েছে', 'success')">
+        <i class="fas fa-sync-alt"></i>
+      </button>
+      <div class="topbar-avatar" onclick="showView('settings', null)" title="প্রোফাইল">
+        <i class="fas fa-user-shield"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE CONTENT -->
+  <div id="page-content">
+
+    <!-- ===== DASHBOARD VIEW ===== -->
+    <div class="view active" id="view-dashboard">
+      <div class="page-header">
+        <div>
+          <div class="page-title"><i class="fas fa-th-large"></i> ড্যাশবোর্ড</div>
+          <div class="page-subtitle">আপনার ওয়েবসাইটের সার্বিক পরিস্থিতি</div>
+        </div>
+        <div style="display:flex;gap:0.5rem;">
+          <button class="btn-add" onclick="showToast('রিপোর্ট তৈরি হচ্ছে...','warning')">
+            <i class="fas fa-download"></i> রিপোর্ট
+          </button>
+        </div>
+      </div>
+
+      <!-- Stat Cards -->
+      <div class="stat-cards-grid">
+        <div class="dash-stat" style="--stat-color:#0a4a3a;--stat-bg:#e8f5f0;">
+          <div class="stat-icon-wrap"><i class="fas fa-eye"></i></div>
+          <div>
+            <div class="stat-val" id="cnt-visitors">0</div>
+            <div class="stat-lbl">মাসিক ভিজিটর</div>
+            <div class="stat-trend trend-up"><i class="fas fa-arrow-up"></i> +12.4% গত মাসের চেয়ে</div>
+          </div>
+        </div>
+        <div class="dash-stat" style="--stat-color:#c9a227;--stat-bg:#fdf6e3;">
+          <div class="stat-icon-wrap"><i class="fas fa-scroll"></i></div>
+          <div>
+            <div class="stat-val" id="cnt-fatwas">0</div>
+            <div class="stat-lbl">মোট ফতোয়া</div>
+            <div class="stat-trend trend-up"><i class="fas fa-arrow-up"></i> +38 এই মাসে</div>
+          </div>
+        </div>
+        <div class="dash-stat" style="--stat-color:#be185d;--stat-bg:#fce7f3;">
+          <div class="stat-icon-wrap"><i class="fas fa-question-circle"></i></div>
+          <div>
+            <div class="stat-val" id="cnt-questions">0</div>
+            <div class="stat-lbl">অপেক্ষমান প্রশ্ন</div>
+            <div class="stat-trend trend-up"><i class="fas fa-arrow-up"></i> +5 আজকে</div>
+          </div>
+        </div>
+        <div class="dash-stat" style="--stat-color:#0369a1;--stat-bg:#e0f2fe;">
+          <div class="stat-icon-wrap"><i class="fas fa-pen-nib"></i></div>
+          <div>
+            <div class="stat-val" id="cnt-articles">0</div>
+            <div class="stat-lbl">প্রকাশিত প্রবন্ধ</div>
+            <div class="stat-trend trend-up"><i class="fas fa-arrow-up"></i> +8 এই সপ্তাহে</div>
+          </div>
+        </div>
+        <div class="dash-stat" style="--stat-color:#7c3aed;--stat-bg:#f3e8ff;">
+          <div class="stat-icon-wrap"><i class="fas fa-book"></i></div>
+          <div>
+            <div class="stat-val" id="cnt-books">0</div>
+            <div class="stat-lbl">প্রকাশিত বই</div>
+            <div class="stat-trend trend-up"><i class="fas fa-arrow-up"></i> +2 এই বছরে</div>
+          </div>
+        </div>
+        <div class="dash-stat" style="--stat-color:#059669;--stat-bg:#d1fae5;">
+          <div class="stat-icon-wrap"><i class="fas fa-video"></i></div>
+          <div>
+            <div class="stat-val" id="cnt-videos">0</div>
+            <div class="stat-lbl">মোট ভিডিও</div>
+            <div class="stat-trend trend-down"><i class="fas fa-arrow-down"></i> এই মাসে ০টি</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Row -->
+      <div class="chart-grid">
+        <div class="card-box">
+          <div class="card-box-header">
+            <div class="card-box-title"><i class="fas fa-chart-line"></i> মাসিক ভিজিটর ট্রেন্ড</div>
+            <select style="border:1.5px solid var(--border);border-radius:7px;padding:0.25rem 0.6rem;font-size:0.75rem;color:var(--text-mid);background:var(--bg);outline:none;">
+              <option>২০২৪</option><option>২০২৩</option>
+            </select>
+          </div>
+          <canvas id="visitorsChart" height="120"></canvas>
+        </div>
+        <div class="card-box">
+          <div class="card-box-header">
+            <div class="card-box-title"><i class="fas fa-chart-donut"></i> ফতোয়া বিভাগ</div>
+          </div>
+          <canvas id="categoryChart" height="160"></canvas>
+          <div style="margin-top:1rem;">
+            <div class="cat-bar-item">
+              <div class="cat-bar-label"><span>মুআমালাত</span><span>18.3%</span></div>
+              <div class="cat-bar-track"><div class="cat-bar-fill" style="width:18.3%"></div></div>
+            </div>
+            <div class="cat-bar-item">
+              <div class="cat-bar-label"><span>পারিবারিক</span><span>15.4%</span></div>
+              <div class="cat-bar-track"><div class="cat-bar-fill" style="width:15.4%"></div></div>
+            </div>
+            <div class="cat-bar-item">
+              <div class="cat-bar-label"><span>সমসাময়িক</span><span>15.3%</span></div>
+              <div class="cat-bar-track"><div class="cat-bar-fill" style="width:15.3%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Row -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
+        <div class="card-box">
+          <div class="card-box-header">
+            <div class="card-box-title"><i class="fas fa-clock"></i> সাম্প্রতিক কার্যক্রম</div>
+            <a class="card-box-action" href="#">সব দেখুন <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="recent-activity">
+            <div class="activity-item">
+              <div class="activity-dot" style="background:#16a34a;"></div>
+              <div>
+                <div class="activity-text">নতুন ফতোয়া প্রকাশিত — <strong>মোবাইল ব্যাংকিং সুদ</strong></div>
+                <div class="activity-time"><i class="fas fa-clock" style="font-size:0.6rem;"></i> ২ মিনিট আগে</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot" style="background:var(--gold);"></div>
+              <div>
+                <div class="activity-text">নতুন প্রশ্ন এসেছে — <strong>রফিকুল ইসলাম</strong></div>
+                <div class="activity-time"><i class="fas fa-clock" style="font-size:0.6rem;"></i> ১৫ মিনিট আগে</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot" style="background:#0369a1;"></div>
+              <div>
+                <div class="activity-text">প্রবন্ধ আপডেট — <strong>ডিজিটাল যুগে যাকাত</strong></div>
+                <div class="activity-time"><i class="fas fa-clock" style="font-size:0.6rem;"></i> ১ ঘণ্টা আগে</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot" style="background:#7c3aed;"></div>
+              <div>
+                <div class="activity-text">নতুন ভিডিও আপলোড — <strong>রমজানের বয়ান</strong></div>
+                <div class="activity-time"><i class="fas fa-clock" style="font-size:0.6rem;"></i> ৩ ঘণ্টা আগে</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot" style="background:#dc2626;"></div>
+              <div>
+                <div class="activity-text">ব্যবহারকারী নিষ্ক্রিয় — <strong>editor_01</strong></div>
+                <div class="activity-time"><i class="fas fa-clock" style="font-size:0.6rem;"></i> গতকাল</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-box">
+          <div class="card-box-header">
+            <div class="card-box-title"><i class="fas fa-question-circle"></i> অপেক্ষমান প্রশ্ন</div>
+            <a class="card-box-action" onclick="showView('questions',null)">সব দেখুন <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="recent-activity">
+            <div class="activity-item">
+              <div class="activity-dot" style="background:#be185d;"></div>
+              <div style="flex:1;">
+                <div class="activity-text" style="font-weight:600;">সেহরির সময় নিয়ে প্রশ্ন</div>
+                <div class="activity-time">আমেনা বেগম · সিয়াম বিভাগ · ৩০ মিনিট আগে</div>
+              </div>
+              <span class="badge-status badge-new">নতুন</span>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot" style="background:#be185d;"></div>
+              <div style="flex:1;">
+                <div class="activity-text" style="font-weight:600;">ইন্স্যুরেন্স সম্পর্কে জিজ্ঞাসা</div>
+                <div class="activity-time">মোহাম্মদ হাসান · মুআমালাত · ২ ঘণ্টা আগে</div>
+              </div>
+              <span class="badge-status badge-new">নতুন</span>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot" style="background:var(--gold);"></div>
+              <div style="flex:1;">
+                <div class="activity-text" style="font-weight:600;">তালাকের বিষয়ে জিজ্ঞাসা</div>
+                <div class="activity-time">গোপনীয় · পারিবারিক · গতকাল</div>
+              </div>
+              <span class="badge-status badge-pending">পর্যালোচনা</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== FATWAS VIEW ===== -->
+    <div class="view" id="view-fatwas">
+      <div class="page-header">
+        <div>
+          <div class="page-title"><i class="fas fa-scroll"></i> ফতোয়া ব্যবস্থাপনা</div>
+          <div class="page-subtitle">সকল ফতোয়া পরিচালনা করুন</div>
+        </div>
+      </div>
+      <div class="data-table-wrap">
+        <div class="table-toolbar">
+          <div class="table-title"><i class="fas fa-scroll"></i> ফতোয়া তালিকা</div>
+          <div class="table-search"><i class="fas fa-search"></i><input type="text" placeholder="ফতোয়া খুঁজুন..."></div>
+          <select class="inp" style="width:auto;padding:0.3rem 0.7rem;font-size:0.8rem;">
+            <option>সব বিভাগ</option>
+            <option>আকিদাহ</option><option>তাহারাহ</option><option>মুআমালাত</option><option>পারিবারিক</option>
+          </select>
+          <button class="btn-add" onclick="openModal('fatwa')"><i class="fas fa-plus"></i> নতুন ফতোয়া</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th><th>প্রশ্ন</th><th>বিভাগ</th><th>তারিখ</th><th>ভিউ</th><th>স্ট্যাটাস</th><th>অ্যাকশন</th>
+            </tr>
+          </thead>
+          <tbody id="fatwa-tbody"></tbody>
+        </table>
+        <div class="table-footer">
+          <span id="fatwa-count-info">মোট ৬টি ফতোয়া দেখানো হচ্ছে</span>
+          <div class="pagination-btns">
+            <button class="pg-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="pg-btn active">১</button>
+            <button class="pg-btn">২</button>
+            <button class="pg-btn">৩</button>
+            <button class="pg-btn"><i class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== QUESTIONS VIEW ===== -->
+    <div class="view" id="view-questions">
+      <div class="page-header">
+        <div>
+          <div class="page-title"><i class="fas fa-question-circle"></i> প্রশ্নসমূহ</div>
+          <div class="page-subtitle">দর্শকদের পাঠানো প্রশ্নসমূহ পরিচালনা করুন</div>
+        </div>
+      </div>
+      <div class="data-table-wrap">
+        <div class="table-toolbar">
+          <div class="table-title"><i class="fas fa-inbox"></i> ইনবক্স</div>
+          <div class="table-search"><i class="fas fa-search"></i><input type="text" placeholder="প্রশ্ন খুঁজুন..."></div>
+          <select class="inp" style="width:auto;padding:0.3rem 0.7rem;font-size:0.8rem;">
+            <option>সব স্ট্যাটাস</option><option>নতুন</option><option>পর্যালোচনা</option><option>উত্তর দেওয়া হয়েছে</option>
+          </select>
+        </div>
+        <table>
+          <thead>
+            <tr><th>#</th><th>প্রশ্নকারী</th><th>বিষয়</th><th>বিভাগ</th><th>তারিখ</th><th>স্ট্যাটাস</th><th>অ্যাকশন</th></tr>
+          </thead>
+          <tbody id="questions-tbody"></tbody>
+        </table>
+        <div class="table-footer"><span>মোট ৫টি প্রশ্ন</span></div>
+      </div>
+    </div>
+
+    <!-- ===== ARTICLES VIEW ===== -->
+    <div class="view" id="view-articles">
+      <div class="page-header">
+        <div>
+          <div class="page-title"><i class="fas fa-pen-nib"></i> প্রবন্ধ ব্যবস্থাপনা</div>
+          <div class="page-subtitle">সকল প্রবন্ধ ও নিবন্ধ পরিচালনা</div>
+        </div>
+      </div>
+      <div class="data-table-wrap">
+        <div class="table-toolbar">
+          <div class="table-title"><i class="fas fa-file-alt"></i> প্রবন্ধ তালিকা</div>
+          <div class="table-search"><i class="fas fa-search"></i><input type="text" placeholder="প্রবন্ধ খুঁজুন..."></div>
+          <button class="btn-add" onclick="openModal('article')"><i class="fas fa-plus"></i> নতুন প্রবন্ধ</button>
+        </div>
+        <table>
+          <thead><tr><th>#</th><th>শিরোনাম</th><th>বিভাগ</th><th>তারিখ</th><th>ভিউ</th><th>স্ট্যাটাস</th><th>অ্যাকশন</th></tr></thead>
+          <tbody id="articles-tbody"></tbody>
+        </table>
+        <div class="table-footer"><span>মোট ৪টি প্রবন্ধ</span></div>
+      </div>
+    </div>
+
+    <!-- ===== BOOKS VIEW ===== -->
+    <div class="view" id="view-books">
+      <div class="page-header">
+        <div>
+          <div class="page-title"><i class="fas fa-book"></i> বই ব্যবস্থাপনা</div>
+          <div class="page-subtitle">প্রকাশিত বই ও গ্রন্থ পরিচালনা</div>
+        </div>
+      </div>
+      <div class="data-table-wrap">
+        <div class="table-toolbar">
+          <div class="table-title"><i class="fas fa-book-open"></i> বইয়ের তালিকা</div>
+          <div class="table-search"><i class="fas fa-search"></i><input type="text" placeholder="বই খুঁজুন..."></div>
+          <button class="btn-add" onclick="openModal('book')"><i class="fas fa-plus"></i> নতুন বই</button>
+        </div>
+        <table>
+          <thead><tr><th>#</th><th>বইয়ের নাম</th><th>সংস্করণ</th><th>পৃষ্ঠা</th><th>প্রকাশ সাল</th><th>স্ট্যাটাস</th><th>অ্যাকশন</th></tr></thead>
+          <tbody id="books-tbody"></tbody>
+        </table>
+        <div class="table-footer"><span>মোট ৪টি বই</span></div>
+      </div>
+    </div>
+
+    <!-- ===== VIDEOS VIEW ===== -->
+    <div class="view" id="view-videos">
+      <div class="page-header">
+        <div>
+          <div class="page-title"><i class="fas fa-video"></i> ভিডিও ও অডিও</div>
+          <div class="page-subtitle">মিডিয়া কনটেন্ট ব্যবস্থাপনা</div>
+        </div>
+      </div>
+      <div class="data-table-wrap">
+        <div class="table-toolbar">
+          <div class="table-title"><i class="fas fa-play-circle"></i> মিডিয়া তালিকা</div>
+          <div class="table-search"><i class="fas fa-search"></i><input type="text" placeholder="ভিডিও খুঁজুন..."></div>
+          <button class="btn-add" onclick="openModal('video')"><i class="fas fa-plus"></i> নতুন ভিডিও</button>
+        </div>
+        <table>
+          <thead><tr><th>#</th><th>শিরোনাম</th><th>ধরন</th><th>সময়কাল</th><th>ভিউ</th><th>তারিখ</th><th>অ্যাকশন</th></tr></thead>
+          <tbody id="videos-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== GALLERY VIEW ===== -->
+    <div class="view" id="view-gallery">
+      <div class="page-header">
+        <div>
+          <div class="page-title"><i class="fas fa-images"></i> ফটো গ্যালারি</div>
+          <div class="page-subtitle">ছবি ও অ্যালবাম ব্যবস্থাপনা</div>
+        </div>
+        <button class="btn-add" onclick="showToast('আপলোড উইন্ডো খুলছে...','warning')"><i class="fas fa-upload"></i> ছবি আপলোড</button>
+      </div>
+      <div class="card-box">
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1rem;" id="gallery-grid"></div>
+      </div>
+    </div>
+
+    <!-- ===== USERS VIEW ===== -->
+    <div class="view" id="view-users">
+      <div class="page-header">
+        <div>
+          <div class="page-title"><i class="fas fa-users"></i> ব্যবহারকারী ব্যবস্থাপনা</div>
+          <div class="page-subtitle">রোল ও অ্যাক্সেস নিয়ন্ত্রণ</div>
+        </div>
+      </div>
+      <div class="data-table-wrap">
+        <div class="table-toolbar">
+          <div class="table-title"><i class="fas fa-user-friends"></i> ব্যবহারকারী তালিকা</div>
+          <div class="table-search"><i class="fas fa-search"></i><input type="text" placeholder="ব্যবহারকারী খুঁজুন..."></div>
+          <button class="btn-add" onclick="openModal('user')"><i class="fas fa-plus"></i> নতুন ব্যবহারকারী</button>
+        </div>
+        <table>
+          <thead><tr><th>#</th><th>নাম</th><th>ইমেইল</th><th>রোল</th><th>যোগদানের তারিখ</th><th>স্ট্যাটাস</th><th>অ্যাকশন</th></tr></thead>
+          <tbody id="users-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== SETTINGS VIEW ===== -->
+    <div class="view" id="view-settings">
+      <div class="page-header">
+        <div>
+          <div class="page-title"><i class="fas fa-cog"></i> সেটিংস</div>
+          <div class="page-subtitle">ওয়েবসাইট কনফিগারেশন</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+        <div class="card-box">
+          <div class="card-box-header"><div class="card-box-title"><i class="fas fa-globe"></i> সাইট সেটিংস</div></div>
+          <div class="form-row-single"><label class="lbl">সাইটের নাম</label><input class="inp" value="মুফতি মুহাম্মদ আব্দুল লতিফ শায়খ"></div>
+          <div class="form-row-single"><label class="lbl">ট্যাগলাইন</label><input class="inp" value="Research • Fatwa • Education • Guidance"></div>
+          <div class="form-row-single"><label class="lbl">যোগাযোগ ইমেইল</label><input class="inp" type="email" value="info@latif-shaikh.com"></div>
+          <div class="form-row-single"><label class="lbl">ফোন নম্বর</label><input class="inp" value="+880 1700-000000"></div>
+          <button class="btn-save" onclick="showToast('সেটিংস সংরক্ষিত হয়েছে','success')"><i class="fas fa-save"></i> সংরক্ষণ করুন</button>
+        </div>
+        <div class="card-box">
+          <div class="card-box-header"><div class="card-box-title"><i class="fas fa-shield-alt"></i> নিরাপত্তা</div></div>
+          <div class="form-row-single"><label class="lbl">বর্তমান পাসওয়ার্ড</label><input class="inp" type="password" placeholder="••••••••"></div>
+          <div class="form-row-single"><label class="lbl">নতুন পাসওয়ার্ড</label><input class="inp" type="password" placeholder="••••••••"></div>
+          <div class="form-row-single"><label class="lbl">পাসওয়ার্ড নিশ্চিত করুন</label><input class="inp" type="password" placeholder="••••••••"></div>
+          <button class="btn-save" onclick="showToast('পাসওয়ার্ড পরিবর্তন হয়েছে','success')"><i class="fas fa-lock"></i> পাসওয়ার্ড পরিবর্তন</button>
+        </div>
+        <div class="card-box">
+          <div class="card-box-header"><div class="card-box-title"><i class="fas fa-palette"></i> থিম ও ভাষা</div></div>
+          <div class="form-row-single"><label class="lbl">ডিফল্ট ভাষা</label>
+            <select class="inp"><option>বাংলা (bn)</option><option>English (en)</option><option>العربية (ar)</option></select>
+          </div>
+          <div class="form-row-single"><label class="lbl">থিম মোড</label>
+            <select class="inp"><option>লাইট মোড</option><option>ডার্ক মোড</option><option>সিস্টেম</option></select>
+          </div>
+          <div class="form-row-single"><label class="lbl">প্রতি পেজে ফতোয়া</label>
+            <select class="inp"><option>১০</option><option>২০</option><option>৫০</option></select>
+          </div>
+          <button class="btn-save" onclick="showToast('প্রেফারেন্স সংরক্ষিত','success')"><i class="fas fa-save"></i> সংরক্ষণ</button>
+        </div>
+        <div class="card-box">
+          <div class="card-box-header"><div class="card-box-title"><i class="fas fa-envelope"></i> ইমেইল সেটিংস</div></div>
+          <div class="form-row-single"><label class="lbl">SMTP হোস্ট</label><input class="inp" placeholder="smtp.gmail.com"></div>
+          <div class="form-row-single"><label class="lbl">SMTP পোর্ট</label><input class="inp" placeholder="587"></div>
+          <div class="form-row-single"><label class="lbl">ইমেইল ইউজারনেম</label><input class="inp" type="email" placeholder="noreply@..."></div>
+          <button class="btn-save" onclick="showToast('ইমেইল সেটিংস সংরক্ষিত','success')"><i class="fas fa-save"></i> সংরক্ষণ</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /page-content -->
+</div><!-- /main-area -->
+
+<!-- ===== MODALS ===== -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal-card" onclick="event.stopPropagation()">
+    <div class="modal-header-em">
+      <div class="modal-title-em" id="modal-title"><i class="fas fa-plus"></i> <span>নতুন যোগ করুন</span></div>
+      <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body-em" id="modal-body"></div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast-wrap"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// ===== DATA =====
+const DATA = {
+  fatwas: [
+    { id: 1, question: 'মোবাইল ব্যাংকিংয়ে সুদের হার থেকে আয় কি হালাল?', category: 'মুআমালাত', date: '১৫ অক্টো ২০২৪', views: 3240, status: 'published' },
+    { id: 2, question: 'সেহরির শেষ সময় কখন?', category: 'সিয়াম', date: '২৮ সেপ ২০২৪', views: 8900, status: 'published' },
+    { id: 3, question: 'ইন্স্যুরেন্স করা কি জায়েয?', category: 'মুআমালাত', date: '১০ সেপ ২০২৪', views: 5670, status: 'published' },
+    { id: 4, question: 'তালাকের পর ইদ্দতের মেয়াদ কতদিন?', category: 'পারিবারিক', date: '৫ সেপ ২০২৪', views: 4120, status: 'published' },
+    { id: 5, question: 'শেয়ার বাজারে বিনিয়োগ কি হালাল?', category: 'ব্যবসা', date: '১ সেপ ২০২৪', views: 2980, status: 'pending' },
+    { id: 6, question: 'ক্রিপ্টোকারেন্সির ইসলামি বিধান', category: 'সমসাময়িক', date: '২৫ আগ ২০২৪', views: 7650, status: 'draft' },
+  ],
+  questions: [
+    { id: 1, name: 'আমেনা বেগম', subject: 'সেহরির সময় নিয়ে প্রশ্ন', category: 'সিয়াম', date: '৩০ মি. আগে', status: 'new' },
+    { id: 2, name: 'মোহাম্মদ হাসান', subject: 'ইন্স্যুরেন্স সম্পর্কে জিজ্ঞাসা', category: 'মুআমালাত', date: '২ ঘণ্টা আগে', status: 'new' },
+    { id: 3, name: 'গোপনীয়', subject: 'তালাকের বিষয়ে জিজ্ঞাসা', category: 'পারিবারিক', date: 'গতকাল', status: 'pending' },
+    { id: 4, name: 'রফিকুল ইসলাম', subject: 'যাকাতের নিসাব', category: 'যাকাত', date: '২ দিন আগে', status: 'answered' },
+    { id: 5, name: 'নাসরিন আক্তার', subject: 'নামাযের ওয়াক্ত', category: 'তাহারাহ', date: '৩ দিন আগে', status: 'answered' },
+  ],
+  articles: [
+    { id: 1, title: 'আধুনিক ব্যাংকিং ব্যবস্থায় সুদ ও ইসলামি বিকল্প', category: 'সমসাময়িক', date: '১৫ অক্টো ২০২৪', views: 2340, status: 'published' },
+    { id: 2, title: 'ডিজিটাল যুগে যাকাত প্রদানের শরঈ পদ্ধতি', category: 'ফিকহ', date: '৮ সেপ ২০২৪', views: 1870, status: 'published' },
+    { id: 3, title: 'তাওহিদের আলোকে মুসলিম সমাজের চ্যালেঞ্জ', category: 'আকিদাহ', date: '২ সেপ ২০২৪', views: 3100, status: 'published' },
+    { id: 4, title: 'ইসলামি পোশাক বিধি ও আধুনিক ফ্যাশন', category: 'সমসাময়িক', date: 'খসড়া', views: 0, status: 'draft' },
+  ],
+  books: [
+    { id: 1, title: 'সমসাময়িক ফতোয়া সংকলন', edition: '৩য়', pages: 480, year: 2020, status: 'published' },
+    { id: 2, title: 'যাকাতের বিধানাবলী', edition: '২য়', pages: 320, year: 2018, status: 'published' },
+    { id: 3, title: 'ইসলামি পারিবারিক আইন', edition: '১ম', pages: 560, year: 2022, status: 'published' },
+    { id: 4, title: 'ইসলামি অর্থনীতি ও ব্যবসা বিধি', edition: '২য়', pages: 410, year: 2021, status: 'published' },
+  ],
+  videos: [
+    { id: 1, title: 'রমজানের ফজিলত ও করণীয়', type: 'YouTube', duration: '৪৫:২২', views: 12450, date: '১০ মার্চ ২০২৪' },
+    { id: 2, title: 'পারিবারিক জীবনে ইসলামের শিক্ষা', type: 'YouTube', duration: '১:১২:০৮', views: 8730, date: '১৫ ফেব ২০২৪' },
+    { id: 3, title: 'হজ ও উমরাহর মাসায়েল', type: 'YouTube', duration: '৩২:১৫', views: 23120, date: '৫ জান ২০২৪' },
+  ],
+  users: [
+    { id: 1, name: 'System Admin', email: 'admin@latif-shaikh.com', role: 'সুপার অ্যাডমিন', joined: '১ জান ২০২৩', status: 'active' },
+    { id: 2, name: 'মুফতি মুহাম্মদ আব্দুল লতিফ', email: 'mufti@latif-shaikh.com', role: 'মুফতি', joined: '১ জান ২০২৩', status: 'active' },
+    { id: 3, name: 'এডিটর ১', email: 'editor1@latif-shaikh.com', role: 'এডিটর', joined: '১৫ মার্চ ২০২৩', status: 'active' },
+    { id: 4, name: 'এডিটর ২', email: 'editor2@latif-shaikh.com', role: 'এডিটর', joined: '১ জুন ২০২৩', status: 'inactive' },
+  ]
+};
+
+const statusBadge = {
+  published: '<span class="badge-status badge-published"><i class="fas fa-check-circle"></i> প্রকাশিত</span>',
+  pending:   '<span class="badge-status badge-pending"><i class="fas fa-clock"></i> পর্যালোচনা</span>',
+  draft:     '<span class="badge-status badge-draft"><i class="fas fa-file"></i> খসড়া</span>',
+  answered:  '<span class="badge-status badge-answered"><i class="fas fa-check"></i> উত্তর দেওয়া</span>',
+  new:       '<span class="badge-status badge-new"><i class="fas fa-exclamation-circle"></i> নতুন</span>',
+  active:    '<span class="badge-status badge-published"><i class="fas fa-circle"></i> সক্রিয়</span>',
+  inactive:  '<span class="badge-status badge-draft"><i class="fas fa-circle"></i> নিষ্ক্রিয়</span>',
+};
+
+// ===== RENDER TABLES =====
+function renderTables() {
+  // Fatwas
+  document.getElementById('fatwa-tbody').innerHTML = DATA.fatwas.map(f => `
+    <tr>
+      <td class="td-id">#${f.id}</td>
+      <td><div class="td-bold td-trunc">${f.question}</div></td>
+      <td><span class="badge-status badge-draft">${f.category}</span></td>
+      <td style="white-space:nowrap;font-size:0.78rem;">${f.date}</td>
+      <td style="font-size:0.78rem;">${f.views.toLocaleString()}</td>
+      <td>${statusBadge[f.status]}</td>
+      <td><div class="action-btns">
+        <button class="btn-action" title="দেখুন" onclick="showToast('ফতোয়া #${f.id} দেখা হচ্ছে','success')"><i class="fas fa-eye"></i></button>
+        <button class="btn-action" title="সম্পাদনা" onclick="openModal('fatwa')"><i class="fas fa-pen"></i></button>
+        <button class="btn-action danger" title="মুছুন" onclick="deleteRow(this, ${f.id}, 'fatwas')"><i class="fas fa-trash"></i></button>
+      </div></td>
+    </tr>`).join('');
+
+  // Questions
+  document.getElementById('questions-tbody').innerHTML = DATA.questions.map(q => `
+    <tr>
+      <td class="td-id">#${q.id}</td>
+      <td><div class="td-bold">${q.name}</div></td>
+      <td><div class="td-trunc">${q.subject}</div></td>
+      <td><span class="badge-status badge-draft">${q.category}</span></td>
+      <td style="font-size:0.78rem;white-space:nowrap;">${q.date}</td>
+      <td>${statusBadge[q.status]}</td>
+      <td><div class="action-btns">
+        <button class="btn-action" title="উত্তর দিন" onclick="openModal('answer')"><i class="fas fa-reply"></i></button>
+        <button class="btn-action" title="দেখুন"><i class="fas fa-eye"></i></button>
+        <button class="btn-action danger" title="মুছুন" onclick="deleteRow(this)"><i class="fas fa-trash"></i></button>
+      </div></td>
+    </tr>`).join('');
+
+  // Articles
+  document.getElementById('articles-tbody').innerHTML = DATA.articles.map(a => `
+    <tr>
+      <td class="td-id">#${a.id}</td>
+      <td><div class="td-bold td-trunc">${a.title}</div></td>
+      <td><span class="badge-status badge-draft">${a.category}</span></td>
+      <td style="font-size:0.78rem;">${a.date}</td>
+      <td style="font-size:0.78rem;">${a.views.toLocaleString()}</td>
+      <td>${statusBadge[a.status]}</td>
+      <td><div class="action-btns">
+        <button class="btn-action"><i class="fas fa-eye"></i></button>
+        <button class="btn-action" onclick="openModal('article')"><i class="fas fa-pen"></i></button>
+        <button class="btn-action danger" onclick="deleteRow(this)"><i class="fas fa-trash"></i></button>
+      </div></td>
+    </tr>`).join('');
+
+  // Books
+  document.getElementById('books-tbody').innerHTML = DATA.books.map(b => `
+    <tr>
+      <td class="td-id">#${b.id}</td>
+      <td><div class="td-bold">${b.title}</div></td>
+      <td>${b.edition} সংস্করণ</td>
+      <td>${b.pages}</td>
+      <td>${b.year}</td>
+      <td>${statusBadge[b.status]}</td>
+      <td><div class="action-btns">
+        <button class="btn-action"><i class="fas fa-eye"></i></button>
+        <button class="btn-action" onclick="openModal('book')"><i class="fas fa-pen"></i></button>
+        <button class="btn-action danger" onclick="deleteRow(this)"><i class="fas fa-trash"></i></button>
+      </div></td>
+    </tr>`).join('');
+
+  // Videos
+  document.getElementById('videos-tbody').innerHTML = DATA.videos.map(v => `
+    <tr>
+      <td class="td-id">#${v.id}</td>
+      <td><div class="td-bold td-trunc">${v.title}</div></td>
+      <td><span class="badge-status badge-answered">${v.type}</span></td>
+      <td style="font-size:0.78rem;">${v.duration}</td>
+      <td style="font-size:0.78rem;">${v.views.toLocaleString()}</td>
+      <td style="font-size:0.78rem;">${v.date}</td>
+      <td><div class="action-btns">
+        <button class="btn-action"><i class="fas fa-play"></i></button>
+        <button class="btn-action" onclick="openModal('video')"><i class="fas fa-pen"></i></button>
+        <button class="btn-action danger" onclick="deleteRow(this)"><i class="fas fa-trash"></i></button>
+      </div></td>
+    </tr>`).join('');
+
+  // Users
+  document.getElementById('users-tbody').innerHTML = DATA.users.map(u => `
+    <tr>
+      <td class="td-id">#${u.id}</td>
+      <td><div style="display:flex;align-items:center;gap:0.6rem;">
+        <div style="width:32px;height:32px;background:linear-gradient(135deg,var(--emerald),var(--emerald-mid));border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold-light);font-size:0.8rem;"><i class="fas fa-user"></i></div>
+        <div class="td-bold">${u.name}</div>
+      </div></td>
+      <td style="font-size:0.78rem;">${u.email}</td>
+      <td><span class="badge-status badge-pending">${u.role}</span></td>
+      <td style="font-size:0.78rem;">${u.joined}</td>
+      <td>${statusBadge[u.status]}</td>
+      <td><div class="action-btns">
+        <button class="btn-action" onclick="openModal('user')"><i class="fas fa-pen"></i></button>
+        <button class="btn-action danger" onclick="deleteRow(this)"><i class="fas fa-trash"></i></button>
+      </div></td>
+    </tr>`).join('');
+
+  // Gallery
+  const colors = ['#0a4a3a','#c9a227','#1a2e4a','#7c4c00','#2c1654','#1a3a1a'];
+  document.getElementById('gallery-grid').innerHTML = Array.from({length:12}, (_,i) => `
+    <div style="aspect-ratio:1;border-radius:10px;background:${colors[i%colors.length]};display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);font-size:1.5rem;cursor:pointer;transition:all 0.2s;border:2px solid transparent;overflow:hidden;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'">
+      <i class="fas fa-image"></i>
+    </div>`).join('');
+}
+
+// ===== CHARTS =====
+function initCharts() {
+  // Visitors Line Chart
+  new Chart(document.getElementById('visitorsChart'), {
+    type: 'line',
+    data: {
+      labels: ['জানু','ফেব্রু','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট','সেপ্টে','অক্টো','নভে','ডিসে'],
+      datasets: [{
+        label: 'ভিজিটর',
+        data: [12400,14200,15800,13900,18200,21000,19500,23400,22100,25600,24800,28000],
+        borderColor: '#0a4a3a',
+        backgroundColor: 'rgba(10,74,58,0.08)',
+        tension: 0.4, fill: true, pointRadius: 4,
+        pointBackgroundColor: '#c9a227', pointBorderColor: '#fff', pointBorderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true, plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { size: 10 } } },
+        y: { grid: { color: 'rgba(0,0,0,0.04)' }, ticks: { font: { size: 10 } } }
+      }
+    }
+  });
+
+  // Category Doughnut
+  new Chart(document.getElementById('categoryChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ['মুআমালাত','পারিবারিক','সমসাময়িক','তাহারাহ','সিয়াম','যাকাত','অন্যান্য'],
+      datasets: [{
+        data: [880,740,735,640,510,390,905],
+        backgroundColor: ['#0a4a3a','#c9a227','#1a7a5e','#e4b84a','#2d5a8e','#7c3aed','#e8f5f0'],
+        borderWidth: 2, borderColor: '#fff'
+      }]
+    },
+    options: {
+      responsive: true, cutout: '65%',
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${ctx.parsed}টি` } }
+      }
+    }
+  });
+}
+
+// ===== COUNTER ANIMATION =====
+function animateCounter(el, target, duration = 1600) {
+  let start = 0;
+  const step = target / (duration / 16);
+  const timer = setInterval(() => {
+    start += step;
+    if (start >= target) { el.textContent = target.toLocaleString('bn-BD'); clearInterval(timer); return; }
+    el.textContent = Math.floor(start).toLocaleString('bn-BD');
+  }, 16);
+}
+
+// ===== SIDEBAR =====
+let sidebarCollapsed = false;
+function toggleSidebar() {
+  sidebarCollapsed = !sidebarCollapsed;
+  document.getElementById('sidebar').classList.toggle('collapsed', sidebarCollapsed);
+  document.getElementById('main-area').classList.toggle('expanded', sidebarCollapsed);
+}
+
+// ===== NAVIGATION =====
+const viewTitles = {
+  dashboard: ['ড্যাশবোর্ড', 'ড্যাশবোর্ড'],
+  fatwas: ['ফতোয়া ব্যবস্থাপনা', 'ফতোয়া'],
+  questions: ['প্রশ্নসমূহ', 'প্রশ্ন'],
+  articles: ['প্রবন্ধ ব্যবস্থাপনা', 'প্রবন্ধ'],
+  books: ['বই ব্যবস্থাপনা', 'বই'],
+  videos: ['ভিডিও ও অডিও', 'মিডিয়া'],
+  gallery: ['ফটো গ্যালারি', 'গ্যালারি'],
+  users: ['ব্যবহারকারী ব্যবস্থাপনা', 'ব্যবহারকারী'],
+  settings: ['সেটিংস', 'সেটিংস'],
+};
+function showView(name, btn) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById('view-' + name).classList.add('active');
+  document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  const t = viewTitles[name] || [name, name];
+  document.getElementById('breadcrumb-top').innerHTML = `<span>অ্যাডমিন</span><span class="bc-sep">/</span><span class="bc-current">${t[1]}</span>`;
+}
+
+// ===== MODAL =====
+const modalForms = {
+  fatwa: {
+    title: '<i class="fas fa-scroll"></i> <span>নতুন ফতোয়া যোগ করুন</span>',
+    body: `<div class="form-row-single"><label class="lbl">বিভাগ</label>
+      <select class="inp"><option>মুআমালাত</option><option>আকিদাহ</option><option>তাহারাহ</option><option>সিয়াম</option><option>পারিবারিক</option></select></div>
+      <div class="form-row-single"><label class="lbl">প্রশ্ন</label><textarea class="inp" rows="2" placeholder="ফতোয়ার প্রশ্ন লিখুন..."></textarea></div>
+      <div class="form-row-single"><label class="lbl">উত্তর</label><textarea class="inp" rows="4" placeholder="বিস্তারিত উত্তর লিখুন..."></textarea></div>
+      <div class="form-row-single"><label class="lbl">দলিল (কুরআন/হাদিস)</label><input class="inp" placeholder="যেমন: সূরা বাকারা: ২৭৫, বুখারি: ২০৮৬"></div>
+      <div class="form-row"><div><label class="lbl">স্ট্যাটাস</label><select class="inp"><option>প্রকাশিত</option><option>খসড়া</option><option>পর্যালোচনা</option></select></div>
+      <div><label class="lbl">ট্যাগ</label><input class="inp" placeholder="ট্যাগ যোগ করুন..."></div></div>
+      <div style="display:flex;gap:0.75rem;justify-content:flex-end;margin-top:0.5rem;">
+        <button class="btn-cancel" onclick="closeModal()">বাতিল</button>
+        <button class="btn-save" onclick="saveModal('ফতোয়া')"><i class="fas fa-check"></i> প্রকাশ করুন</button>
+      </div>`
+  },
+  article: {
+    title: '<i class="fas fa-pen-nib"></i> <span>নতুন প্রবন্ধ</span>',
+    body: `<div class="form-row-single"><label class="lbl">শিরোনাম</label><input class="inp" placeholder="প্রবন্ধের শিরোনাম"></div>
+      <div class="form-row"><div><label class="lbl">বিভাগ</label><select class="inp"><option>সমসাময়িক</option><option>ফিকহ</option><option>আকিদাহ</option></select></div>
+      <div><label class="lbl">স্ট্যাটাস</label><select class="inp"><option>প্রকাশিত</option><option>খসড়া</option></select></div></div>
+      <div class="form-row-single"><label class="lbl">বিষয়বস্তু</label><textarea class="inp" rows="5" placeholder="প্রবন্ধের বিষয়বস্তু লিখুন..."></textarea></div>
+      <div style="display:flex;gap:0.75rem;justify-content:flex-end;margin-top:0.5rem;">
+        <button class="btn-cancel" onclick="closeModal()">বাতিল</button>
+        <button class="btn-save" onclick="saveModal('প্রবন্ধ')"><i class="fas fa-check"></i> প্রকাশ করুন</button>
+      </div>`
+  },
+  book: {
+    title: '<i class="fas fa-book"></i> <span>নতুন বই যোগ করুন</span>',
+    body: `<div class="form-row-single"><label class="lbl">বইয়ের নাম (বাংলা)</label><input class="inp" placeholder="বইয়ের বাংলা নাম"></div>
+      <div class="form-row-single"><label class="lbl">আরবি নাম</label><input class="inp" placeholder="الاسم بالعربية" dir="rtl" style="font-family:'Amiri',serif;"></div>
+      <div class="form-row"><div><label class="lbl">সংস্করণ</label><input class="inp" placeholder="১ম সংস্করণ"></div>
+      <div><label class="lbl">পৃষ্ঠাসংখ্যা</label><input class="inp" type="number" placeholder="৩০০"></div></div>
+      <div class="form-row-single"><label class="lbl">সারসংক্ষেপ</label><textarea class="inp" rows="3" placeholder="বইয়ের বিবরণ..."></textarea></div>
+      <div style="display:flex;gap:0.75rem;justify-content:flex-end;margin-top:0.5rem;">
+        <button class="btn-cancel" onclick="closeModal()">বাতিল</button>
+        <button class="btn-save" onclick="saveModal('বই')"><i class="fas fa-check"></i> সংরক্ষণ</button>
+      </div>`
+  },
+  video: {
+    title: '<i class="fas fa-video"></i> <span>নতুন ভিডিও</span>',
+    body: `<div class="form-row-single"><label class="lbl">শিরোনাম</label><input class="inp" placeholder="ভিডিওর শিরোনাম"></div>
+      <div class="form-row-single"><label class="lbl">YouTube লিংক</label><input class="inp" placeholder="https://youtube.com/watch?v=..."></div>
+      <div class="form-row"><div><label class="lbl">বিভাগ</label><select class="inp"><option>সিয়াম</option><option>হজ</option><option>পারিবারিক</option><option>আকিদাহ</option></select></div>
+      <div><label class="lbl">সময়কাল</label><input class="inp" placeholder="45:22"></div></div>
+      <div style="display:flex;gap:0.75rem;justify-content:flex-end;margin-top:0.5rem;">
+        <button class="btn-cancel" onclick="closeModal()">বাতিল</button>
+        <button class="btn-save" onclick="saveModal('ভিডিও')"><i class="fas fa-check"></i> যোগ করুন</button>
+      </div>`
+  },
+  user: {
+    title: '<i class="fas fa-user-plus"></i> <span>নতুন ব্যবহারকারী</span>',
+    body: `<div class="form-row"><div><label class="lbl">সম্পূর্ণ নাম</label><input class="inp" placeholder="ব্যবহারকারীর নাম"></div>
+      <div><label class="lbl">ইমেইল</label><input class="inp" type="email" placeholder="email@example.com"></div></div>
+      <div class="form-row"><div><label class="lbl">রোল</label><select class="inp"><option>এডিটর</option><option>অ্যাডমিন</option><option>মুফতি</option></select></div>
+      <div><label class="lbl">পাসওয়ার্ড</label><input class="inp" type="password" placeholder="••••••••"></div></div>
+      <div style="display:flex;gap:0.75rem;justify-content:flex-end;margin-top:0.5rem;">
+        <button class="btn-cancel" onclick="closeModal()">বাতিল</button>
+        <button class="btn-save" onclick="saveModal('ব্যবহারকারী')"><i class="fas fa-check"></i> তৈরি করুন</button>
+      </div>`
+  },
+  answer: {
+    title: '<i class="fas fa-reply"></i> <span>প্রশ্নের উত্তর দিন</span>',
+    body: `<div class="form-row-single" style="background:var(--bg);border-radius:8px;padding:1rem;border:1.5px solid var(--border);">
+        <div style="font-size:0.75rem;color:var(--text-light);margin-bottom:0.4rem;font-family:'Cinzel',serif;letter-spacing:0.1em;text-transform:uppercase;">প্রশ্ন</div>
+        <div style="font-size:0.88rem;font-weight:600;color:var(--text-dark);">সেহরির শেষ সময় কখন? আজানের আগে নাকি পরে?</div>
+      </div>
+      <div class="form-row-single"><label class="lbl">উত্তর</label><textarea class="inp" rows="5" placeholder="বিস্তারিত উত্তর লিখুন..."></textarea></div>
+      <div class="form-row-single"><label class="lbl">দলিল</label><input class="inp" placeholder="কুরআন ও হাদিসের রেফারেন্স"></div>
+      <div style="display:flex;gap:0.5rem;margin-bottom:0.5rem;">
+        <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.82rem;cursor:pointer;">
+          <input type="checkbox" style="accent-color:var(--emerald);"> ফতোয়া হিসেবে প্রকাশ করুন
+        </label>
+      </div>
+      <div style="display:flex;gap:0.75rem;justify-content:flex-end;">
+        <button class="btn-cancel" onclick="closeModal()">বাতিল</button>
+        <button class="btn-save" onclick="saveModal('উত্তর')"><i class="fas fa-paper-plane"></i> উত্তর পাঠান</button>
+      </div>`
+  }
+};
+
+function openModal(type) {
+  const f = modalForms[type] || modalForms.fatwa;
+  document.getElementById('modal-title').innerHTML = f.title;
+  document.getElementById('modal-body').innerHTML = f.body;
+  document.getElementById('modal-overlay').classList.add('open');
+}
+function closeModal(e) {
+  if (!e || e.target === document.getElementById('modal-overlay'))
+    document.getElementById('modal-overlay').classList.remove('open');
+}
+function saveModal(type) {
+  closeModal();
+  showToast(`${type} সফলভাবে সংরক্ষিত হয়েছে`, 'success');
+}
+
+// ===== DELETE ROW =====
+function deleteRow(btn) {
+  const row = btn.closest('tr');
+  row.style.transition = 'all 0.3s';
+  row.style.opacity = '0';
+  row.style.transform = 'translateX(20px)';
+  setTimeout(() => { row.remove(); showToast('রেকর্ড মুছে ফেলা হয়েছে', 'warning'); }, 300);
+}
+
+// ===== TOAST =====
+function showToast(msg, type = 'success') {
+  const wrap = document.getElementById('toast-wrap');
+  const icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
+  const t = document.createElement('div');
+  t.className = `toast-msg ${type}`;
+  t.innerHTML = `<i class="fas ${icon}"></i> ${msg}`;
+  wrap.appendChild(t);
+  setTimeout(() => { t.style.opacity = '0'; t.style.transition = 'opacity 0.3s'; setTimeout(() => t.remove(), 300); }, 3000);
+}
+
+// ===== INIT =====
+window.addEventListener('load', () => {
+  renderTables();
+  initCharts();
+  setTimeout(() => {
+    animateCounter(document.getElementById('cnt-visitors'), 28642);
+    animateCounter(document.getElementById('cnt-fatwas'), 4800);
+    animateCounter(document.getElementById('cnt-questions'), 12);
+    animateCounter(document.getElementById('cnt-articles'), 320);
+    animateCounter(document.getElementById('cnt-books'), 28);
+    animateCounter(document.getElementById('cnt-videos'), 650);
+  }, 300);
+
+  // Mobile sidebar overlay
+  document.getElementById('sidebar').addEventListener('click', e => e.stopPropagation());
+
+  // Keyboard shortcut: Ctrl+K for search
+  document.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.querySelector('.topbar-search input').focus(); }
+    if (e.key === 'Escape') closeModal();
+  });
+});
+
+console.log('%c Admin Dashboard Loaded ✓', 'color:#c9a227;font-size:14px;font-weight:bold;');
+</script>
+</body>
+</html>
