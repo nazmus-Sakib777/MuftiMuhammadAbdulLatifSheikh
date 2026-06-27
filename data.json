@@ -1,0 +1,125 @@
+{
+  "site": {
+    "name": "মুফতি মুহাম্মদ আব্দুল লতিফ শায়খ",
+    "tagline": "Research • Fatwa • Education • Guidance",
+    "url": "https://latif-shaikh.com",
+    "email": "info@latif-shaikh.com",
+    "phone": "+880 1700-000000",
+    "address": "দারুল ইফতা ওয়াত তাদরিস, পুরান ঢাকা, ঢাকা–১১০০"
+  },
+  "scholar": {
+    "id": 1,
+    "name_bn": "মুফতি মুহাম্মদ আব্দুল লতিফ শায়খ",
+    "name_ar": "مفتي محمد عبد اللطيف شيخ",
+    "name_en": "Mufti Muhammad Abdul Latif Shaikh",
+    "born": "1968",
+    "born_place": "ঢাকা, বাংলাদেশ",
+    "specializations": ["ফিকহুল হানাফি", "উসুলুল ফিকহ", "তাফসির", "হাদিস", "ইফতা"],
+    "ijazahs": ["حنفي", "مفتي", "محدث"],
+    "bio_short": "বিশিষ্ট ইসলামি গবেষক, ফতোয়া বিশেষজ্ঞ, শিক্ষক ও লেখক",
+    "education": [
+      { "year": "1985-1990", "institute": "মাদরাসায়ে মুহাম্মাদিয়া, ঢাকা", "degree": "কামিল (হাদিস)" },
+      { "year": "1991-1995", "institute": "দারুল উলুম করাচি, পাকিস্তান", "degree": "ইফতার সনদ" },
+      { "year": "1996-present", "institute": "দারুল ইফতা ওয়াত তাদরিস", "degree": "প্রধান মুফতি" }
+    ],
+    "social": {
+      "facebook": "https://facebook.com/",
+      "youtube": "https://youtube.com/",
+      "telegram": "https://t.me/"
+    }
+  },
+  "stats": {
+    "total_fatwas": 4800,
+    "total_articles": 320,
+    "total_books": 28,
+    "total_videos": 650,
+    "years_experience": 35
+  },
+  "fatwa_categories": [
+    { "id": 1, "slug": "aqidah", "name_bn": "আকিদাহ", "count": 285, "icon": "🕌" },
+    { "id": 2, "slug": "taharah", "name_bn": "তাহারাহ ও নামায", "count": 640, "icon": "💧" },
+    { "id": 3, "slug": "zakah", "name_bn": "যাকাত ও সদকা", "count": 390, "icon": "🌙" },
+    { "id": 4, "slug": "siyam", "name_bn": "সিয়াম ও হজ", "count": 510, "icon": "⭐" },
+    { "id": 5, "slug": "muamalat", "name_bn": "মুআমালাত", "count": 880, "icon": "🤝" },
+    { "id": 6, "slug": "family", "name_bn": "পারিবারিক বিষয়", "count": 740, "icon": "👨‍👩‍👧" },
+    { "id": 7, "slug": "business", "name_bn": "ব্যবসা ও ব্যাংকিং", "count": 620, "icon": "💼" },
+    { "id": 8, "slug": "contemporary", "name_bn": "সমসাময়িক মাসায়েল", "count": 735, "icon": "🌐" }
+  ],
+  "fatwas": [
+    {
+      "id": 1, "category_id": 7,
+      "question": "মোবাইল ব্যাংকিংয়ে সুদের হার থেকে আয় কি হালাল?",
+      "answer": "মোবাইল ব্যাংকিং সেবায় প্রদত্ত সুদ গ্রহণ করা হারাম। কারণ ইসলামে সুদ (রিবা) সম্পূর্ণ নিষিদ্ধ।",
+      "evidence": ["সূরা বাকারা: ২৭৫", "সহিহ বুখারি: ২০৮৬"],
+      "date": "2024-10-15", "views": 3240, "slug": "mobile-banking-interest"
+    },
+    {
+      "id": 2, "category_id": 4,
+      "question": "সেহরির শেষ সময় কখন? আজানের আগে নাকি পরে?",
+      "answer": "সেহরির শেষ সময় হলো সুবহে সাদিক পর্যন্ত। আজানের কিছু আগেই সুবহে সাদিক হয়, তাই আজানের আগেই খাওয়া বন্ধ করা উচিত।",
+      "evidence": ["সূরা বাকারা: ১৮৭", "তিরমিযি: ৭০৩"],
+      "date": "2024-09-28", "views": 8900, "slug": "sehri-time"
+    },
+    {
+      "id": 3, "category_id": 7,
+      "question": "ইন্স্যুরেন্স করা কি জায়েয?",
+      "answer": "প্রচলিত বীমা সুদ ও জুয়ার উপাদান থাকায় জায়েয নয়। তবে তাকাফুল (ইসলামি বীমা) গ্রহণযোগ্য।",
+      "evidence": ["সূরা মায়েদা: ৯০", "বাদায়িউস সানায়ে: ৫/১২৮"],
+      "date": "2024-09-10", "views": 5670, "slug": "insurance-ruling"
+    }
+  ],
+  "articles": [
+    {
+      "id": 1, "category": "সমসাময়িক",
+      "title": "আধুনিক ব্যাংকিং ব্যবস্থায় সুদ এবং ইসলামি বিকল্প",
+      "excerpt": "বর্তমান বিশ্বে ইসলামি অর্থনীতির প্রাসঙ্গিকতা নিয়ে বিস্তারিত আলোচনা।",
+      "date": "2024-10-15", "views": 2340, "slug": "banking-interest-alternatives"
+    },
+    {
+      "id": 2, "category": "ফিকহ",
+      "title": "ডিজিটাল যুগে যাকাত প্রদানের শরঈ পদ্ধতি",
+      "excerpt": "অনলাইনে যাকাত প্রদান এবং ক্রিপ্টোকারেন্সিতে যাকাতের বিধান।",
+      "date": "2024-09-08", "views": 1870, "slug": "zakah-digital-age"
+    }
+  ],
+  "books": [
+    {
+      "id": 1, "title_ar": "فتاوى العصرية", "title_bn": "সমসাময়িক ফতোয়া সংকলন",
+      "description": "আধুনিক যুগের বিভিন্ন মাসায়েলের বিস্তারিত সমাধান সংবলিত গ্রন্থ।",
+      "year": 2020, "pages": 480, "edition": "৩য় সংস্করণ",
+      "cover_gradient": "linear-gradient(135deg, #0a4a3a, #1a7a5e)",
+      "pdf_url": "#", "read_url": "#"
+    },
+    {
+      "id": 2, "title_ar": "أحكام الزكاة", "title_bn": "যাকাতের বিধানাবলী",
+      "description": "কুরআন, হাদিস ও ফিকহের আলোকে যাকাতের সকল মাসায়েলের সমন্বিত গ্রন্থ।",
+      "year": 2018, "pages": 320, "edition": "২য় সংস্করণ",
+      "cover_gradient": "linear-gradient(135deg, #7c4c00, #c9a227)",
+      "pdf_url": "#", "read_url": "#"
+    }
+  ],
+  "videos": [
+    {
+      "id": 1, "title": "রমজানের ফজিলত ও করণীয় — বিস্তারিত বয়ান",
+      "youtube_id": "dQw4w9WgXcQ", "duration": "45:22",
+      "views": 12450, "date": "2024-03-10", "category": "সিয়াম"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": 1, "name": "মোহাম্মদ রফিকুল ইসলাম", "role": "ব্যবসায়ী, চট্টগ্রাম", "rating": 5,
+      "text": "মুফতি সাহেবের ফতোয়াগুলো সহজ বাংলায় দেওয়া হয় এবং দলিলসহ বিস্তারিত ব্যাখ্যা থাকায় সাধারণ মানুষেরও বুঝতে সুবিধা হয়।"
+    }
+  ],
+  "users": [
+    { "id": 1, "role": "super_admin", "name": "System Admin", "email": "admin@latif-shaikh.com" },
+    { "id": 2, "role": "mufti", "name": "মুফতি মুহাম্মদ আব্দুল লতিফ", "email": "mufti@latif-shaikh.com" }
+  ],
+  "roles": [
+    { "id": 1, "name": "super_admin", "label": "সুপার অ্যাডমিন", "permissions": ["all"] },
+    { "id": 2, "name": "admin", "label": "অ্যাডমিন", "permissions": ["manage_content", "manage_users"] },
+    { "id": 3, "name": "editor", "label": "এডিটর", "permissions": ["create_content", "edit_content"] },
+    { "id": 4, "name": "mufti", "label": "মুফতি", "permissions": ["answer_questions", "publish_fatwas"] },
+    { "id": 5, "name": "visitor", "label": "ভিজিটর", "permissions": ["read", "ask_question"] }
+  ]
+}
