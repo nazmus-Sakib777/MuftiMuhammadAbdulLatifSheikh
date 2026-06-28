@@ -1146,3 +1146,205 @@ document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='k'){
   }, {passive:true});
 })();
 </script>
+<style>
+/* Auth overlay */
+#auth-overlay{position:fixed;inset:0;background:rgba(7,30,24,0.98);z-index:9999;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px);}
+.auth-box{background:rgba(255,255,255,0.05);border:1px solid rgba(201,162,39,0.25);border-radius:16px;padding:2.5rem;text-align:center;max-width:360px;width:90%;}
+.auth-box .em2{width:60px;height:60px;background:linear-gradient(135deg,#c9a227,#e4b84a);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-family:'Amiri',serif;font-size:1.6rem;color:#0a4a3a;font-weight:700;}
+.auth-box h3{color:#fff;font-size:1rem;margin-bottom:0.4rem;}
+.auth-box p{color:rgba(255,255,255,0.5);font-size:0.8rem;margin-bottom:1.5rem;}
+.auth-box a{background:linear-gradient(135deg,#c9a227,#e4b84a);color:#0a4a3a;padding:0.7rem 2rem;border-radius:50px;font-weight:700;text-decoration:none;font-size:0.9rem;display:inline-block;transition:all 0.2s;}
+.auth-box a:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(201,162,39,0.4);color:#0a4a3a;}
+/* User info in topbar */
+#session-info{display:flex;align-items:center;gap:0.5rem;font-size:0.78rem;color:rgba(255,255,255,0.7);background:rgba(201,162,39,0.1);border:1px solid rgba(201,162,39,0.2);border-radius:8px;padding:0.28rem 0.75rem;}
+#session-info strong{color:var(--gdl);}
+/* Report modal */
+#report-modal{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:600;display:none;align-items:center;justify-content:center;padding:1rem;backdrop-filter:blur(4px);}
+#report-modal.open{display:flex;}
+.report-box{background:#fff;border-radius:16px;width:100%;max-width:520px;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+.report-header{background:linear-gradient(135deg,#0a4a3a,#0d5c49);padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;}
+.report-header h3{color:#fff;font-size:0.95rem;display:flex;align-items:center;gap:0.5rem;}
+.report-header h3 i{color:#c9a227;}
+.report-body{padding:1.5rem;}
+.report-type-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.65rem;margin-bottom:1.25rem;}
+.rt-btn{border:1.5px solid #e2ece9;border-radius:10px;padding:0.85rem 0.75rem;cursor:pointer;transition:all 0.2s;background:none;text-align:center;}
+.rt-btn.sel{border-color:#0a4a3a;background:#e8f5f0;}
+.rt-btn i{display:block;font-size:1.4rem;margin-bottom:0.4rem;color:#0a4a3a;}
+.rt-btn span{font-size:0.78rem;color:#3d3d56;font-family:'Noto Serif Bengali',serif;}
+.rt-btn.sel span{font-weight:600;color:#0a4a3a;}
+.report-preview{background:#f7f3ec;border-radius:10px;padding:1rem;margin-bottom:1.25rem;font-size:0.8rem;color:#3d3d56;line-height:1.7;border:1px solid #ede8df;}
+.btn-gen-report{width:100%;background:linear-gradient(135deg,#c9a227,#e4b84a);color:#0a4a3a;border:none;border-radius:50px;padding:0.8rem;font-family:'Noto Serif Bengali',serif;font-size:0.92rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:0.5rem;transition:all 0.2s;}
+.btn-gen-report:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(201,162,39,0.4);}
+</style>
+
+<!-- Auth Overlay (shown if not logged in) -->
+<div id="auth-overlay" style="display:none;">
+  <div class="auth-box">
+    <div class="em2">م</div>
+    <h3>অ্যাক্সেস নিষিদ্ধ</h3>
+    <p>এই পেজ দেখতে হলে অ্যাডমিন লগইন করতে হবে</p>
+    <a href="login.html"><i class="fas fa-sign-in-alt" style="margin-right:0.4rem;"></i>লগইন করুন</a>
+  </div>
+</div>
+
+<!-- Report Modal -->
+<div id="report-modal">
+  <div class="report-box">
+    <div class="report-header">
+      <h3><i class="fas fa-file-alt"></i> রিপোর্ট তৈরি করুন</h3>
+      <button style="background:rgba(255,255,255,0.15);border:none;width:28px;height:28px;border-radius:6px;color:#fff;cursor:pointer;font-size:0.82rem;display:flex;align-items:center;justify-content:center;" onclick="document.getElementById('report-modal').classList.remove('open')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="report-body">
+      <p style="font-size:0.8rem;color:#6b7280;margin-bottom:1rem;">রিপোর্টের ধরন নির্বাচন করুন:</p>
+      <div class="report-type-grid">
+        <button class="rt-btn sel" data-type="summary" onclick="selReport(this,'summary')"><i class="fas fa-chart-pie"></i><span>সারসংক্ষেপ রিপোর্ট</span></button>
+        <button class="rt-btn" data-type="fatwas" onclick="selReport(this,'fatwas')"><i class="fas fa-scroll"></i><span>ফতোয়া রিপোর্ট</span></button>
+        <button class="rt-btn" data-type="questions" onclick="selReport(this,'questions')"><i class="fas fa-question-circle"></i><span>প্রশ্ন রিপোর্ট</span></button>
+        <button class="rt-btn" data-type="full" onclick="selReport(this,'full')"><i class="fas fa-database"></i><span>সম্পূর্ণ রিপোর্ট</span></button>
+      </div>
+      <div class="report-preview" id="report-preview">সারসংক্ষেপ রিপোর্টে সাইটের সামগ্রিক পরিসংখ্যান অন্তর্ভুক্ত থাকবে।</div>
+      <button class="btn-gen-report" onclick="generateReport()"><i class="fas fa-download"></i> রিপোর্ট ডাউনলোড করুন</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── AUTH GUARD ──
+(function(){
+  const s = localStorage.getItem('adminSession') || sessionStorage.getItem('adminSession');
+  if(!s){
+    document.getElementById('auth-overlay').style.display='flex';
+    return;
+  }
+  try{
+    const d = JSON.parse(s);
+    if(!d.loggedIn){ document.getElementById('auth-overlay').style.display='flex'; return; }
+    // Show session info in topbar
+    const tb = document.getElementById('tb');
+    const info = document.createElement('div');
+    info.id = 'session-info';
+    info.innerHTML = `<i class="fas fa-user-circle" style="color:var(--gdl);"></i><strong>${d.name}</strong> (${d.roleLabel}) <button onclick="doLogout()" style="background:rgba(220,38,38,0.15);border:1px solid rgba(220,38,38,0.3);border-radius:6px;padding:0.15rem 0.5rem;font-size:0.68rem;color:#fca5a5;cursor:pointer;margin-left:0.3rem;" title="লগআউট"><i class="fas fa-sign-out-alt"></i></button>`;
+    tb.appendChild(info);
+  }catch(e){
+    document.getElementById('auth-overlay').style.display='flex';
+  }
+})();
+
+function doLogout(){
+  if(!confirm('লগআউট করবেন?')) return;
+  localStorage.removeItem('adminSession');
+  sessionStorage.removeItem('adminSession');
+  window.location.href='login.html';
+}
+
+// ── REPORT SYSTEM ──
+let reportType = 'summary';
+const reportDesc = {
+  summary: 'সারসংক্ষেপ রিপোর্টে সাইটের সামগ্রিক পরিসংখ্যান, মোট ফতোয়া, প্রশ্ন, বই ও ভিডিওর সংখ্যা অন্তর্ভুক্ত থাকবে।',
+  fatwas:  'ফতোয়া রিপোর্টে সকল প্রকাশিত ফতোয়ার তালিকা, বিভাগ বিভাজন ও পরিসংখ্যান থাকবে।',
+  questions:'প্রশ্ন রিপোর্টে সব প্রশ্নের তালিকা, স্ট্যাটাস বিশ্লেষণ ও বিভাগ বিভাজন থাকবে।',
+  full:    'সম্পূর্ণ রিপোর্টে সাইটের সব ডেটা — ফতোয়া, প্রশ্ন, প্রবন্ধ, বই ও ব্যবহারকারী অন্তর্ভুক্ত থাকবে।',
+};
+
+function selReport(btn, type){
+  document.querySelectorAll('.rt-btn').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+  reportType = type;
+  document.getElementById('report-preview').textContent = reportDesc[type];
+}
+
+function openReport(){
+  document.getElementById('report-modal').classList.add('open');
+}
+
+function generateReport(){
+  const db = SiteDB.get();
+  const now = new Date().toLocaleDateString('bn-BD');
+  let html = '';
+  const style = `<style>
+    body{font-family:'Noto Serif Bengali',Arial,sans-serif;color:#1a1a2e;padding:2rem;max-width:900px;margin:0 auto;}
+    h1{color:#0a4a3a;border-bottom:3px solid #c9a227;padding-bottom:0.5rem;font-size:1.5rem;}
+    h2{color:#0a4a3a;font-size:1.1rem;margin-top:1.5rem;border-left:4px solid #c9a227;padding-left:0.75rem;}
+    table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:0.82rem;}
+    th{background:#0a4a3a;color:#e4b84a;padding:0.55rem 0.75rem;text-align:left;}
+    td{padding:0.5rem 0.75rem;border-bottom:1px solid #ede8df;}
+    tr:nth-child(even){background:#f7f3ec;}
+    .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1rem 0;}
+    .stat-box{background:#e8f5f0;border-radius:8px;padding:1rem;text-align:center;border:1px solid rgba(10,74,58,0.15);}
+    .stat-num{font-size:2rem;font-weight:700;color:#0a4a3a;}
+    .stat-lbl{font-size:0.78rem;color:#6b7280;margin-top:0.2rem;}
+    .footer{margin-top:2rem;font-size:0.75rem;color:#9ca3af;border-top:1px solid #ede8df;padding-top:1rem;text-align:center;}
+    .badge{display:inline-block;padding:0.15rem 0.5rem;border-radius:50px;font-size:0.7rem;font-weight:600;}
+    .pub{background:#dcfce7;color:#16a34a;} .pend{background:#fef9c3;color:#ca8a04;} .dr{background:#f1f5f9;color:#64748b;} .new{background:#fce7f3;color:#be185d;} .ans{background:#e0f2fe;color:#0369a1;}
+    @media print{body{padding:1rem;}h1,h2{color:#000 !important;}}
+  </style>`;
+
+  if(reportType === 'summary'){
+    html = `<!DOCTYPE html><html lang="bn"><head><meta charset="UTF-8"><title>সারসংক্ষেপ রিপোর্ট</title>${style}</head><body>
+    <h1>📊 সারসংক্ষেপ রিপোর্ট</h1>
+    <p style="color:#6b7280;font-size:0.82rem;">তারিখ: ${now} | তৈরি করেছেন: ${db.scholar.name_bn}</p>
+    <h2>পরিসংখ্যান</h2>
+    <div class="stat-grid">
+      <div class="stat-box"><div class="stat-num">${db.fatwas.length}</div><div class="stat-lbl">মোট ফতোয়া</div></div>
+      <div class="stat-box"><div class="stat-num">${db.questions.length}</div><div class="stat-lbl">মোট প্রশ্ন</div></div>
+      <div class="stat-box"><div class="stat-num">${db.articles.length}</div><div class="stat-lbl">মোট প্রবন্ধ</div></div>
+      <div class="stat-box"><div class="stat-num">${db.books.length}</div><div class="stat-lbl">মোট বই</div></div>
+      <div class="stat-box"><div class="stat-num">${db.videos.length}</div><div class="stat-lbl">মোট ভিডিও</div></div>
+      <div class="stat-box"><div class="stat-num">${db.questions.filter(q=>q.status==='new').length}</div><div class="stat-lbl">অপেক্ষমান প্রশ্ন</div></div>
+    </div>
+    <div class="footer">মুফতি মুহাম্মদ আব্দুল লতিফ শেখ — Admin Dashboard · ${now}</div>
+    </body></html>`;
+  } else if(reportType === 'fatwas'){
+    html = `<!DOCTYPE html><html lang="bn"><head><meta charset="UTF-8"><title>ফতোয়া রিপোর্ট</title>${style}</head><body>
+    <h1>📜 ফতোয়া রিপোর্ট</h1>
+    <p style="color:#6b7280;font-size:0.82rem;">তারিখ: ${now} · মোট: ${db.fatwas.length}টি</p>
+    <h2>ফতোয়ার তালিকা</h2>
+    <table><thead><tr><th>#</th><th>প্রশ্ন</th><th>বিভাগ</th><th>তারিখ</th><th>ভিউ</th><th>স্ট্যাটাস</th></tr></thead><tbody>
+    ${db.fatwas.map((f,i)=>`<tr><td>${i+1}</td><td>${f.question}</td><td>${f.category}</td><td>${f.date||'-'}</td><td>${f.views||0}</td><td><span class="badge ${f.status==='published'?'pub':f.status==='pending'?'pend':'dr'}">${f.status}</span></td></tr>`).join('')}
+    </tbody></table>
+    <div class="footer">মুফতি মুহাম্মদ আব্দুল লতিফ শেখ — Admin Dashboard · ${now}</div>
+    </body></html>`;
+  } else if(reportType === 'questions'){
+    html = `<!DOCTYPE html><html lang="bn"><head><meta charset="UTF-8"><title>প্রশ্ন রিপোর্ট</title>${style}</head><body>
+    <h1>❓ প্রশ্ন রিপোর্ট</h1>
+    <p style="color:#6b7280;font-size:0.82rem;">তারিখ: ${now} · মোট: ${db.questions.length}টি</p>
+    <table><thead><tr><th>#</th><th>প্রশ্নকারী</th><th>বিষয়</th><th>বিভাগ</th><th>তারিখ</th><th>স্ট্যাটাস</th></tr></thead><tbody>
+    ${db.questions.map((q,i)=>`<tr><td>${i+1}</td><td>${q.name}</td><td>${q.subject}</td><td>${q.category||'-'}</td><td>${q.date||'-'}</td><td><span class="badge ${q.status==='new'?'new':q.status==='answered'?'ans':'pend'}">${q.status}</span></td></tr>`).join('')}
+    </tbody></table>
+    <div class="footer">মুফতি মুহাম্মদ আব্দুল লতিফ শেখ — Admin Dashboard · ${now}</div>
+    </body></html>`;
+  } else {
+    html = `<!DOCTYPE html><html lang="bn"><head><meta charset="UTF-8"><title>সম্পূর্ণ রিপোর্ট</title>${style}</head><body>
+    <h1>🗄️ সম্পূর্ণ ডেটা রিপোর্ট</h1>
+    <p style="color:#6b7280;font-size:0.82rem;">তারিখ: ${now}</p>
+    <h2>ফতোয়া (${db.fatwas.length})</h2>
+    <table><thead><tr><th>#</th><th>প্রশ্ন</th><th>বিভাগ</th><th>স্ট্যাটাস</th></tr></thead><tbody>
+    ${db.fatwas.slice(0,20).map((f,i)=>`<tr><td>${i+1}</td><td>${f.question.substring(0,60)}</td><td>${f.category}</td><td><span class="badge ${f.status==='published'?'pub':'dr'}">${f.status}</span></td></tr>`).join('')}
+    </tbody></table>
+    <h2>প্রশ্ন (${db.questions.length})</h2>
+    <table><thead><tr><th>#</th><th>প্রশ্নকারী</th><th>বিষয়</th><th>স্ট্যাটাস</th></tr></thead><tbody>
+    ${db.questions.slice(0,10).map((q,i)=>`<tr><td>${i+1}</td><td>${q.name}</td><td>${q.subject.substring(0,50)}</td><td><span class="badge ${q.status==='new'?'new':q.status==='answered'?'ans':'pend'}">${q.status}</span></td></tr>`).join('')}
+    </tbody></table>
+    <h2>বই (${db.books.length})</h2>
+    <table><thead><tr><th>#</th><th>নাম</th><th>সংস্করণ</th><th>পৃষ্ঠা</th><th>সাল</th></tr></thead><tbody>
+    ${db.books.map((b,i)=>`<tr><td>${i+1}</td><td>${b.title_bn}</td><td>${b.edition}</td><td>${b.pages}</td><td>${b.year}</td></tr>`).join('')}
+    </tbody></table>
+    <div class="footer">মুফতি মুহাম্মদ আব্দুল লতিফ শেখ — Admin Dashboard · ${now}</div>
+    </body></html>`;
+  }
+
+  // Open in new window and print/download
+  const win = window.open('','_blank','width=900,height=700');
+  win.document.write(html);
+  win.document.close();
+  setTimeout(()=>win.print(), 600);
+  document.getElementById('report-modal').classList.remove('open');
+  toast('রিপোর্ট তৈরি হয়েছে! নতুন উইন্ডোতে দেখুন।','ok');
+}
+
+// Override report button in dashboard
+document.addEventListener('DOMContentLoaded',()=>{
+  const rBtn = document.querySelector('[onclick*="রিপোর্ট"]');
+  if(rBtn) rBtn.setAttribute('onclick','openReport()');
+});
+</script>
