@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>বইসমূহ — মুফতি আব্দুল লতিফ শেখ</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;500;600;700&family=Cinzel:wght@400;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<style>
+:root{--em:#0a4a3a;--em2:#0d5c49;--em3:#1a7a5e;--emp:#e8f5f0;--gd:#c9a227;--gdl:#e4b84a;--bg:#f7f3ec;--bgd:#ede8df;--wh:#fff;--td:#1a1a2e;--tm:#3d3d56;--tl:#6b7280;--rad:14px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Serif Bengali',serif;background:var(--bg);color:var(--td);}
+.top-nav{background:var(--em);padding:0.75rem 0;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,0.2);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.nav-brand{display:flex;align-items:center;gap:0.65rem;text-decoration:none;}
+.nav-emblem{width:38px;height:38px;background:linear-gradient(135deg,var(--gd),var(--gdl));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Amiri',serif;font-size:1.2rem;color:var(--em);font-weight:700;}
+.nav-name{font-size:0.82rem;font-weight:700;color:#fff;}
+.nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:0.8rem;padding:0.35rem 0.7rem;border-radius:7px;transition:all 0.2s;display:inline-block;}
+.nav-links a:hover,.nav-links a.act{background:rgba(201,162,39,0.15);color:var(--gdl);}
+.page-hero{background:linear-gradient(135deg,var(--em),var(--em2));padding:3rem 0 2rem;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c9a227' stroke-width='0.4' stroke-opacity='0.12'%3E%3Cpolygon points='30,2 58,16 58,44 30,58 2,44 2,16'/%3E%3C/g%3E%3C/svg%3E");background-size:60px;}
+.ph-label{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.2em;color:var(--gdl);text-transform:uppercase;display:block;margin-bottom:0.5rem;}
+.ph-title{font-size:clamp(1.5rem,4vw,2.2rem);font-weight:700;color:#fff;margin-bottom:0.5rem;}
+.ph-sub{font-size:0.88rem;color:rgba(255,255,255,0.7);}
+.bc{background:var(--wh);padding:0.55rem 0;border-bottom:1px solid var(--bgd);font-size:0.75rem;}
+.bc a{color:var(--em);text-decoration:none;}
+/* FILTER */
+.filter-section{padding:1.5rem 0;background:var(--wh);border-bottom:1px solid var(--bgd);}
+.filter-row{display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;}
+.fsearch{display:flex;align-items:center;gap:0.5rem;background:var(--bg);border:1.5px solid var(--bgd);border-radius:10px;padding:0.55rem 1rem;flex:1;min-width:200px;}
+.fsearch input{border:none;background:none;outline:none;font-family:'Noto Serif Bengali',serif;font-size:0.85rem;color:var(--td);width:100%;}
+.fsearch:focus-within{border-color:var(--gd);}
+.fselect{border:1.5px solid var(--bgd);border-radius:10px;padding:0.52rem 0.85rem;font-family:'Noto Serif Bengali',serif;font-size:0.82rem;color:var(--td);background:var(--bg);outline:none;cursor:pointer;}
+.fselect:focus{border-color:var(--gd);}
+/* BOOK GRID */
+.books-section{padding:2.5rem 0;}
+.count-bar{font-size:0.82rem;color:var(--tl);margin-bottom:1.25rem;}
+.book-card{background:var(--wh);border-radius:var(--rad);overflow:hidden;box-shadow:0 3px 18px rgba(0,0,0,0.07);transition:all 0.3s;border:1px solid rgba(0,0,0,0.05);height:100%;}
+.book-card:hover{transform:translateY(-6px);box-shadow:0 10px 36px rgba(10,74,58,0.16);}
+.book-cover{height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.25rem;position:relative;overflow:hidden;}
+.book-cover::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.4));}
+.cover-ar{font-family:'Amiri',serif;font-size:1.5rem;color:rgba(255,255,255,0.9);direction:rtl;text-align:center;position:relative;z-index:1;margin-bottom:0.4rem;}
+.cover-bn{font-size:0.85rem;color:rgba(255,255,255,0.8);text-align:center;position:relative;z-index:1;font-weight:600;}
+.book-body{padding:1.35rem;}
+.book-title{font-size:1rem;font-weight:700;color:var(--td);margin-bottom:0.3rem;line-height:1.4;}
+.book-title-ar{font-family:'Amiri',serif;font-size:0.95rem;color:var(--tl);direction:rtl;margin-bottom:0.7rem;}
+.book-desc{font-size:0.82rem;color:var(--tl);line-height:1.7;margin-bottom:1rem;}
+.book-meta{display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:1rem;font-size:0.75rem;}
+.bm-item{display:flex;align-items:center;gap:0.3rem;color:var(--tl);}
+.bm-item i{color:var(--gd);font-size:0.7rem;}
+.book-actions{display:flex;gap:0.5rem;flex-wrap:wrap;}
+.btn-book{display:inline-flex;align-items:center;gap:0.38rem;padding:0.5rem 1rem;border-radius:50px;font-family:'Noto Serif Bengali',serif;font-size:0.78rem;font-weight:600;cursor:pointer;transition:all 0.22s;text-decoration:none;border:none;}
+.btn-book-p{background:linear-gradient(135deg,var(--em),var(--em2));color:var(--gdl);}
+.btn-book-p:hover{box-shadow:0 4px 16px rgba(10,74,58,0.38);transform:translateY(-2px);color:var(--gdl);}
+.btn-book-g{background:linear-gradient(135deg,#1a6b3a,#25a35a);color:#fff;}
+.btn-book-g:hover{box-shadow:0 4px 16px rgba(26,107,58,0.38);transform:translateY(-2px);color:#fff;}
+.btn-book-o{background:none;border:1.5px solid var(--bgd);color:var(--tm);}
+.btn-book-o:hover{border-color:var(--em);color:var(--em);}
+/* MODAL */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:500;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px);padding:1rem;}
+.modal-bg.open{display:flex;}
+.modal-box{background:var(--wh);border-radius:var(--rad);width:100%;max-width:600px;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.3);animation:mIn 0.3s ease;}
+@keyframes mIn{from{transform:translateY(24px);opacity:0;}to{transform:none;opacity:1;}}
+.modal-header{background:linear-gradient(135deg,var(--em),var(--em2));padding:1.35rem 1.5rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;}
+.modal-header-info{}
+.modal-header-ar{font-family:'Amiri',serif;font-size:1.3rem;color:var(--gdl);direction:rtl;display:block;margin-bottom:0.3rem;}
+.modal-header-title{font-size:1rem;font-weight:700;color:#fff;margin-bottom:0.2rem;}
+.modal-header-sub{font-size:0.78rem;color:rgba(255,255,255,0.65);}
+.modal-close{background:rgba(255,255,255,0.15);border:none;width:30px;height:30px;border-radius:7px;color:#fff;cursor:pointer;font-size:0.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.2s;}
+.modal-close:hover{background:rgba(255,255,255,0.25);}
+.modal-body{padding:1.5rem;}
+.mb-section{margin-bottom:1.25rem;}
+.mb-section-title{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gd);margin-bottom:0.6rem;padding-bottom:0.4rem;border-bottom:1px solid var(--bgd);}
+.mb-section p{font-size:0.87rem;color:var(--tm);line-height:1.8;}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:0.35rem;}
+.toc-list li{display:flex;align-items:center;gap:0.5rem;font-size:0.83rem;color:var(--tm);padding:0.35rem 0.6rem;border-radius:7px;background:var(--bg);}
+.toc-list li i{color:var(--gd);font-size:0.7rem;flex-shrink:0;}
+.dl-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.65rem;margin-top:0.5rem;}
+.dl-btn{display:flex;align-items:center;gap:0.5rem;padding:0.75rem 1rem;border-radius:10px;font-family:'Noto Serif Bengali',serif;font-size:0.82rem;font-weight:600;cursor:pointer;transition:all 0.22s;text-decoration:none;border:none;justify-content:center;}
+.dl-primary{background:linear-gradient(135deg,var(--em),var(--em2));color:var(--gdl);}
+.dl-primary:hover{box-shadow:0 4px 16px rgba(10,74,58,0.38);transform:translateY(-2px);color:var(--gdl);}
+.dl-green{background:linear-gradient(135deg,#1a6b3a,#25a35a);color:#fff;}
+.dl-green:hover{box-shadow:0 4px 16px rgba(26,107,58,0.38);transform:translateY(-2px);color:#fff;}
+.dl-outline{background:none;border:1.5px solid var(--bgd);color:var(--tm);}
+.dl-outline:hover{border-color:var(--em);color:var(--em);}
+/* NO RESULT */
+.no-result{text-align:center;padding:3rem 1rem;color:var(--tl);}
+.no-result i{font-size:3rem;margin-bottom:1rem;color:var(--bgd);}
+@media(max-width:576px){.dl-grid{grid-template-columns:1fr;}.modal-body{padding:1.1rem;}.modal-header{padding:1.1rem;}.filter-row{flex-direction:column;align-items:stretch;}.fsearch{min-width:unset;}}
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand"><div class="nav-emblem">م</div><span class="nav-name">মুফতি আব্দুল লতিফ শেখ</span></a>
+      <div class="nav-links">
+        <a href="index.html">হোম</a>
+        <a href="fatwa-archive.html">দারুল ইফতা</a>
+        <a href="books.html" class="act">বইসমূহ</a>
+        <a href="index.html#contact">যোগাযোগ</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <span class="ph-label">প্রকাশনা</span>
+    <h1 class="ph-title">বই ও গ্রন্থসমূহ</h1>
+    <p class="ph-sub">ইসলামি জ্ঞানের বিভিন্ন শাখায় রচিত মূল্যবান গ্রন্থসমূহ</p>
+  </div>
+</div>
+<div class="bc"><div class="container"><a href="index.html">হোম</a> &rsaquo; <span>বইসমূহ</span></div></div>
+
+<div class="filter-section">
+  <div class="container">
+    <div class="filter-row">
+      <div class="fsearch"><i class="fas fa-search"></i><input type="text" id="bsearch" placeholder="বই খুঁজুন..." oninput="renderBooks()"></div>
+      <select class="fselect" id="bsort" onchange="renderBooks()">
+        <option value="new">সর্বশেষ</option>
+        <option value="old">পুরনো প্রথমে</option>
+        <option value="az">বর্ণানুক্রম</option>
+      </select>
+      <select class="fselect" id="bstatus" onchange="renderBooks()">
+        <option value="published">প্রকাশিত</option>
+        <option value="all">সব</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div class="books-section">
+  <div class="container">
+    <div class="count-bar" id="count-bar"></div>
+    <div class="row g-4" id="books-grid"></div>
+  </div>
+</div>
+
+<!-- BOOK DETAIL MODAL -->
+<div class="modal-bg" id="book-modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box" id="modal-box"></div>
+</div>
+
+<script src="db.js"></script>
+<script>
+const COVERS=[
+  'linear-gradient(135deg,#0a4a3a,#1a7a5e)',
+  'linear-gradient(135deg,#7c4c00,#c9a227)',
+  'linear-gradient(135deg,#2c1654,#6b35a3)',
+  'linear-gradient(135deg,#1a2e4a,#2d5a8e)',
+  'linear-gradient(135deg,#4a1a0a,#a33d1a)',
+  'linear-gradient(135deg,#1a3a1a,#3a7a3a)',
+];
+
+const DEFAULT_BOOKS=[
+  {id:1,title_bn:'সমসাময়িক ফতোয়া সংকলন',title_ar:'فتاوى العصرية',edition:'৩য়',pages:480,year:'২০২০',status:'published',
+   desc:'আধুনিক যুগের বিভিন্ন মাসায়েলের বিস্তারিত সমাধান সংবলিত এই গ্রন্থটি বাংলাদেশের ইসলামি শিক্ষার্থীদের জন্য অপরিহার্য।',
+   toc:['সুদ ও ব্যাংকিং','বীমার বিধান','ডিজিটাল লেনদেন','পারিবারিক মাসায়েল','সমসাময়িক চ্যালেঞ্জ'],
+   pdf_url:'#',read_url:'#'},
+  {id:2,title_bn:'যাকাতের বিধানাবলী',title_ar:'أحكام الزكاة',edition:'২য়',pages:320,year:'২০১৮',status:'published',
+   desc:'কুরআন, হাদিস ও ফিকহের আলোকে যাকাতের সকল মাসায়েলের সমন্বিত ও বিস্তারিত আলোচনা।',
+   toc:['যাকাতের ফরযিয়ত','নিসাবের বিবরণ','যাকাতের খাত','আধুনিক সম্পদে যাকাত','ফিতরা'],
+   pdf_url:'#',read_url:'#'},
+  {id:3,title_bn:'ইসলামি পারিবারিক আইন',title_ar:'أحكام الأسرة',edition:'১ম',pages:560,year:'২০২২',status:'published',
+   desc:'বিবাহ, তালাক, খোলা, মিরাস সহ পারিবারিক বিষয়াদির সমগ্র আলোচনা কুরআন ও সুন্নাহর দলিলসহ।',
+   toc:['বিবাহের বিধান','তালাকের প্রকারভেদ','ইদ্দত','মিরাস বণ্টন','শিশু অভিভাবকত্ব'],
+   pdf_url:'#',read_url:'#'},
+  {id:4,title_bn:'ইসলামি অর্থনীতি ও ব্যবসা বিধি',title_ar:'الفقه المعاملات',edition:'২য়',pages:410,year:'২০২১',status:'published',
+   desc:'হালাল উপার্জন, বিনিয়োগ ও ব্যবসার শরঈ নিয়মকানুনের বিস্তারিত বিবরণ আধুনিক দৃষ্টিকোণে।',
+   toc:['হালাল উপার্জন','ইসলামি ব্যাংকিং','শেয়ার বাজার','অংশীদারিত্ব','ই-কমার্স'],
+   pdf_url:'#',read_url:'#'},
+];
+
+let db;
+function init(){
+  db=SiteDB.get();
+  if(!db.books||db.books.length===0){ db.books=DEFAULT_BOOKS; SiteDB.set(db); }
+  renderBooks();
+}
+
+function renderBooks(){
+  db=SiteDB.get();
+  let data=[...db.books];
+  const q=document.getElementById('bsearch').value.toLowerCase();
+  const sort=document.getElementById('bsort').value;
+  const status=document.getElementById('bstatus').value;
+  if(status!=='all') data=data.filter(b=>b.status==='published');
+  if(q) data=data.filter(b=>(b.title_bn+b.title_ar+b.desc).toLowerCase().includes(q));
+  if(sort==='old') data=data.reverse();
+  else if(sort==='az') data=data.sort((a,b)=>a.title_bn.localeCompare(b.title_bn,'bn'));
+  document.getElementById('count-bar').textContent=`মোট ${data.length}টি বই পাওয়া গেছে`;
+  if(!data.length){
+    document.getElementById('books-grid').innerHTML=`<div class="col-12"><div class="no-result"><i class="fas fa-book"></i><h4 style="font-size:1rem;font-weight:600;color:var(--tm);margin-bottom:0.5rem;">কোনো বই পাওয়া যায়নি</h4><p style="font-size:0.85rem;">অন্য শব্দ দিয়ে অনুসন্ধান করুন</p></div></div>`;
+    return;
+  }
+  document.getElementById('books-grid').innerHTML=data.map((b,i)=>`
+    <div class="col-sm-6 col-lg-4 col-xl-3">
+      <div class="book-card">
+        <div class="book-cover" style="background:${COVERS[b.id%COVERS.length]||COVERS[0]}">
+          <span class="cover-ar">${b.title_ar||''}</span>
+          <span class="cover-bn">${b.title_bn}</span>
+        </div>
+        <div class="book-body">
+          <div class="book-title">${b.title_bn}</div>
+          <div class="book-title-ar">${b.title_ar||''}</div>
+          <p class="book-desc">${(b.desc||'').substring(0,100)}${(b.desc||'').length>100?'...':''}</p>
+          <div class="book-meta">
+            <span class="bm-item"><i class="fas fa-layer-group"></i>${b.edition||''} সংস্করণ</span>
+            <span class="bm-item"><i class="fas fa-file-alt"></i>${b.pages||0} পৃষ্ঠা</span>
+            <span class="bm-item"><i class="fas fa-calendar"></i>${b.year||''}</span>
+          </div>
+          <div class="book-actions">
+            <button class="btn-book btn-book-p" onclick="openBook(${b.id})"><i class="fas fa-book-open"></i>বিস্তারিত দেখুন</button>
+          </div>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function openBook(id){
+  db=SiteDB.get();
+  const b=db.books.find(x=>x.id===id);if(!b)return;
+  const toc=b.toc||[];
+  document.getElementById('modal-box').innerHTML=`
+    <div class="modal-header">
+      <div class="modal-header-info">
+        <span class="modal-header-ar">${b.title_ar||''}</span>
+        <div class="modal-header-title">${b.title_bn}</div>
+        <div class="modal-header-sub">${b.edition||''} সংস্করণ · ${b.pages||''} পৃষ্ঠা · ${b.year||''}</div>
+      </div>
+      <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="mb-section">
+        <div class="mb-section-title"><i class="fas fa-info-circle"></i> বইয়ের পরিচিতি</div>
+        <p>${b.desc||'বিবরণ পাওয়া যায়নি।'}</p>
+      </div>
+      ${toc.length?`
+      <div class="mb-section">
+        <div class="mb-section-title"><i class="fas fa-list-ol"></i> বিষয়সূচি (নমুনা)</div>
+        <ul class="toc-list">
+          ${toc.map((t,i)=>`<li><i class="fas fa-chevron-right"></i>${i+1}. ${t}</li>`).join('')}
+        </ul>
+      </div>`:''}
+      <div class="mb-section">
+        <div class="mb-section-title"><i class="fas fa-download"></i> ডাউনলোড ও পড়ুন</div>
+        <div class="dl-grid">
+          <a href="${b.read_url||'#'}" class="dl-btn dl-primary" onclick="if(this.href==location.href+'#')showNotAvail(event)"><i class="fas fa-book-open"></i> অনলাইনে পড়ুন</a>
+          <a href="${b.pdf_url||'#'}" class="dl-btn dl-green" onclick="if(this.href==location.href+'#')showNotAvail(event)" download><i class="fas fa-file-pdf"></i> PDF ডাউনলোড</a>
+          <button class="dl-btn dl-outline" onclick="sharebook(${b.id})"><i class="fas fa-share-alt"></i> শেয়ার করুন</button>
+          <button class="dl-btn dl-outline" onclick="window.print()"><i class="fas fa-print"></i> প্রিন্ট</button>
+        </div>
+        <div id="na-msg" style="display:none;background:#fef3c7;border:1px solid #fde68a;border-radius:9px;padding:0.75rem 1rem;font-size:0.82rem;color:#92400e;margin-top:0.75rem;"><i class="fas fa-info-circle" style="margin-right:0.4rem;"></i>এই বইটির ডিজিটাল সংস্করণ শীঘ্রই উপলব্ধ হবে। যোগাযোগ করুন: <a href="index.html#contact" style="color:var(--em);">এখানে ক্লিক করুন</a></div>
+      </div>
+      <div class="mb-section" style="margin-bottom:0;">
+        <div class="mb-section-title"><i class="fas fa-info"></i> প্রকাশনা তথ্য</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.8rem;">
+          <div style="background:var(--bg);padding:0.6rem 0.75rem;border-radius:8px;"><span style="color:var(--tl);">লেখক</span><div style="font-weight:600;color:var(--td);font-size:0.82rem;">মুফতি মুহাম্মদ আব্দুল লতিফ শেখ</div></div>
+          <div style="background:var(--bg);padding:0.6rem 0.75rem;border-radius:8px;"><span style="color:var(--tl);">সংস্করণ</span><div style="font-weight:600;color:var(--td);">${b.edition||'-'}</div></div>
+          <div style="background:var(--bg);padding:0.6rem 0.75rem;border-radius:8px;"><span style="color:var(--tl);">পৃষ্ঠাসংখ্যা</span><div style="font-weight:600;color:var(--td);">${b.pages||'-'}</div></div>
+          <div style="background:var(--bg);padding:0.6rem 0.75rem;border-radius:8px;"><span style="color:var(--tl);">প্রকাশ সাল</span><div style="font-weight:600;color:var(--td);">${b.year||'-'}</div></div>
+        </div>
+      </div>
+    </div>`;
+  document.getElementById('book-modal').classList.add('open');
+}
+
+function showNotAvail(e){
+  e.preventDefault();
+  document.getElementById('na-msg').style.display='block';
+}
+function sharebook(id){
+  const url=location.origin+location.pathname+'?book='+id;
+  if(navigator.share){navigator.share({title:'বই',url});}
+  else{navigator.clipboard?.writeText(url);alert('লিংক কপি হয়েছে!');}
+}
+function closeModal(){document.getElementById('book-modal').classList.remove('open');}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+// Check URL param
+const params=new URLSearchParams(location.search);
+if(params.get('book')) setTimeout(()=>openBook(parseInt(params.get('book'))),300);
+
+init();
+</script>
+</body>
+</html>
