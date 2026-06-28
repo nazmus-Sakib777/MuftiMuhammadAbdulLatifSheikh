@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ফতোয়া আর্কাইভ — মুফতি আব্দুল লতিফ শেখ</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;500;600;700&family=Cinzel:wght@400;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<style>
+:root{--em:#0a4a3a;--em2:#0d5c49;--em3:#1a7a5e;--emp:#e8f5f0;--gd:#c9a227;--gdl:#e4b84a;--bg:#f7f3ec;--bgd:#ede8df;--wh:#fff;--td:#1a1a2e;--tm:#3d3d56;--tl:#6b7280;--rad:12px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Serif Bengali',serif;background:var(--bg);color:var(--td);}
+/* NAV */
+.top-nav{background:var(--em);padding:0.75rem 0;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,0.2);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.nav-brand{display:flex;align-items:center;gap:0.65rem;text-decoration:none;}
+.nav-emblem{width:38px;height:38px;background:linear-gradient(135deg,var(--gd),var(--gdl));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Amiri',serif;font-size:1.2rem;color:var(--em);font-weight:700;}
+.nav-name{font-size:0.82rem;font-weight:700;color:#fff;}
+.nav-links{display:flex;gap:0.25rem;flex-wrap:wrap;}
+.nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:0.8rem;padding:0.35rem 0.7rem;border-radius:7px;transition:all 0.2s;}
+.nav-links a:hover,.nav-links a.act{background:rgba(201,162,39,0.15);color:var(--gdl);}
+/* PAGE HERO */
+.page-hero{background:linear-gradient(135deg,var(--em),var(--em2));padding:3rem 0 2rem;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c9a227' stroke-width='0.4' stroke-opacity='0.12'%3E%3Cpolygon points='30,2 58,16 58,44 30,58 2,44 2,16'/%3E%3C/g%3E%3C/svg%3E");background-size:60px;}
+.ph-label{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.2em;color:var(--gdl);text-transform:uppercase;display:block;margin-bottom:0.5rem;}
+.ph-title{font-size:clamp(1.5rem,4vw,2.2rem);font-weight:700;color:#fff;margin-bottom:0.5rem;}
+.ph-sub{font-size:0.88rem;color:rgba(255,255,255,0.7);}
+/* BREADCRUMB */
+.bc{background:var(--wh);padding:0.55rem 0;border-bottom:1px solid var(--bgd);font-size:0.75rem;}
+.bc a{color:var(--em);text-decoration:none;}
+.bc span{color:var(--tl);}
+/* LAYOUT */
+.main-layout{display:grid;grid-template-columns:270px 1fr;gap:1.75rem;padding:2rem 0 3rem;}
+/* SIDEBAR */
+.sidebar{}
+.sb-box{background:var(--wh);border-radius:var(--rad);padding:1.25rem;box-shadow:0 2px 12px rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.05);margin-bottom:1.1rem;}
+.sb-title{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gd);margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--bgd);}
+.search-box{display:flex;align-items:center;gap:0.5rem;background:var(--bg);border:1.5px solid var(--bgd);border-radius:9px;padding:0.5rem 0.85rem;}
+.search-box input{border:none;background:none;outline:none;font-family:'Noto Serif Bengali',serif;font-size:0.82rem;color:var(--td);width:100%;}
+.search-box i{color:var(--tl);font-size:0.82rem;flex-shrink:0;}
+.search-box:focus-within{border-color:var(--gd);}
+.cat-list{display:flex;flex-direction:column;gap:0.3rem;}
+.cat-item{display:flex;align-items:center;justify-content:space-between;padding:0.55rem 0.8rem;border-radius:8px;cursor:pointer;transition:all 0.2s;font-size:0.83rem;color:var(--tm);border:1.5px solid transparent;}
+.cat-item:hover,.cat-item.act{background:var(--emp);border-color:rgba(10,74,58,0.15);color:var(--em);font-weight:600;}
+.cat-item .cn{display:flex;align-items:center;gap:0.5rem;}
+.cat-item .cc{background:var(--bgd);color:var(--tl);font-size:0.66rem;padding:0.1rem 0.5rem;border-radius:50px;font-family:'Cinzel',serif;}
+.cat-item.act .cc{background:var(--em);color:var(--gdl);}
+.recent-f{display:flex;flex-direction:column;gap:0.6rem;}
+.rf-item{display:flex;gap:0.65rem;align-items:flex-start;cursor:pointer;transition:all 0.2s;padding:0.4rem;border-radius:7px;}
+.rf-item:hover{background:var(--bg);}
+.rf-dot{width:7px;height:7px;background:var(--gd);border-radius:50%;margin-top:0.45rem;flex-shrink:0;}
+.rf-q{font-size:0.78rem;color:var(--tm);line-height:1.5;}
+/* MAIN CONTENT */
+.content-area{}
+/* SEARCH + FILTER BAR */
+.filter-bar{background:var(--wh);border-radius:var(--rad);padding:1.1rem 1.25rem;box-shadow:0 2px 12px rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.05);margin-bottom:1.25rem;display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;}
+.filter-bar .main-search{display:flex;align-items:center;gap:0.5rem;background:var(--bg);border:1.5px solid var(--bgd);border-radius:9px;padding:0.55rem 1rem;flex:1;min-width:200px;}
+.filter-bar .main-search input{border:none;background:none;outline:none;font-family:'Noto Serif Bengali',serif;font-size:0.85rem;color:var(--td);width:100%;}
+.filter-bar .main-search:focus-within{border-color:var(--gd);}
+.filter-bar select{border:1.5px solid var(--bgd);border-radius:9px;padding:0.52rem 0.85rem;font-family:'Noto Serif Bengali',serif;font-size:0.82rem;color:var(--td);background:var(--bg);outline:none;cursor:pointer;}
+.filter-bar select:focus{border-color:var(--gd);}
+/* CAT HEADER */
+.cat-header{background:linear-gradient(135deg,var(--em),var(--em2));border-radius:var(--rad);padding:1.25rem 1.5rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:1rem;}
+.cat-header .icon{font-size:2rem;}
+.cat-header h2{font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:0.15rem;}
+.cat-header p{font-size:0.8rem;color:rgba(255,255,255,0.7);}
+/* FATWA CARD */
+.fatwa-card{background:var(--wh);border-radius:var(--rad);padding:1.4rem;border-left:4px solid var(--gd);box-shadow:0 2px 12px rgba(0,0,0,0.05);margin-bottom:0.9rem;transition:all 0.25s;cursor:pointer;position:relative;}
+.fatwa-card:hover{transform:translateX(4px);box-shadow:0 4px 24px rgba(201,162,39,0.2);}
+.fatwa-card .fc-num{position:absolute;top:1rem;right:1rem;font-family:'Cinzel',serif;font-size:0.62rem;color:var(--tl);background:var(--bg);padding:0.15rem 0.5rem;border-radius:50px;}
+.fatwa-card .fc-cat{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gd);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.35rem;}
+.fatwa-card .fc-q{font-size:0.97rem;font-weight:600;color:var(--td);margin-bottom:0.6rem;line-height:1.5;padding-right:3rem;}
+.fatwa-card .fc-ans{font-size:0.82rem;color:var(--tl);line-height:1.7;margin-bottom:0.85rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.fatwa-card .fc-foot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--bgd);padding-top:0.7rem;font-size:0.73rem;color:var(--tl);}
+.fc-meta{display:flex;align-items:center;gap:0.9rem;}
+.btn-detail{font-size:0.78rem;color:var(--em);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:0.3rem;transition:gap 0.2s;}
+.btn-detail:hover{gap:0.55rem;color:var(--gd);}
+/* FATWA DETAIL PANEL */
+.detail-panel{display:none;background:var(--wh);border-radius:var(--rad);box-shadow:0 8px 40px rgba(0,0,0,0.12);border:1px solid rgba(0,0,0,0.06);overflow:hidden;margin-bottom:1.25rem;}
+.detail-panel.show{display:block;}
+.dp-header{background:linear-gradient(135deg,var(--em),var(--em2));padding:1.5rem;position:relative;}
+.dp-close{position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,0.15);border:none;width:30px;height:30px;border-radius:7px;color:#fff;cursor:pointer;font-size:0.85rem;display:flex;align-items:center;justify-content:center;transition:background 0.2s;}
+.dp-close:hover{background:rgba(255,255,255,0.25);}
+.dp-cat{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gdl);margin-bottom:0.5rem;}
+.dp-q{font-size:1.05rem;font-weight:700;color:#fff;line-height:1.5;padding-right:2.5rem;}
+.dp-body{padding:1.5rem;}
+.dp-section{margin-bottom:1.5rem;}
+.dp-section-title{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gd);margin-bottom:0.7rem;padding-bottom:0.4rem;border-bottom:1px solid var(--bgd);display:flex;align-items:center;gap:0.4rem;}
+.dp-section-title i{font-size:0.75rem;}
+.dp-answer{font-size:0.9rem;color:var(--tm);line-height:2;background:var(--bg);border-radius:9px;padding:1.1rem 1.25rem;border-left:3px solid var(--em);}
+.dp-evidence{font-size:0.85rem;color:var(--tm);line-height:1.8;background:var(--gdp,#fdf6e3);border-radius:9px;padding:1rem 1.25rem;border:1px solid rgba(201,162,39,0.2);}
+.dp-evidence .ev-item{display:flex;align-items:flex-start;gap:0.5rem;margin-bottom:0.4rem;}
+.dp-evidence .ev-item:last-child{margin-bottom:0;}
+.dp-evidence .ev-item i{color:var(--gd);font-size:0.75rem;margin-top:0.3rem;flex-shrink:0;}
+.dp-actions{display:flex;gap:0.65rem;flex-wrap:wrap;padding:0 1.5rem 1.5rem;}
+.dp-btn{display:inline-flex;align-items:center;gap:0.4rem;padding:0.55rem 1.2rem;border-radius:50px;font-family:'Noto Serif Bengali',serif;font-size:0.8rem;font-weight:600;cursor:pointer;transition:all 0.2s;text-decoration:none;border:none;}
+.dp-btn-p{background:linear-gradient(135deg,var(--em),var(--em2));color:var(--gdl);}
+.dp-btn-p:hover{box-shadow:0 4px 14px rgba(10,74,58,0.35);transform:translateY(-2px);color:var(--gdl);}
+.dp-btn-o{background:none;border:1.5px solid var(--bgd);color:var(--tm);}
+.dp-btn-o:hover{border-color:var(--em);color:var(--em);}
+/* NO RESULTS */
+.no-result{text-align:center;padding:3rem 1rem;color:var(--tl);}
+.no-result i{font-size:3rem;margin-bottom:1rem;color:var(--bgd);}
+/* PAGINATION */
+.pagination-wrap{display:flex;align-items:center;justify-content:space-between;margin-top:1.25rem;flex-wrap:wrap;gap:0.75rem;}
+.pag-info{font-size:0.78rem;color:var(--tl);}
+.pag-btns{display:flex;gap:0.3rem;}
+.pag-btn{width:32px;height:32px;border:1.5px solid var(--bgd);background:none;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.78rem;color:var(--tm);cursor:pointer;transition:all 0.2s;}
+.pag-btn.act{background:var(--em);border-color:var(--em);color:#fff;}
+.pag-btn:hover:not(.act){border-color:var(--em);color:var(--em);}
+/* MOBILE SIDEBAR TOGGLE */
+.sb-toggle{display:none;background:var(--em);color:var(--gdl);border:none;border-radius:9px;padding:0.5rem 0.85rem;font-size:0.82rem;cursor:pointer;margin-bottom:1rem;align-items:center;gap:0.4rem;}
+@media(max-width:900px){
+  .main-layout{grid-template-columns:1fr;}
+  .sidebar{order:2;}
+  .content-area{order:1;}
+  .sb-toggle{display:flex;}
+  .sidebar-inner{display:none;}
+  .sidebar-inner.open{display:block;}
+}
+@media(max-width:576px){
+  .filter-bar{flex-direction:column;align-items:stretch;}
+  .filter-bar .main-search{min-width:unset;}
+  .dp-actions{padding:0 1rem 1rem;}
+  .dp-body{padding:1.1rem;}
+  .dp-header{padding:1.1rem;}
+  .dp-q{font-size:0.95rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top-nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-emblem">م</div>
+        <span class="nav-name">মুফতি আব্দুল লতিফ শেখ</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">হোম</a>
+        <a href="fatwa-archive.html" class="act">দারুল ইফতা</a>
+        <a href="books.html">বইসমূহ</a>
+        <a href="index.html#contact">যোগাযোগ</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <span class="ph-label">দারুল ইফতা</span>
+    <h1 class="ph-title">ফতোয়া আর্কাইভ</h1>
+    <p class="ph-sub">কুরআন ও সুন্নাহর আলোকে ইসলামি প্রশ্নের সমাধান</p>
+  </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="bc">
+  <div class="container">
+    <a href="index.html">হোম</a> &rsaquo; <span>ফতোয়া আর্কাইভ</span>
+    <span id="bc-cat"></span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="main-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <button class="sb-toggle" onclick="toggleSB()"><i class="fas fa-filter"></i> বিভাগ ও অনুসন্ধান</button>
+      <div class="sidebar-inner" id="sb-inner">
+        <!-- Search -->
+        <div class="sb-box">
+          <div class="sb-title"><i class="fas fa-search"></i> ফতোয়া অনুসন্ধান</div>
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="sb-search" placeholder="প্রশ্ন টাইপ করুন..." oninput="doSearch(this.value)">
+          </div>
+        </div>
+        <!-- Categories -->
+        <div class="sb-box">
+          <div class="sb-title"><i class="fas fa-list"></i> বিভাগসমূহ</div>
+          <div class="cat-list" id="cat-list"></div>
+        </div>
+        <!-- Recent -->
+        <div class="sb-box">
+          <div class="sb-title"><i class="fas fa-clock"></i> সাম্প্রতিক ফতোয়া</div>
+          <div class="recent-f" id="recent-list"></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="content-area">
+      <!-- Filter bar -->
+      <div class="filter-bar">
+        <div class="main-search">
+          <i class="fas fa-search"></i>
+          <input type="text" id="main-search" placeholder="ফতোয়া অনুসন্ধান করুন..." oninput="doSearch(this.value)">
+        </div>
+        <select id="sort-sel" onchange="renderFatwas()">
+          <option value="new">সর্বশেষ</option>
+          <option value="popular">সর্বাধিক পঠিত</option>
+          <option value="az">বর্ণানুক্রম</option>
+        </select>
+        <select id="status-sel" onchange="renderFatwas()">
+          <option value="published">প্রকাশিত</option>
+          <option value="all">সব</option>
+        </select>
+      </div>
+
+      <!-- Category header -->
+      <div class="cat-header" id="cat-header">
+        <div class="icon" id="cat-icon">📚</div>
+        <div>
+          <h2 id="cat-title">সকল ফতোয়া</h2>
+          <p id="cat-desc">সকল বিভাগের প্রকাশিত ফতোয়াসমূহ</p>
+        </div>
+      </div>
+
+      <!-- Detail panel -->
+      <div class="detail-panel" id="detail-panel"></div>
+
+      <!-- Fatwa list -->
+      <div id="fatwa-list"></div>
+
+      <!-- Pagination -->
+      <div class="pagination-wrap" id="pag-wrap"></div>
+    </main>
+
+  </div>
+</div>
+
+<script src="db.js"></script>
+<script>
+const CATS = [
+  {slug:'all',      name:'সব বিভাগ',         icon:'📚', desc:'সকল বিভাগের প্রকাশিত ফতোয়াসমূহ'},
+  {slug:'আকিদাহ',  name:'আকিদাহ',            icon:'🕌', desc:'বিশ্বাস ও মতাদর্শ বিষয়ক ফতোয়া'},
+  {slug:'তাহারাহ', name:'তাহারাহ ও নামায',   icon:'💧', desc:'পবিত্রতা ও নামায বিষয়ক ফতোয়া'},
+  {slug:'যাকাত',   name:'যাকাত ও সদকা',      icon:'🌙', desc:'যাকাত ও দান সদকা বিষয়ক ফতোয়া'},
+  {slug:'সিয়াম',  name:'সিয়াম ও হজ',        icon:'⭐', desc:'রোজা ও হজ বিষয়ক ফতোয়া'},
+  {slug:'মুআমালাত',name:'মুআমালাত',           icon:'🤝', desc:'লেনদেন ও চুক্তি বিষয়ক ফতোয়া'},
+  {slug:'পারিবারিক',name:'পারিবারিক বিষয়',  icon:'👨‍👩‍👧', desc:'বিবাহ, তালাক, মিরাস বিষয়ক ফতোয়া'},
+  {slug:'ব্যবসা',  name:'ব্যবসা ও ব্যাংকিং', icon:'💼', desc:'ব্যবসা ও অর্থনীতি বিষয়ক ফতোয়া'},
+  {slug:'সমসাময়িক',name:'সমসাময়িক মাসায়েল', icon:'🌐', desc:'আধুনিক সমস্যার ইসলামি সমাধান'},
+];
+
+let db, allFatwas, filtered=[], currentCat='all', currentSearch='', currentPage=1, PER_PAGE=8;
+const openDetailId = null;
+
+function init(){
+  db = SiteDB.get();
+  // Ensure some sample fatwas exist
+  if(!db.fatwas || db.fatwas.length===0){
+    db.fatwas=[
+      {id:1,question:'মোবাইল ব্যাংকিংয়ে সুদের হার থেকে আয় কি হালাল?',category:'মুআমালাত',date:'১৫ অক্টো ২০২৪',views:3240,status:'published',answer:'মোবাইল ব্যাংকিং সেবায় প্রদত্ত সুদ গ্রহণ করা হারাম। কারণ ইসলামে সুদ (রিবা) সম্পূর্ণ নিষিদ্ধ। আল্লাহ তাআলা কুরআনে সুদকে স্পষ্টভাবে হারাম ঘোষণা করেছেন। তাই মোবাইল ব্যাংকিং থেকে যে সুদ আসে তা গ্রহণ না করে দান করে দেওয়া উচিত।',evidence:'সূরা বাকারা: ২৭৫, সহিহ বুখারি: ২০৮৬, মুসলিম: ১৫৯৮'},
+      {id:2,question:'সেহরির শেষ সময় কখন? আজানের আগে নাকি পরে?',category:'সিয়াম',date:'২৮ সেপ ২০২৪',views:8900,status:'published',answer:'সেহরির শেষ সময় হলো সুবহে সাদিক পর্যন্ত। সুবহে সাদিক এবং আজানের মধ্যে সাধারণত ১০-১৫ মিনিটের পার্থক্য থাকে। তাই আজানের কমপক্ষে ১০ মিনিট আগে সেহরি খাওয়া বন্ধ করা উচিত।',evidence:'সূরা বাকারা: ১৮৭, তিরমিযি: ৭০৩, আবু দাউদ: ২৩৫৪'},
+      {id:3,question:'ইন্স্যুরেন্স করা কি জায়েয?',category:'মুআমালাত',date:'১০ সেপ ২০২৪',views:5670,status:'published',answer:'প্রচলিত বীমায় সুদ ও জুয়ার উপাদান থাকায় তা জায়েয নয়। তবে তাকাফুল (ইসলামি বীমা) গ্রহণযোগ্য। তাছাড়া সরকার কর্তৃক বাধ্যতামূলক বীমায় অংশগ্রহণ করা জায়েয, তবে সুদের অংশ নেওয়া যাবে না।',evidence:'সূরা মায়েদা: ৯০, বাদায়িউস সানায়ে: ৫/১২৮'},
+      {id:4,question:'তালাকের পর ইদ্দতের মেয়াদ কতদিন?',category:'পারিবারিক',date:'৫ সেপ ২০২৪',views:4120,status:'published',answer:'তালাকপ্রাপ্তা নারীর ইদ্দত তিন হায়েয। যদি সে হায়েয না দেখে, তাহলে তিন মাস। গর্ভবতী হলে সন্তান প্রসব পর্যন্ত।',evidence:'সূরা বাকারা: ২২৮, সূরা তালাক: ৪'},
+      {id:5,question:'যাকাতের নিসাব কত?',category:'যাকাত',date:'২০ আগ ২০২৪',views:6200,status:'published',answer:'স্বর্ণের ক্ষেত্রে ৭.৫ তোলা (৮৭.৪৮ গ্রাম) এবং রুপার ক্ষেত্রে ৫২.৫ তোলা (৬১২.৩৬ গ্রাম) নিসাব। নগদ টাকার ক্ষেত্রে রুপার নিসাব হিসেবে বাজার মূল্য গণনা করতে হবে।',evidence:'সহিহ বুখারি: ১৪৪৭, মুসলিম: ৯৭৯'},
+      {id:6,question:'নামাযে মোবাইল বাজলে নামায কি ভাঙে?',category:'তাহারাহ',date:'১৫ আগ ২০২৪',views:3890,status:'published',answer:'শুধু মোবাইল বাজলে নামায ভাঙে না। কিন্তু যদি উত্তর দেন বা কথা বলেন তাহলে নামায ভেঙে যাবে। তবে নামাযে মোবাইল সাইলেন্ট রাখা উত্তম।',evidence:'সহিহ বুখারি: ১২১১, মুসলিম: ৫৩৮'},
+      {id:7,question:'অনলাইনে কেনাবেচা কি জায়েয?',category:'ব্যবসা',date:'১০ আগ ২০২৪',views:5100,status:'published',answer:'অনলাইনে কেনাবেচা মূলত জায়েয, তবে শর্ত হলো পণ্যের বিবরণ সঠিক হতে হবে, প্রতারণামূলক বিজ্ঞাপন দেওয়া যাবে না এবং হারাম পণ্য বিক্রি করা যাবে না।',evidence:'সহিহ বুখারি: ২০৭৯, সূরা নিসা: ২৯'},
+      {id:8,question:'ক্রিপ্টোকারেন্সিতে বিনিয়োগ কি হালাল?',category:'সমসাময়িক',date:'৫ আগ ২০২৪',views:9800,status:'published',answer:'ক্রিপ্টোকারেন্সির বিষয়ে আলেমদের মধ্যে মতভেদ রয়েছে। যেসব ক্রিপ্টোর পেছনে বাস্তব সম্পদ নেই এবং অতিরিক্ত ঝুঁকিপূর্ণ, সেগুলো এড়ানো উচিত। বিস্তারিত গবেষণা প্রয়োজন।',evidence:'সূরা বাকারা: ২৭৫, ফতোয়া দারুল উলুম দেওবন্দ'},
+      {id:9,question:'কুরবানীর পশু কেনার সময় কী দেখতে হবে?',category:'সিয়াম',date:'১ আগ ২০২৪',views:7200,status:'published',answer:'কুরবানীর পশু নিম্নোক্ত শর্ত পূরণ করতে হবে: ছাগল/ভেড়া ১ বছর, গরু/মহিষ ২ বছর, উট ৫ বছর বয়স হতে হবে। পশুতে কোনো গুরুতর দোষ থাকা যাবে না।',evidence:'সহিহ মুসলিম: ১৯৬৩, আবু দাউদ: ২৭৯৭'},
+      {id:10,question:'বাবা-মায়ের অবাধ্যতা কি কবিরা গুনাহ?',category:'আকিদাহ',date:'২৫ জুলাই ২০২৪',views:4500,status:'published',answer:'হ্যাঁ, বাবা-মায়ের অবাধ্যতা কবিরা গুনাহ। এটি শিরকের পরেই বড় গুনাহ। আল্লাহর ইবাদতের পরেই বাবা-মায়ের সাথে সদাচরণের নির্দেশ দেওয়া হয়েছে।',evidence:'সূরা বনী ইসরাঈল: ২৩, সহিহ বুখারি: ৫৬২৬'},
+    ];
+    SiteDB.set(db);
+  }
+  allFatwas = db.fatwas;
+  renderCats();
+  renderRecent();
+  // Check URL params
+  const params = new URLSearchParams(location.search);
+  if(params.get('cat')) filterCat(params.get('cat'));
+  if(params.get('id')) openDetail(parseInt(params.get('id')));
+  renderFatwas();
+}
+
+function renderCats(){
+  const counts = {};
+  allFatwas.filter(f=>f.status==='published').forEach(f=>{ counts[f.category]=(counts[f.category]||0)+1; });
+  const total = allFatwas.filter(f=>f.status==='published').length;
+  document.getElementById('cat-list').innerHTML = CATS.map(c=>`
+    <div class="cat-item${currentCat===c.slug?' act':''}" onclick="filterCat('${c.slug}')">
+      <span class="cn">${c.icon} ${c.name}</span>
+      <span class="cc">${c.slug==='all'?total:(counts[c.slug]||0)}</span>
+    </div>`).join('');
+}
+
+function renderRecent(){
+  const recent = allFatwas.filter(f=>f.status==='published').slice(0,5);
+  document.getElementById('recent-list').innerHTML = recent.map(f=>`
+    <div class="rf-item" onclick="openDetail(${f.id})">
+      <div class="rf-dot"></div>
+      <div class="rf-q">${f.question.substring(0,55)}...</div>
+    </div>`).join('');
+}
+
+function filterCat(slug){
+  currentCat = slug; currentPage = 1;
+  document.getElementById('sb-search').value='';
+  document.getElementById('main-search').value='';
+  currentSearch='';
+  // close detail
+  document.getElementById('detail-panel').classList.remove('show');
+  renderCats();
+  renderFatwas();
+  // update URL without reload
+  const url = new URL(location.href);
+  if(slug==='all') url.searchParams.delete('cat'); else url.searchParams.set('cat',slug);
+  url.searchParams.delete('id');
+  history.pushState({},'',url);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function doSearch(v){
+  currentSearch = v.toLowerCase();
+  currentPage = 1;
+  // sync both search boxes
+  document.getElementById('sb-search').value = v;
+  document.getElementById('main-search').value = v;
+  renderFatwas();
+}
+
+function getFiltered(){
+  let data = allFatwas;
+  const statusSel = document.getElementById('status-sel')?.value;
+  if(statusSel !== 'all') data = data.filter(f=>f.status==='published');
+  if(currentCat !== 'all') data = data.filter(f=>f.category===currentCat);
+  if(currentSearch) data = data.filter(f=>(f.question+f.answer+f.category).toLowerCase().includes(currentSearch));
+  const sort = document.getElementById('sort-sel')?.value;
+  if(sort==='popular') data = [...data].sort((a,b)=>(b.views||0)-(a.views||0));
+  else if(sort==='az') data = [...data].sort((a,b)=>a.question.localeCompare(b.question,'bn'));
+  else data = [...data].reverse();
+  return data;
+}
+
+function renderFatwas(){
+  const data = getFiltered();
+  filtered = data;
+  const catObj = CATS.find(c=>c.slug===currentCat)||CATS[0];
+
+  // Update category header
+  document.getElementById('cat-icon').textContent = catObj.icon;
+  document.getElementById('cat-title').textContent = catObj.name;
+  document.getElementById('cat-desc').textContent = catObj.desc + ` (${data.length}টি ফতোয়া)`;
+  document.getElementById('bc-cat').innerHTML = currentCat!=='all'?` &rsaquo; <span>${catObj.name}</span>`:'';
+
+  // Pagination
+  const total = data.length;
+  const pages = Math.ceil(total/PER_PAGE);
+  if(currentPage > pages) currentPage = Math.max(1,pages);
+  const start = (currentPage-1)*PER_PAGE;
+  const pageData = data.slice(start, start+PER_PAGE);
+
+  if(pageData.length===0){
+    document.getElementById('fatwa-list').innerHTML=`
+      <div class="no-result">
+        <i class="fas fa-search"></i>
+        <h4 style="font-size:1rem;font-weight:600;color:var(--tm);margin-bottom:0.5rem;">কোনো ফতোয়া পাওয়া যায়নি</h4>
+        <p style="font-size:0.85rem;">অন্য শব্দ দিয়ে অনুসন্ধান করুন বা বিভাগ পরিবর্তন করুন</p>
+      </div>`;
+    document.getElementById('pag-wrap').innerHTML='';
+    return;
+  }
+
+  document.getElementById('fatwa-list').innerHTML = pageData.map((f,i)=>`
+    <div class="fatwa-card" onclick="openDetail(${f.id})" id="fc-${f.id}">
+      <span class="fc-num">#${f.id}</span>
+      <div class="fc-cat"><i class="fas fa-tag"></i>${f.category}</div>
+      <div class="fc-q"><i class="fas fa-question-circle" style="color:var(--gd);margin-right:0.5rem;"></i>${f.question}</div>
+      ${f.answer?`<div class="fc-ans">${f.answer}</div>`:''}
+      <div class="fc-foot">
+        <div class="fc-meta">
+          <span><i class="far fa-calendar" style="margin-right:0.3rem;"></i>${f.date||''}</span>
+          <span><i class="fas fa-eye" style="margin-right:0.3rem;"></i>${(f.views||0).toLocaleString('bn-BD')} ভিউ</span>
+        </div>
+        <a href="#" class="btn-detail" onclick="event.stopPropagation();openDetail(${f.id})">বিস্তারিত <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>`).join('');
+
+  // Pagination
+  if(pages <= 1){ document.getElementById('pag-wrap').innerHTML=''; return; }
+  let pagHTML = `<div class="pag-info">${start+1}–${Math.min(start+PER_PAGE,total)} / মোট ${total}টি</div><div class="pag-btns">`;
+  pagHTML += `<button class="pag-btn" onclick="goPag(${currentPage-1})" ${currentPage===1?'disabled':''}>‹</button>`;
+  for(let p=1;p<=pages;p++){
+    if(p===1||p===pages||Math.abs(p-currentPage)<=1)
+      pagHTML+=`<button class="pag-btn${p===currentPage?' act':''}" onclick="goPag(${p})">${p}</button>`;
+    else if(Math.abs(p-currentPage)===2) pagHTML+=`<span style="color:var(--tl);padding:0 2px;">…</span>`;
+  }
+  pagHTML += `<button class="pag-btn" onclick="goPag(${currentPage+1})" ${currentPage===pages?'disabled':''}>›</button></div>`;
+  document.getElementById('pag-wrap').innerHTML=pagHTML;
+}
+
+function goPag(p){
+  const pages=Math.ceil(filtered.length/PER_PAGE);
+  if(p<1||p>pages)return;
+  currentPage=p;
+  renderFatwas();
+  document.querySelector('.content-area').scrollIntoView({behavior:'smooth'});
+}
+
+function openDetail(id){
+  const f = allFatwas.find(x=>x.id===id); if(!f)return;
+  // increment views in db
+  const d=SiteDB.get();const idx=d.fatwas.findIndex(x=>x.id===id);
+  if(idx>=0){d.fatwas[idx].views=(d.fatwas[idx].views||0)+1;SiteDB.set(d);}
+
+  const evList = f.evidence ? f.evidence.split(',').map(e=>e.trim()).filter(Boolean) : [];
+  const dp = document.getElementById('detail-panel');
+  dp.innerHTML=`
+    <div class="dp-header">
+      <button class="dp-close" onclick="closeDetail()"><i class="fas fa-times"></i></button>
+      <div class="dp-cat"><i class="fas fa-tag"></i> ${f.category}</div>
+      <div class="dp-q">${f.question}</div>
+    </div>
+    <div class="dp-body">
+      ${f.answer?`
+      <div class="dp-section">
+        <div class="dp-section-title"><i class="fas fa-check-circle"></i> উত্তর (জওয়াব)</div>
+        <div class="dp-answer">${f.answer}</div>
+      </div>`:
+      `<div class="dp-section"><div class="dp-answer" style="color:var(--tl);">এই ফতোয়ার উত্তর শীঘ্রই যোগ করা হবে।</div></div>`}
+      ${evList.length?`
+      <div class="dp-section">
+        <div class="dp-section-title"><i class="fas fa-book-open"></i> দলিল ও রেফারেন্স</div>
+        <div class="dp-evidence">
+          ${evList.map(e=>`<div class="ev-item"><i class="fas fa-chevron-right"></i>${e}</div>`).join('')}
+        </div>
+      </div>`:''}
+      <div class="dp-section" style="margin-bottom:0;">
+        <div style="display:flex;gap:1.5rem;font-size:0.78rem;color:var(--tl);flex-wrap:wrap;">
+          <span><i class="fas fa-tag" style="margin-right:0.3rem;color:var(--gd);"></i>বিভাগ: ${f.category}</span>
+          <span><i class="fas fa-calendar" style="margin-right:0.3rem;color:var(--gd);"></i>${f.date||''}</span>
+          <span><i class="fas fa-eye" style="margin-right:0.3rem;color:var(--gd);"></i>${(f.views||0).toLocaleString('bn-BD')} ভিউ</span>
+        </div>
+      </div>
+    </div>
+    <div class="dp-actions">
+      <button class="dp-btn dp-btn-p" onclick="window.print()"><i class="fas fa-print"></i> প্রিন্ট করুন</button>
+      <button class="dp-btn dp-btn-o" onclick="shareF(${f.id})"><i class="fas fa-share-alt"></i> শেয়ার করুন</button>
+      <a href="index.html#ask-fatwa" class="dp-btn dp-btn-o"><i class="fas fa-question-circle"></i> নতুন প্রশ্ন করুন</a>
+    </div>`;
+  dp.classList.add('show');
+  dp.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function closeDetail(){
+  document.getElementById('detail-panel').classList.remove('show');
+}
+
+function shareF(id){
+  const url = location.origin+location.pathname+'?id='+id;
+  if(navigator.share){ navigator.share({title:'ফতোয়া',url}); }
+  else{ navigator.clipboard?.writeText(url); alert('লিংক কপি হয়েছে!'); }
+}
+
+function toggleSB(){
+  document.getElementById('sb-inner').classList.toggle('open');
+}
+
+init();
+</script>
+</body>
+</html>
