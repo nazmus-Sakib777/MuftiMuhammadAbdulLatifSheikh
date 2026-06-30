@@ -2,83 +2,100 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
 <title>অ্যাডমিন লগইন — মুফতি আব্দুল লতিফ শেখ</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;600;700&family=Cinzel:wght@400;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Noto Serif Bengali',serif;min-height:100vh;display:flex;align-items:center;justify-content:center;
+html{height:100%;}
+body{
+  font-family:'Noto Serif Bengali',serif;
+  min-height:100svh;
+  min-height:100vh;
+  display:flex;align-items:flex-start;justify-content:center;
   background:linear-gradient(135deg,#071e18 0%,#0a4a3a 50%,#071e18 100%);
-  position:relative;overflow:hidden;}
-.geo{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c9a227' stroke-width='0.5' stroke-opacity='0.1'%3E%3Cpolygon points='40,4 76,22 76,58 40,76 4,58 4,22'/%3E%3C/g%3E%3C/svg%3E");background-size:80px;}
-.card{background:rgba(255,255,255,0.04);border:1px solid rgba(201,162,39,0.25);border-radius:20px;
-  padding:2.75rem 2.5rem;width:100%;max-width:420px;position:relative;z-index:1;
-  backdrop-filter:blur(20px);box-shadow:0 24px 80px rgba(0,0,0,0.5);}
-.logo-wrap{text-align:center;margin-bottom:2rem;}
-.emblem{width:68px;height:68px;background:linear-gradient(135deg,#c9a227,#e4b84a);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;
-  font-family:'Amiri',serif;font-size:2rem;color:#0a4a3a;font-weight:700;
+  position:relative;overflow-x:hidden;overflow-y:auto;
+  padding:2rem 1rem;
+}
+.geo{position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c9a227' stroke-width='0.5' stroke-opacity='0.1'%3E%3Cpolygon points='40,4 76,22 76,58 40,76 4,58 4,22'/%3E%3C/g%3E%3C/svg%3E");background-size:80px;pointer-events:none;z-index:0;}
+.card{
+  background:rgba(255,255,255,0.04);border:1px solid rgba(201,162,39,0.25);border-radius:20px;
+  padding:2.5rem 2rem;width:100%;max-width:420px;position:relative;z-index:1;
+  backdrop-filter:blur(20px);box-shadow:0 24px 80px rgba(0,0,0,0.5);
+  margin:auto;
+}
+.logo-wrap{text-align:center;margin-bottom:1.75rem;}
+.emblem{width:62px;height:62px;background:linear-gradient(135deg,#c9a227,#e4b84a);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;margin:0 auto 0.85rem;
+  font-family:'Amiri',serif;font-size:1.8rem;color:#0a4a3a;font-weight:700;
   box-shadow:0 4px 24px rgba(201,162,39,0.4);}
-.site-name{font-size:1rem;font-weight:700;color:#fff;margin-bottom:0.2rem;}
-.site-sub{font-family:'Cinzel',serif;font-size:0.58rem;color:#c9a227;letter-spacing:0.18em;text-transform:uppercase;}
-.panel-label{font-family:'Cinzel',serif;font-size:0.65rem;color:rgba(255,255,255,0.45);
-  letter-spacing:0.2em;text-transform:uppercase;text-align:center;margin-bottom:1.75rem;
-  padding-bottom:1.1rem;border-bottom:1px solid rgba(201,162,39,0.15);}
-.fg{margin-bottom:1.1rem;}
-.lbl{display:block;font-size:0.8rem;color:rgba(255,255,255,0.7);margin-bottom:0.38rem;font-weight:600;}
+.site-name{font-size:0.95rem;font-weight:700;color:#fff;margin-bottom:0.2rem;}
+.site-sub{font-family:'Cinzel',serif;font-size:0.56rem;color:#c9a227;letter-spacing:0.18em;text-transform:uppercase;}
+.panel-label{font-family:'Cinzel',serif;font-size:0.62rem;color:rgba(255,255,255,0.45);
+  letter-spacing:0.2em;text-transform:uppercase;text-align:center;margin-bottom:1.5rem;
+  padding-bottom:1rem;border-bottom:1px solid rgba(201,162,39,0.15);}
+.fg{margin-bottom:1rem;}
+.lbl{display:block;font-size:0.78rem;color:rgba(255,255,255,0.7);margin-bottom:0.35rem;font-weight:600;}
 .inp-wrap{position:relative;}
 .inp{width:100%;background:rgba(255,255,255,0.07);border:1.5px solid rgba(201,162,39,0.2);
-  border-radius:10px;padding:0.7rem 2.8rem 0.7rem 1rem;color:#fff;
-  font-family:'Noto Serif Bengali',serif;font-size:0.88rem;outline:none;transition:border-color 0.2s;}
+  border-radius:10px;padding:0.68rem 2.7rem 0.68rem 0.95rem;color:#fff;
+  font-family:'Noto Serif Bengali',serif;font-size:0.86rem;outline:none;transition:border-color 0.2s;}
 .inp:focus{border-color:rgba(201,162,39,0.6);background:rgba(255,255,255,0.1);}
 .inp::placeholder{color:rgba(255,255,255,0.3);}
-.inp-icon{position:absolute;right:0.85rem;top:50%;transform:translateY(-50%);
-  color:rgba(255,255,255,0.35);font-size:0.88rem;cursor:pointer;transition:color 0.2s;}
+.inp-icon{position:absolute;right:0.8rem;top:50%;transform:translateY(-50%);
+  color:rgba(255,255,255,0.35);font-size:0.85rem;cursor:pointer;transition:color 0.2s;padding:0.3rem;}
 .inp-icon:hover{color:rgba(201,162,39,0.7);}
-.role-row{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1.4rem;}
+.role-row{display:grid;grid-template-columns:1fr 1fr;gap:0.55rem;margin-bottom:1.25rem;}
 .role-btn{background:rgba(255,255,255,0.05);border:1.5px solid rgba(255,255,255,0.12);
-  border-radius:9px;padding:0.55rem 0.5rem;text-align:center;cursor:pointer;transition:all 0.2s;color:rgba(255,255,255,0.6);font-family:'Noto Serif Bengali',serif;font-size:0.75rem;}
+  border-radius:9px;padding:0.5rem 0.4rem;text-align:center;cursor:pointer;transition:all 0.2s;color:rgba(255,255,255,0.6);font-family:'Noto Serif Bengali',serif;font-size:0.72rem;}
 .role-btn.sel{background:rgba(201,162,39,0.15);border-color:rgba(201,162,39,0.5);color:#e4b84a;}
-.role-btn i{display:block;font-size:1.1rem;margin-bottom:0.3rem;}
-.remember{display:flex;align-items:center;gap:0.5rem;margin-bottom:1.5rem;cursor:pointer;}
+.role-btn i{display:block;font-size:1rem;margin-bottom:0.25rem;}
+.remember{display:flex;align-items:center;gap:0.5rem;margin-bottom:1.25rem;cursor:pointer;}
 .remember input{accent-color:#c9a227;width:14px;height:14px;}
-.remember span{font-size:0.78rem;color:rgba(255,255,255,0.6);}
+.remember span{font-size:0.76rem;color:rgba(255,255,255,0.6);}
 .btn-login{width:100%;background:linear-gradient(135deg,#c9a227,#e4b84a);color:#0a4a3a;
-  border:none;border-radius:50px;padding:0.85rem;font-family:'Noto Serif Bengali',serif;
-  font-size:0.95rem;font-weight:700;cursor:pointer;transition:all 0.25s;
+  border:none;border-radius:50px;padding:0.8rem;font-family:'Noto Serif Bengali',serif;
+  font-size:0.92rem;font-weight:700;cursor:pointer;transition:all 0.25s;
   display:flex;align-items:center;justify-content:center;gap:0.5rem;
-  box-shadow:0 4px 20px rgba(201,162,39,0.4);}
+  box-shadow:0 4px 20px rgba(201,162,39,0.4);position:relative;min-height:46px;}
 .btn-login:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,162,39,0.5);}
 .btn-login:active{transform:scale(0.98);}
-.btn-login.loading{opacity:0.7;pointer-events:none;}
+.btn-login.loading{opacity:0.85;pointer-events:none;}
 .err-msg{background:rgba(220,38,38,0.15);border:1px solid rgba(220,38,38,0.35);
-  border-radius:9px;padding:0.65rem 1rem;font-size:0.8rem;color:#fca5a5;
-  margin-bottom:1rem;display:none;align-items:center;gap:0.5rem;}
+  border-radius:9px;padding:0.6rem 0.9rem;font-size:0.78rem;color:#fca5a5;
+  margin-bottom:0.9rem;display:none;align-items:flex-start;gap:0.5rem;line-height:1.5;}
 .err-msg.show{display:flex;}
-.back-link{text-align:center;margin-top:1.5rem;}
-.back-link a{font-size:0.78rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;}
+.back-link{text-align:center;margin-top:1.35rem;}
+.back-link a{font-size:0.76rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;}
 .back-link a:hover{color:#c9a227;}
 .demo-creds{background:rgba(201,162,39,0.08);border:1px solid rgba(201,162,39,0.18);
-  border-radius:10px;padding:0.85rem 1rem;margin-top:1.25rem;}
-.demo-title{font-family:'Cinzel',serif;font-size:0.58rem;color:rgba(201,162,39,0.7);
-  letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem;}
-.demo-row{display:flex;justify-content:space-between;font-size:0.75rem;margin-bottom:0.2rem;}
-.demo-row .key{color:rgba(255,255,255,0.45);}
-.demo-row .val{color:rgba(201,162,39,0.8);font-weight:600;cursor:pointer;font-family:monospace;}
+  border-radius:10px;padding:0.8rem 0.95rem;margin-top:1.1rem;}
+.demo-title{font-family:'Cinzel',serif;font-size:0.56rem;color:rgba(201,162,39,0.7);
+  letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.45rem;}
+.demo-row{display:flex;justify-content:space-between;gap:0.5rem;font-size:0.72rem;margin-bottom:0.2rem;flex-wrap:wrap;}
+.demo-row .key{color:rgba(255,255,255,0.45);flex-shrink:0;}
+.demo-row .val{color:rgba(201,162,39,0.8);font-weight:600;cursor:pointer;font-family:monospace;word-break:break-all;}
 .demo-row .val:hover{color:#e4b84a;text-decoration:underline;}
-/* spinner */
-.spin{width:18px;height:18px;border:2px solid rgba(10,74,58,0.3);border-top-color:#0a4a3a;
+.spin{width:16px;height:16px;border:2px solid rgba(10,74,58,0.3);border-top-color:#0a4a3a;
   border-radius:50%;animation:sp 0.7s linear infinite;display:none;}
 .btn-login.loading .spin{display:block;}
 .btn-login.loading .btn-txt{display:none;}
 @keyframes sp{to{transform:rotate(360deg);}}
-@media(max-width:480px){.card{margin:1rem;padding:2rem 1.5rem;}.role-row{grid-template-columns:1fr 1fr;}}
+
+/* CRITICAL: keep card scrollable into view on mobile when keyboard opens / error shows */
+@media (max-width:480px){
+  body{align-items:flex-start;padding:1.25rem 0.85rem 3rem;}
+  .card{padding:1.85rem 1.4rem;border-radius:16px;}
+  .emblem{width:54px;height:54px;font-size:1.55rem;}
+  .role-row{grid-template-columns:1fr 1fr;}
+}
 </style>
 </head>
 <body>
 <div class="geo"></div>
-<div class="card">
+<div class="card" id="login-card">
   <div class="logo-wrap">
     <div class="emblem">م</div>
     <div class="site-name">মুফতি মুহাম্মদ আব্দুল লতিফ শেখ</div>
@@ -86,12 +103,12 @@ body{font-family:'Noto Serif Bengali',serif;min-height:100vh;display:flex;align-
   </div>
   <div class="panel-label">🔐 নিরাপদ লগইন</div>
 
-  <div class="err-msg" id="err-msg"><i class="fas fa-exclamation-circle"></i><span id="err-txt">ভুল ইমেইল বা পাসওয়ার্ড</span></div>
+  <div class="err-msg" id="err-msg"><i class="fas fa-exclamation-circle" style="margin-top:0.15rem;"></i><span id="err-txt">ভুল ইমেইল বা পাসওয়ার্ড</span></div>
 
   <div class="fg">
     <label class="lbl">ইমেইল / ইউজারনেম</label>
     <div class="inp-wrap">
-      <input class="inp" type="text" id="email" placeholder="admin@latif-shaikh.com" autocomplete="username">
+      <input class="inp" type="text" id="email" placeholder="admin@latif-shaikh.com" autocomplete="username" inputmode="email">
       <i class="fas fa-envelope inp-icon"></i>
     </div>
   </div>
@@ -103,21 +120,13 @@ body{font-family:'Noto Serif Bengali',serif;min-height:100vh;display:flex;align-
     </div>
   </div>
 
-  <div style="margin-bottom:1.25rem;">
-    <div class="panel-label" style="font-size:0.58rem;margin-bottom:0.7rem;border:none;padding:0;">রোল নির্বাচন করুন</div>
+  <div style="margin-bottom:1.1rem;">
+    <div class="panel-label" style="font-size:0.56rem;margin-bottom:0.6rem;border:none;padding:0;">রোল নির্বাচন করুন</div>
     <div class="role-row">
-      <div class="role-btn sel" data-role="super_admin" onclick="selRole(this)">
-        <i class="fas fa-shield-alt"></i>সুপার অ্যাডমিন
-      </div>
-      <div class="role-btn" data-role="admin" onclick="selRole(this)">
-        <i class="fas fa-user-cog"></i>অ্যাডমিন
-      </div>
-      <div class="role-btn" data-role="mufti" onclick="selRole(this)">
-        <i class="fas fa-scroll"></i>মুফতি
-      </div>
-      <div class="role-btn" data-role="editor" onclick="selRole(this)">
-        <i class="fas fa-pen-nib"></i>এডিটর
-      </div>
+      <div class="role-btn sel" data-role="super_admin" onclick="selRole(this)"><i class="fas fa-shield-alt"></i>সুপার অ্যাডমিন</div>
+      <div class="role-btn" data-role="admin" onclick="selRole(this)"><i class="fas fa-user-cog"></i>অ্যাডমিন</div>
+      <div class="role-btn" data-role="mufti" onclick="selRole(this)"><i class="fas fa-scroll"></i>মুফতি</div>
+      <div class="role-btn" data-role="editor" onclick="selRole(this)"><i class="fas fa-pen-nib"></i>এডিটর</div>
     </div>
   </div>
 
@@ -126,29 +135,23 @@ body{font-family:'Noto Serif Bengali',serif;min-height:100vh;display:flex;align-
     <span>লগইন মনে রাখুন</span>
   </label>
 
-  <button class="btn-login" id="login-btn" onclick="doLogin()">
+  <button class="btn-login" id="login-btn" onclick="doLogin()" type="button">
     <div class="spin"></div>
     <span class="btn-txt"><i class="fas fa-sign-in-alt"></i> লগইন করুন</span>
   </button>
 
   <div class="demo-creds">
-    <div class="demo-title">ডেমো ক্রেডেনশিয়াল</div>
-    <div class="demo-row"><span class="key">ইমেইল</span><span class="val" onclick="fill('admin@latif-shaikh.com','admin123')">admin@latif-shaikh.com</span></div>
-    <div class="demo-row"><span class="key">পাসওয়ার্ড</span><span class="val" onclick="fill('admin@latif-shaikh.com','admin123')">admin123</span></div>
-    <div class="demo-row" style="margin-top:0.4rem;"><span class="key">মুফতি লগইন</span><span class="val" onclick="fill('mufti@latif-shaikh.com','mufti123')">mufti@latif-shaikh.com</span></div>
+    <div class="demo-title">ডেমো ক্রেডেনশিয়াল (টেস্টের জন্য)</div>
+    <div class="demo-row"><span class="key">সুপার অ্যাডমিন</span><span class="val" onclick="fill('admin@latif-shaikh.com','admin123')">admin@latif-shaikh.com / admin123</span></div>
+    <div class="demo-row"><span class="key">মুফতি</span><span class="val" onclick="fill('mufti@latif-shaikh.com','mufti123')">mufti@latif-shaikh.com / mufti123</span></div>
+    <div class="demo-row"><span class="key">এডিটর</span><span class="val" onclick="fill('editor@latif-shaikh.com','editor123')">editor@latif-shaikh.com / editor123</span></div>
   </div>
 
-  <div class="back-link"><a href="index.html"><i class="fas fa-arrow-left me-1"></i>ওয়েবসাইটে ফিরে যান</a></div>
+  <div class="back-link"><a href="index.html"><i class="fas fa-arrow-left" style="margin-right:0.3rem;"></i>ওয়েবসাইটে ফিরে যান</a></div>
 </div>
 
 <script src="db.js"></script>
 <script>
-const CREDS = [
-  {email:'admin@latif-shaikh.com', pass:'admin123',   role:'super_admin', name:'System Admin',                      label:'সুপার অ্যাডমিন'},
-  {email:'mufti@latif-shaikh.com', pass:'mufti123',   role:'mufti',       name:'মুফতি মুহাম্মদ আব্দুল লতিফ শেখ', label:'মুফতি'},
-  {email:'editor@latif-shaikh.com',pass:'editor123',  role:'editor',      name:'Editor',                             label:'এডিটর'},
-];
-
 let selRoleVal = 'super_admin';
 
 function selRole(el){
@@ -171,7 +174,14 @@ function fill(email, pass){
 
 function showErr(msg){
   document.getElementById('err-txt').textContent = msg;
-  document.getElementById('err-msg').classList.add('show');
+  const box = document.getElementById('err-msg');
+  box.classList.add('show');
+  // CRITICAL FIX: scroll the card (and the error) into view so the login button
+  // never gets pushed off-screen on mobile when the error banner appears.
+  requestAnimationFrame(()=>{
+    box.scrollIntoView({behavior:'smooth', block:'nearest'});
+    document.getElementById('login-card').scrollIntoView({behavior:'smooth', block:'start'});
+  });
 }
 function hideErr(){ document.getElementById('err-msg').classList.remove('show'); }
 
@@ -186,38 +196,38 @@ function doLogin(){
   btn.classList.add('loading');
 
   setTimeout(()=>{
-    const found = CREDS.find(c => c.email===email && c.pass===pass);
-    if(!found){
+    const session = SiteDB.login(email, pass);
+    if(!session){
       btn.classList.remove('loading');
-      showErr('ভুল ইমেইল বা পাসওয়ার্ড। আবার চেষ্টা করুন।');
+      showErr('ভুল ইমেইল বা পাসওয়ার্ড। আবার চেষ্টা করুন, অথবা নিচের ডেমো ক্রেডেনশিয়াল ব্যবহার করুন।');
       document.getElementById('password').value='';
+      document.getElementById('password').focus();
       return;
     }
-    // Save session
-    const session = {
-      loggedIn: true,
-      name: found.name,
-      email: found.email,
-      role: found.role,
-      roleLabel: found.label,
-      loginTime: Date.now()
-    };
     const remember = document.getElementById('remember').checked;
-    if(remember) localStorage.setItem('adminSession', JSON.stringify(session));
-    else sessionStorage.setItem('adminSession', JSON.stringify(session));
-
+    SiteDB.setSession(session, remember);
     window.location.href = 'admin.html';
-  }, 900);
+  }, 700);
 }
 
-// Enter key
-document.addEventListener('keydown', e=>{ if(e.key==='Enter') doLogin(); });
+document.getElementById('password').addEventListener('keydown', e=>{ if(e.key==='Enter') doLogin(); });
+document.getElementById('email').addEventListener('keydown', e=>{ if(e.key==='Enter') document.getElementById('password').focus(); });
 
-// Auto-fill if already logged in
+// Auto-redirect if already logged in
 window.addEventListener('load',()=>{
-  const s = localStorage.getItem('adminSession') || sessionStorage.getItem('adminSession');
-  if(s){ try{ const d=JSON.parse(s); if(d.loggedIn) window.location.href='admin.html'; }catch(e){} }
+  const s = SiteDB.getSession();
+  if(s && s.loggedIn) window.location.href='admin.html';
 });
+
+// Visual viewport fix: when mobile keyboard opens, ensure the focused field + button stay visible
+if (window.visualViewport){
+  window.visualViewport.addEventListener('resize', ()=>{
+    const active = document.activeElement;
+    if(active && (active.tagName==='INPUT')) {
+      setTimeout(()=> active.scrollIntoView({block:'center', behavior:'smooth'}), 80);
+    }
+  });
+}
 </script>
 </body>
 </html>
