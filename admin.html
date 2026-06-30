@@ -2,625 +2,427 @@
 <html lang="bn" dir="ltr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
 <title>Admin Dashboard — মুফতি আব্দুল লতিফ শেখ</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;500;600;700&family=Cinzel:wght@400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
-:root{--em:#0a4a3a;--em2:#0d5c49;--em3:#1a7a5e;--emp:#e8f5f0;--gd:#c9a227;--gdl:#e4b84a;--sb:#071e18;--sw:260px;--sc:70px;--th:64px;--bg:#f0f4f3;--card:#fff;--td:#1a2e28;--tm:#4a5e58;--tl:#8a9e98;--bd:#e2ece9;--rad:14px;--rsm:8px;--sh:0 2px 16px rgba(10,74,58,.07);--shm:0 6px 30px rgba(10,74,58,.12);--tr:.3s cubic-bezier(.4,0,.2,1);}
+:root{--em:#0a4a3a;--em2:#0d5c49;--em3:#1a7a5e;--emp:#e8f5f0;--gd:#c9a227;--gdl:#e4b84a;--sb:#071e18;--sw:255px;--sc:68px;--th:60px;--bg:#f0f4f3;--card:#fff;--td:#1a2e28;--tm:#4a5e58;--tl:#8a9e98;--bd:#e2ece9;--rad:14px;--rsm:8px;--sh:0 2px 16px rgba(10,74,58,.07);--shm:0 6px 30px rgba(10,74,58,.12);--tr:.3s cubic-bezier(.4,0,.2,1);}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html,body{height:100%;overflow:hidden;}
 body{font-family:'Noto Serif Bengali',serif;background:var(--bg);color:var(--td);display:flex;}
-/* SIDEBAR */
-#sb{width:var(--sw);height:100vh;background:var(--sb);display:flex;flex-direction:column;position:fixed;left:0;top:0;z-index:200;transition:width var(--tr);overflow:hidden;}
+#sb{width:var(--sw);height:100vh;background:var(--sb);display:flex;flex-direction:column;position:fixed;left:0;top:0;z-index:200;transition:width var(--tr),transform var(--tr);overflow:hidden;}
 #sb.col{width:var(--sc);}
-.sl-logo{display:flex;align-items:center;gap:.8rem;padding:1.1rem;border-bottom:1px solid rgba(255,255,255,.06);min-height:var(--th);flex-shrink:0;overflow:hidden;white-space:nowrap;}
-.logo-em{width:40px;height:40px;background:linear-gradient(135deg,var(--gd),var(--gdl));border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Amiri',serif;font-size:1.3rem;color:var(--em);font-weight:700;flex-shrink:0;}
-.logo-txt{}
-.logo-ti{font-size:.76rem;font-weight:700;color:#fff;white-space:nowrap;display:block;}
-.logo-su{font-family:'Cinzel',serif;font-size:.52rem;color:var(--gd);letter-spacing:.15em;text-transform:uppercase;display:block;}
-.slbl{font-family:'Cinzel',serif;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.22);padding:1.15rem 1.1rem .35rem;white-space:nowrap;overflow:hidden;}
+.sl-logo{display:flex;align-items:center;gap:.7rem;padding:1rem;border-bottom:1px solid rgba(255,255,255,.06);min-height:var(--th);flex-shrink:0;overflow:hidden;white-space:nowrap;}
+.logo-em{width:36px;height:36px;background:linear-gradient(135deg,var(--gd),var(--gdl));border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Amiri',serif;font-size:1.15rem;color:var(--em);font-weight:700;flex-shrink:0;}
+.logo-ti{font-size:.72rem;font-weight:700;color:#fff;white-space:nowrap;display:block;}
+.logo-su{font-family:'Cinzel',serif;font-size:.5rem;color:var(--gd);letter-spacing:.14em;text-transform:uppercase;display:block;}
+.slbl{font-family:'Cinzel',serif;font-size:.54rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.22);padding:1.05rem 1.05rem .32rem;white-space:nowrap;overflow:hidden;}
 #sb.col .slbl{opacity:0;}
-.snav{flex:1;overflow-y:auto;overflow-x:hidden;padding:.4rem 0;}
-.snav::-webkit-scrollbar{width:3px;} .snav::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08);border-radius:2px;}
-.sl-btn{display:flex;align-items:center;gap:.8rem;padding:.62rem 1.1rem;color:rgba(255,255,255,.58);text-decoration:none;font-size:.82rem;cursor:pointer;border:none;background:none;width:100%;text-align:left;white-space:nowrap;overflow:hidden;transition:all .2s;position:relative;}
+.snav{flex:1;overflow-y:auto;overflow-x:hidden;padding:.35rem 0;}
+.sl-btn{display:flex;align-items:center;gap:.75rem;padding:.58rem 1.05rem;color:rgba(255,255,255,.58);text-decoration:none;font-size:.79rem;cursor:pointer;border:none;background:none;width:100%;text-align:left;white-space:nowrap;overflow:hidden;position:relative;}
 .sl-btn:hover{color:#fff;background:rgba(255,255,255,.05);}
 .sl-btn.act{color:var(--gd);background:rgba(201,162,39,.1);}
-.sl-btn.act::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gd);border-radius:0 2px 2px 0;}
-.sl-ic{width:20px;text-align:center;font-size:.88rem;flex-shrink:0;}
-.sl-lb{overflow:hidden;white-space:nowrap;}
-.sl-bdg{margin-left:auto;background:var(--gd);color:var(--em);font-size:.58rem;font-weight:700;padding:.08rem .42rem;border-radius:50px;flex-shrink:0;font-family:'Cinzel',serif;}
+.sl-btn.act::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gd);}
+.sl-ic{width:18px;text-align:center;font-size:.85rem;flex-shrink:0;}
+.sl-bdg{margin-left:auto;background:var(--gd);color:var(--em);font-size:.56rem;font-weight:700;padding:.07rem .4rem;border-radius:50px;flex-shrink:0;}
 #sb.col .sl-bdg,#sb.col .sl-lb{display:none;}
-.sfoot{border-top:1px solid rgba(255,255,255,.06);padding:.9rem 1.1rem;display:flex;align-items:center;gap:.7rem;overflow:hidden;}
-.uav{width:34px;height:34px;background:linear-gradient(135deg,var(--em3),var(--em));border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gdl);font-size:.82rem;flex-shrink:0;}
-.unm{font-size:.76rem;font-weight:600;color:#fff;white-space:nowrap;}
-.url{font-size:.62rem;color:rgba(255,255,255,.38);}
-/* MAIN */
+.sfoot{border-top:1px solid rgba(255,255,255,.06);padding:.8rem 1.05rem;display:flex;align-items:center;gap:.65rem;overflow:hidden;}
+.uav{width:32px;height:32px;background:linear-gradient(135deg,var(--em3),var(--em));border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gdl);font-size:.78rem;flex-shrink:0;}
+.unm{font-size:.72rem;font-weight:600;color:#fff;white-space:nowrap;}
+.url2{font-size:.6rem;color:rgba(255,255,255,.38);}
 #main{margin-left:var(--sw);width:calc(100% - var(--sw));height:100vh;display:flex;flex-direction:column;transition:margin-left var(--tr),width var(--tr);overflow:hidden;}
 #main.exp{margin-left:var(--sc);width:calc(100% - var(--sc));}
-/* TOPBAR */
-#tb{height:var(--th);background:var(--card);border-bottom:1px solid var(--bd);display:flex;align-items:center;padding:0 1.4rem;gap:.9rem;flex-shrink:0;box-shadow:0 1px 6px rgba(0,0,0,.04);}
-.tb-tog{background:none;border:none;color:var(--tm);font-size:1.05rem;cursor:pointer;padding:.32rem .48rem;border-radius:var(--rsm);transition:all .2s;}
+#tb{height:var(--th);background:var(--card);border-bottom:1px solid var(--bd);display:flex;align-items:center;padding:0 1.2rem;gap:.8rem;flex-shrink:0;box-shadow:0 1px 6px rgba(0,0,0,.04);flex-wrap:nowrap;}
+.tb-tog{background:none;border:none;color:var(--tm);font-size:1rem;cursor:pointer;padding:.3rem .45rem;border-radius:var(--rsm);}
 .tb-tog:hover{background:var(--emp);color:var(--em);}
-.tb-bc{display:flex;align-items:center;gap:.45rem;font-size:.8rem;color:var(--tl);flex:1;}
-.tb-bc .cur{color:var(--td);font-weight:600;}
-.tb-src{display:flex;align-items:center;gap:.45rem;background:var(--bg);border:1.5px solid var(--bd);border-radius:50px;padding:.32rem .9rem;transition:border-color .2s;}
-.tb-src:focus-within{border-color:var(--gd);}
-.tb-src input{border:none;background:none;outline:none;font-family:'Noto Serif Bengali',serif;font-size:.8rem;color:var(--td);width:170px;}
-.tb-src i{color:var(--tl);font-size:.8rem;}
-.tb-acts{display:flex;align-items:center;gap:.45rem;}
-.tb-btn{width:34px;height:34px;background:none;border:1.5px solid var(--bd);border-radius:var(--rsm);display:flex;align-items:center;justify-content:center;color:var(--tm);font-size:.82rem;cursor:pointer;transition:all .2s;position:relative;}
+.tb-bc{display:flex;align-items:center;gap:.4rem;font-size:.78rem;color:var(--tl);flex:1;min-width:0;overflow:hidden;}
+.tb-bc .cur{color:var(--td);font-weight:600;white-space:nowrap;}
+.tb-acts{display:flex;align-items:center;gap:.4rem;flex-shrink:0;}
+.tb-btn{width:32px;height:32px;background:none;border:1.5px solid var(--bd);border-radius:var(--rsm);display:flex;align-items:center;justify-content:center;color:var(--tm);font-size:.8rem;cursor:pointer;position:relative;flex-shrink:0;}
 .tb-btn:hover{background:var(--emp);border-color:var(--em);color:var(--em);}
-.ndot{position:absolute;top:4px;right:4px;width:7px;height:7px;background:var(--gd);border-radius:50%;border:1.5px solid var(--card);}
-.tb-av{width:34px;height:34px;background:linear-gradient(135deg,var(--em),var(--em2));border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gdl);font-size:.82rem;cursor:pointer;border:2px solid var(--emp);transition:all .2s;}
-.tb-av:hover{border-color:var(--gd);}
-/* PAGE */
-#pc{flex:1;overflow-y:auto;padding:1.6rem;background:var(--bg);}
-#pc::-webkit-scrollbar{width:5px;} #pc::-webkit-scrollbar-thumb{background:var(--bd);border-radius:3px;}
+#pc{flex:1;overflow-y:auto;padding:1.5rem;background:var(--bg);}
 .view{display:none;} .view.act{display:block;}
-.ph{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.6rem;flex-wrap:wrap;gap:.9rem;}
-.pt{font-family:'Noto Serif Bengali',serif;font-size:1.35rem;font-weight:700;color:var(--td);display:flex;align-items:center;gap:.55rem;}
+.ph{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:.85rem;}
+.pt{font-size:1.3rem;font-weight:700;color:var(--td);display:flex;align-items:center;gap:.5rem;}
 .pt i{color:var(--gd);font-size:1rem;}
-.ps{font-size:.78rem;color:var(--tl);margin-top:.12rem;}
-/* STAT CARDS */
-.sg{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:1.1rem;margin-bottom:1.6rem;}
-.ds{background:var(--card);border-radius:var(--rad);padding:1.35rem;box-shadow:var(--sh);display:flex;align-items:flex-start;gap:.9rem;border:1px solid var(--bd);transition:all var(--tr);position:relative;overflow:hidden;}
+.ps{font-size:.76rem;color:var(--tl);margin-top:.1rem;}
+.sg{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:1rem;margin-bottom:1.5rem;}
+.ds{background:var(--card);border-radius:var(--rad);padding:1.3rem;box-shadow:var(--sh);display:flex;align-items:flex-start;gap:.85rem;border:1px solid var(--bd);position:relative;overflow:hidden;}
 .ds::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--sc-col,var(--em));}
-.ds:hover{transform:translateY(-3px);box-shadow:var(--shm);}
-.ds-ic{width:46px;height:46px;border-radius:11px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.15rem;background:var(--sc-bg,var(--emp));color:var(--sc-col,var(--em));}
-.ds-v{font-family:'Cinzel',serif;font-size:1.8rem;font-weight:700;color:var(--td);line-height:1;margin-bottom:.22rem;}
-.ds-l{font-size:.76rem;color:var(--tl);}
-.ds-tr{margin-top:.35rem;font-size:.7rem;display:flex;align-items:center;gap:.22rem;}
-.tu{color:#16a34a;} .td2{color:#dc2626;}
-/* CHARTS */
-.cg{display:grid;grid-template-columns:2fr 1fr;gap:1.1rem;margin-bottom:1.6rem;}
+.ds-ic{width:44px;height:44px;border-radius:11px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.1rem;background:var(--sc-bg,var(--emp));color:var(--sc-col,var(--em));}
+.ds-v{font-size:1.75rem;font-weight:700;color:var(--td);line-height:1;margin-bottom:.2rem;}
+.ds-l{font-size:.74rem;color:var(--tl);}
+.cg{display:grid;grid-template-columns:2fr 1fr;gap:1rem;margin-bottom:1.5rem;}
 @media(max-width:900px){.cg{grid-template-columns:1fr;}}
-.cb{background:var(--card);border-radius:var(--rad);padding:1.35rem;box-shadow:var(--sh);border:1px solid var(--bd);}
-.cbh{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.1rem;}
-.cbt{font-family:'Noto Serif Bengali',serif;font-size:.92rem;font-weight:700;color:var(--td);display:flex;align-items:center;gap:.45rem;}
+.cb{background:var(--card);border-radius:var(--rad);padding:1.3rem;box-shadow:var(--sh);border:1px solid var(--bd);}
+.cbh{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;}
+.cbt{font-size:.88rem;font-weight:700;color:var(--td);display:flex;align-items:center;gap:.4rem;}
 .cbt i{color:var(--gd);}
-.cba{font-size:.73rem;color:var(--em);text-decoration:none;font-weight:600;display:flex;align-items:center;gap:.22rem;cursor:pointer;}
-.cba:hover{color:var(--gd);}
-/* TABLE */
-.dtw{background:var(--card);border-radius:var(--rad);box-shadow:var(--sh);border:1px solid var(--bd);overflow:hidden;}
-.ttb{display:flex;align-items:center;gap:.85rem;padding:1rem 1.35rem;border-bottom:1px solid var(--bd);flex-wrap:wrap;}
-.ttt{font-family:'Noto Serif Bengali',serif;font-size:.9rem;font-weight:700;color:var(--td);margin-right:auto;display:flex;align-items:center;gap:.45rem;}
+.dtw{background:var(--card);border-radius:var(--rad);box-shadow:var(--sh);border:1px solid var(--bd);overflow-x:auto;}
+.ttb{display:flex;align-items:center;gap:.8rem;padding:.95rem 1.3rem;border-bottom:1px solid var(--bd);flex-wrap:wrap;}
+.ttt{font-size:.88rem;font-weight:700;color:var(--td);margin-right:auto;display:flex;align-items:center;gap:.4rem;}
 .ttt i{color:var(--gd);}
-.tsrc{display:flex;align-items:center;gap:.38rem;background:var(--bg);border:1.5px solid var(--bd);border-radius:7px;padding:.28rem .75rem;}
-.tsrc input{border:none;background:none;outline:none;font-family:'Noto Serif Bengali',serif;font-size:.78rem;color:var(--td);width:155px;}
-.tsrc i{color:var(--tl);font-size:.76rem;}
-.badd{background:linear-gradient(135deg,var(--em),var(--em2));color:var(--gdl);border:none;border-radius:7px;padding:.38rem .9rem;font-family:'Noto Serif Bengali',serif;font-size:.78rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:.38rem;transition:all .2s;}
-.badd:hover{box-shadow:0 4px 12px rgba(10,74,58,.3);transform:translateY(-1px);}
+.tsrc{display:flex;align-items:center;gap:.35rem;background:var(--bg);border:1.5px solid var(--bd);border-radius:7px;padding:.26rem .7rem;}
+.tsrc input{border:none;background:none;outline:none;font-size:.76rem;color:var(--td);width:150px;}
+.badd{background:linear-gradient(135deg,var(--em),var(--em2));color:var(--gdl);border:none;border-radius:7px;padding:.36rem .85rem;font-size:.76rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:.35rem;}
 table{width:100%;border-collapse:collapse;}
 thead tr{background:var(--bg);border-bottom:2px solid var(--bd);}
-th{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tl);padding:.7rem 1.1rem;font-weight:600;white-space:nowrap;text-align:left;}
-td{padding:.8rem 1.1rem;font-size:.8rem;color:var(--td);border-bottom:1px solid var(--bd);vertical-align:middle;}
+th{font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tl);padding:.65rem 1.05rem;font-weight:600;white-space:nowrap;text-align:left;}
+td{padding:.75rem 1.05rem;font-size:.78rem;color:var(--td);border-bottom:1px solid var(--bd);vertical-align:middle;}
 tbody tr:hover{background:#fafffe;}
-tbody tr:last-child td{border-bottom:none;}
-.tid{font-family:'Cinzel',serif;font-size:.7rem;color:var(--tl);}
+.tid{font-size:.68rem;color:var(--tl);}
 .tbold{font-weight:600;}
-.ttr{max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.bs{display:inline-flex;align-items:center;gap:.28rem;padding:.18rem .62rem;border-radius:50px;font-size:.66rem;font-weight:700;font-family:'Cinzel',serif;letter-spacing:.04em;}
+.ttr{max-width:190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.bs{display:inline-flex;align-items:center;gap:.26rem;padding:.16rem .58rem;border-radius:50px;font-size:.64rem;font-weight:700;}
 .bp{background:#dcfce7;color:#16a34a;} .bn{background:#fce7f3;color:#be185d;}
 .bpe{background:#fef9c3;color:#ca8a04;} .bd{background:#f1f5f9;color:#64748b;}
 .ba2{background:#e0f2fe;color:#0369a1;}
-.acts{display:flex;gap:.32rem;}
-.ba3{width:28px;height:28px;border:1.5px solid var(--bd);background:none;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.72rem;color:var(--tm);cursor:pointer;transition:all .2s;}
+.acts{display:flex;gap:.3rem;}
+.ba3{width:27px;height:27px;border:1.5px solid var(--bd);background:none;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--tm);cursor:pointer;}
 .ba3:hover{background:var(--emp);border-color:var(--em);color:var(--em);}
 .ba3.del:hover{background:#fef2f2;border-color:#fca5a5;color:#dc2626;}
-.tfoot{display:flex;align-items:center;justify-content:space-between;padding:.8rem 1.35rem;border-top:1px solid var(--bd);font-size:.76rem;color:var(--tl);flex-wrap:wrap;gap:.45rem;}
-.pgb{display:flex;gap:.28rem;}
-.pb{width:28px;height:28px;border:1.5px solid var(--bd);background:none;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.72rem;color:var(--tm);cursor:pointer;transition:all .2s;}
-.pb.act{background:var(--em);border-color:var(--em);color:#fff;}
-.pb:hover:not(.act){border-color:var(--em);color:var(--em);}
-/* cat bar */
-.cbi{margin-bottom:.8rem;}
-.cbl{display:flex;justify-content:space-between;font-size:.76rem;color:var(--tm);margin-bottom:.3rem;}
-.cbt2{height:6px;background:var(--bg);border-radius:3px;overflow:hidden;}
-.cbf{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--em),var(--gd));}
-/* activity */
-.act-feed{display:flex;flex-direction:column;gap:0;max-height:320px;overflow-y:auto;}
-.ai{display:flex;align-items:flex-start;gap:.7rem;padding:.65rem 0;border-bottom:1px solid var(--bd);}
-.ai:last-child{border-bottom:none;}
-.adot{width:7px;height:7px;border-radius:50%;margin-top:.38rem;flex-shrink:0;}
-.at{font-size:.78rem;color:var(--tm);line-height:1.5;}
-.atime{font-size:.68rem;color:var(--tl);margin-top:.08rem;}
-/* MODAL */
-.mo{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:500;display:none;align-items:center;justify-content:center;backdrop-filter:blur(3px);}
+.mo{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:500;display:none;align-items:center;justify-content:center;backdrop-filter:blur(3px);padding:1rem;}
 .mo.open{display:flex;}
-.mc{background:var(--card);border-radius:var(--rad);width:100%;max-width:540px;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.25);animation:mIn .3s ease;}
-@keyframes mIn{from{transform:translateY(28px);opacity:0;}to{transform:none;opacity:1;}}
-.mh{background:linear-gradient(135deg,var(--em),var(--em2));padding:1.2rem 1.4rem;display:flex;align-items:center;justify-content:space-between;}
-.mt2{font-family:'Noto Serif Bengali',serif;font-size:.95rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:.45rem;}
+.mc{background:var(--card);border-radius:var(--rad);width:100%;max-width:560px;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.25);}
+.mh{background:linear-gradient(135deg,var(--em),var(--em2));padding:1.1rem 1.3rem;display:flex;align-items:center;justify-content:space-between;}
+.mt2{font-size:.92rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:.42rem;}
 .mt2 i{color:var(--gd);}
-.mcl{background:rgba(255,255,255,.15);border:none;width:28px;height:28px;border-radius:6px;color:#fff;cursor:pointer;font-size:.82rem;display:flex;align-items:center;justify-content:center;transition:background .2s;}
-.mcl:hover{background:rgba(255,255,255,.25);}
-.mb2{padding:1.6rem;}
-.fr{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:.9rem;}
-.frs{margin-bottom:.9rem;}
-.lbl{font-size:.78rem;color:var(--tm);font-weight:600;margin-bottom:.3rem;display:block;}
-.inp{width:100%;padding:.58rem .85rem;border:1.5px solid var(--bd);border-radius:var(--rsm);font-family:'Noto Serif Bengali',serif;font-size:.83rem;color:var(--td);background:var(--bg);outline:none;transition:border-color .2s;}
+.mcl{background:rgba(255,255,255,.15);border:none;width:27px;height:27px;border-radius:6px;color:#fff;cursor:pointer;font-size:.8rem;display:flex;align-items:center;justify-content:center;}
+.mb2{padding:1.5rem;}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-bottom:.85rem;}
+.frs{margin-bottom:.85rem;}
+.lbl{font-size:.76rem;color:var(--tm);font-weight:600;margin-bottom:.28rem;display:block;}
+.inp{width:100%;padding:.56rem .82rem;border:1.5px solid var(--bd);border-radius:var(--rsm);font-size:.81rem;color:var(--td);background:var(--bg);outline:none;}
 .inp:focus{border-color:var(--gd);background:#fff;}
-select.inp option{background:#fff;}
-textarea.inp{resize:vertical;min-height:90px;}
-.bsv{background:linear-gradient(135deg,var(--gd),var(--gdl));color:var(--em);border:none;border-radius:7px;padding:.6rem 1.6rem;font-family:'Noto Serif Bengali',serif;font-size:.85rem;font-weight:700;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:.38rem;box-shadow:0 3px 12px rgba(201,162,39,.32);}
-.bsv:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(201,162,39,.42);}
-.bcn{background:none;border:1.5px solid var(--bd);border-radius:7px;padding:.6rem 1.1rem;font-family:'Noto Serif Bengali',serif;font-size:.85rem;color:var(--tm);cursor:pointer;transition:all .2s;}
-.bcn:hover{border-color:var(--tm);}
-/* TOAST */
-#tw{position:fixed;bottom:1.4rem;right:1.4rem;z-index:9999;display:flex;flex-direction:column;gap:.45rem;}
-.tm3{background:var(--td);color:#fff;padding:.6rem 1.1rem;border-radius:9px;font-size:.8rem;display:flex;align-items:center;gap:.45rem;box-shadow:0 4px 18px rgba(0,0,0,.22);animation:tI .3s ease;}
-@keyframes tI{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+textarea.inp{resize:vertical;min-height:85px;}
+.bsv{background:linear-gradient(135deg,var(--gd),var(--gdl));color:var(--em);border:none;border-radius:7px;padding:.58rem 1.5rem;font-size:.83rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:.36rem;}
+.bcn{background:none;border:1.5px solid var(--bd);border-radius:7px;padding:.58rem 1.05rem;font-size:.83rem;color:var(--tm);cursor:pointer;}
+#tw{position:fixed;bottom:1.3rem;right:1.3rem;z-index:9999;display:flex;flex-direction:column;gap:.4rem;max-width:90vw;}
+.tm3{background:var(--td);color:#fff;padding:.55rem 1.05rem;border-radius:9px;font-size:.78rem;display:flex;align-items:center;gap:.42rem;box-shadow:0 4px 18px rgba(0,0,0,.22);}
 .tm3.ok i{color:#4ade80;} .tm3.wn i{color:var(--gd);}
-/* settings */
-.sg2{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;}
-@media(max-width:768px){#sb{transform:translateX(-100%);} #sb.mob{transform:translateX(0);} #main{margin-left:0!important;width:100%!important;} .sg{grid-template-columns:1fr 1fr;} .fr{grid-template-columns:1fr;} .tb-src{display:none;} .cg{grid-template-columns:1fr;} .sg2{grid-template-columns:1fr;}}
+.sg2{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;}
+/* Upload zones */
+.upload-zone{border:2px dashed var(--bd);border-radius:10px;padding:1.4rem 1rem;text-align:center;cursor:pointer;transition:all .2s;background:var(--bg);}
+.upload-zone:hover,.upload-zone.drag{border-color:var(--gd);background:var(--emp);}
+.upload-zone i{font-size:1.6rem;color:var(--gd);margin-bottom:.5rem;display:block;}
+.upload-zone .uz-text{font-size:.8rem;color:var(--tm);font-weight:600;}
+.upload-zone .uz-sub{font-size:.68rem;color:var(--tl);margin-top:.2rem;}
+.upload-preview{display:flex;align-items:center;gap:.6rem;background:var(--emp);border:1px solid rgba(10,74,58,.18);border-radius:9px;padding:.6rem .85rem;margin-top:.6rem;font-size:.78rem;}
+.upload-preview i{color:var(--em);font-size:1.1rem;}
+.upload-preview .uf-name{flex:1;font-weight:600;color:var(--td);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.upload-preview button{background:none;border:none;color:#dc2626;cursor:pointer;font-size:.85rem;}
+.url-alt{display:flex;align-items:center;gap:.5rem;margin-top:.6rem;font-size:.72rem;color:var(--tl);}
+.url-alt hr{flex:1;border-color:var(--bd);}
+.perm-notice{background:#fef9c3;border:1px solid #fde68a;border-radius:9px;padding:.7rem 1rem;font-size:.76rem;color:#92400e;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;}
+@media(max-width:767.98px){
+  #sb{transform:translateX(-100%);box-shadow:4px 0 24px rgba(0,0,0,.35);z-index:300;}
+  #sb.mob-open{transform:translateX(0);width:var(--sw)!important;}
+  #sb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:299;}
+  #sb-overlay.vis{display:block;}
+  #main{margin-left:0!important;width:100%!important;}
+  .tsrc{display:none;}
+  #pc{padding:1rem;}
+  .sg{grid-template-columns:1fr 1fr;}
+  .fr{grid-template-columns:1fr;}
+  .sg2{grid-template-columns:1fr;}
+  .dl-grid{grid-template-columns:1fr;}
+}
+@media(min-width:768px) and (max-width:1023.98px){#sb{width:var(--sc);}#sb .sl-lb,#sb .sl-bdg,#sb .slbl,#sb .logo-su,#sb .logo-ti{display:none;}#sb.mob-open{width:var(--sw)!important;}#sb.mob-open .sl-lb,#sb.mob-open .sl-bdg,#sb.mob-open .slbl,#sb.mob-open .logo-su,#sb.mob-open .logo-ti{display:block;}#main{margin-left:var(--sc);width:calc(100% - var(--sc));}#main.exp{margin-left:0;width:100%;}.sg{grid-template-columns:repeat(3,1fr);}}
+/* Auth overlay */
+#auth-overlay{position:fixed;inset:0;background:rgba(7,30,24,.98);z-index:9999;display:none;align-items:center;justify-content:center;backdrop-filter:blur(8px);}
+.auth-box{background:rgba(255,255,255,.05);border:1px solid rgba(201,162,39,.25);border-radius:16px;padding:2.2rem;text-align:center;max-width:340px;width:90%;}
+.auth-box .em2{width:54px;height:54px;background:linear-gradient(135deg,#c9a227,#e4b84a);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-family:'Amiri',serif;font-size:1.45rem;color:#0a4a3a;font-weight:700;}
+.auth-box h3{color:#fff;font-size:.95rem;margin-bottom:.4rem;}
+.auth-box p{color:rgba(255,255,255,.5);font-size:.78rem;margin-bottom:1.3rem;}
+.auth-box a{background:linear-gradient(135deg,#c9a227,#e4b84a);color:#0a4a3a;padding:.65rem 1.8rem;border-radius:50px;font-weight:700;text-decoration:none;font-size:.85rem;display:inline-block;}
+#session-info{display:flex;align-items:center;gap:.45rem;font-size:.72rem;color:rgba(0,0,0,.7);background:var(--emp);border:1px solid rgba(10,74,58,.15);border-radius:8px;padding:.26rem .65rem;flex-shrink:0;}
+#session-info strong{color:var(--em);}
 </style>
 </head>
 <body>
 
-<!-- SIDEBAR -->
+<div id="auth-overlay">
+  <div class="auth-box">
+    <div class="em2">م</div>
+    <h3>অ্যাক্সেস নিষিদ্ধ</h3>
+    <p>এই পেজ দেখতে হলে অ্যাডমিন লগইন করতে হবে</p>
+    <a href="login.html"><i class="fas fa-sign-in-alt" style="margin-right:.4rem;"></i>লগইন করুন</a>
+  </div>
+</div>
+
 <aside id="sb">
- <div class="sl-logo">
-  <div class="logo-em">م</div>
-  <div class="logo-txt"><span class="logo-ti">আব্দুল লতিফ শেখ</span><span class="logo-su">Admin Panel</span></div>
- </div>
+ <div class="sl-logo"><div class="logo-em">م</div><div><span class="logo-ti">আব্দুল লতিফ শেখ</span><span class="logo-su">Admin Panel</span></div></div>
  <nav class="snav">
   <div class="slbl">প্রধান</div>
   <button class="sl-btn act" onclick="gV('dashboard',this)"><span class="sl-ic"><i class="fas fa-th-large"></i></span><span class="sl-lb">ড্যাশবোর্ড</span></button>
-  <div class="slbl">কনটেন্ট</div>
-  <button class="sl-btn" onclick="gV('fatwas',this)"><span class="sl-ic"><i class="fas fa-scroll"></i></span><span class="sl-lb">ফতোয়া ব্যবস্থাপনা</span><span class="sl-bdg" id="bdg-fatwas">0</span></button>
+  <div class="slbl">কনটেন্ট প্রকাশনা</div>
+  <button class="sl-btn" onclick="gV('fatwas',this)"><span class="sl-ic"><i class="fas fa-scroll"></i></span><span class="sl-lb">ফতোয়া</span><span class="sl-bdg" id="bdg-fatwas">0</span></button>
   <button class="sl-btn" onclick="gV('questions',this)"><span class="sl-ic"><i class="fas fa-question-circle"></i></span><span class="sl-lb">প্রশ্নসমূহ</span><span class="sl-bdg" id="bdg-q">0</span></button>
-  <button class="sl-btn" onclick="gV('articles',this)"><span class="sl-ic"><i class="fas fa-pen-nib"></i></span><span class="sl-lb">প্রবন্ধ</span></button>
-  <button class="sl-btn" onclick="gV('books',this)"><span class="sl-ic"><i class="fas fa-book"></i></span><span class="sl-lb">বই ও গ্রন্থ</span></button>
-  <button class="sl-btn" onclick="gV('videos',this)"><span class="sl-ic"><i class="fas fa-video"></i></span><span class="sl-lb">ভিডিও ও অডিও</span></button>
+  <button class="sl-btn" onclick="gV('articles',this)"><span class="sl-ic"><i class="fas fa-pen-nib"></i></span><span class="sl-lb">প্রবন্ধ (PDF)</span></button>
+  <button class="sl-btn" onclick="gV('books',this)"><span class="sl-ic"><i class="fas fa-book"></i></span><span class="sl-lb">বই (PDF/লিংক)</span></button>
+  <button class="sl-btn" onclick="gV('videos',this)"><span class="sl-ic"><i class="fas fa-video"></i></span><span class="sl-lb">ভিডিও (লিংক)</span></button>
   <button class="sl-btn" onclick="gV('scholar',this)"><span class="sl-ic"><i class="fas fa-user-tie"></i></span><span class="sl-lb">জীবনী সম্পাদনা</span></button>
   <div class="slbl">অ্যাডমিন</div>
-  <button class="sl-btn" onclick="gV('users',this)"><span class="sl-ic"><i class="fas fa-users"></i></span><span class="sl-lb">ব্যবহারকারী</span></button>
+  <button class="sl-btn" id="nav-users" onclick="gV('users',this)"><span class="sl-ic"><i class="fas fa-users"></i></span><span class="sl-lb">ব্যবহারকারী</span></button>
   <button class="sl-btn" onclick="gV('settings',this)"><span class="sl-ic"><i class="fas fa-cog"></i></span><span class="sl-lb">সেটিংস</span></button>
   <a class="sl-btn" href="index.html" target="_blank"><span class="sl-ic"><i class="fas fa-external-link-alt"></i></span><span class="sl-lb">ওয়েবসাইট দেখুন</span></a>
-  <button class="sl-btn" onclick="if(confirm('ডেটাবেজ রিসেট করবেন?')){SiteDB.reset();location.reload();}"><span class="sl-ic"><i class="fas fa-redo" style="color:var(--gd);"></i></span><span class="sl-lb">ডেটা রিসেট</span></button>
  </nav>
- <div class="sfoot">
-  <div class="uav"><i class="fas fa-user-shield"></i></div>
-  <div><div class="unm">Super Admin</div><div class="url">সুপার অ্যাডমিন</div></div>
- </div>
+ <div class="sfoot"><div class="uav"><i class="fas fa-user-shield"></i></div><div><div class="unm" id="sf-name">—</div><div class="url2" id="sf-role">—</div></div></div>
 </aside>
 
-<!-- MAIN -->
 <div id="main">
  <div id="tb">
   <button class="tb-tog" onclick="togSB()"><i class="fas fa-bars"></i></button>
-  <div class="tb-bc" id="bc-top"><span>অ্যাডমিন</span><span style="color:var(--bd);">/</span><span class="cur">ড্যাশবোর্ড</span></div>
-  <div class="tb-src"><i class="fas fa-search"></i><input type="text" placeholder="কনটেন্ট অনুসন্ধান..."></div>
+  <div class="tb-bc" id="bc-top"><span class="cur">ড্যাশবোর্ড</span></div>
+  <div class="tsrc"><i class="fas fa-search" style="color:var(--tl);font-size:.74rem;"></i><input type="text" placeholder="খুঁজুন..."></div>
   <div class="tb-acts">
-   <button class="tb-btn" onclick="toast('৩টি নতুন প্রশ্ন এসেছে','wn')"><i class="fas fa-bell"></i><span class="ndot"></span></button>
-   <button class="tb-btn" onclick="refreshAll()"><i class="fas fa-sync-alt"></i></button>
-   <div class="tb-av" onclick="gV('settings',null)"><i class="fas fa-user-shield"></i></div>
+    <button class="tb-btn" onclick="refreshAll()" title="রিফ্রেশ"><i class="fas fa-sync-alt"></i></button>
+    <div id="session-info-wrap"></div>
   </div>
  </div>
  <div id="pc">
 
-  <!-- DASHBOARD -->
   <div class="view act" id="v-dashboard">
-   <div class="ph">
-    <div><div class="pt"><i class="fas fa-th-large"></i>ড্যাশবোর্ড</div><div class="ps">সাইটের সার্বিক পরিস্থিতি</div></div>
-    <button class="badd" onclick="toast('রিপোর্ট তৈরি হচ্ছে...','wn')"><i class="fas fa-download"></i>রিপোর্ট</button>
+   <div class="ph"><div><div class="pt"><i class="fas fa-th-large"></i>ড্যাশবোর্ড</div><div class="ps">সাইটের সার্বিক পরিস্থিতি — সব আপডেট সরাসরি ওয়েবসাইটে প্রকাশিত হয়</div></div>
+    <button class="badd" onclick="openReport()"><i class="fas fa-file-alt"></i>রিপোর্ট তৈরি করুন</button>
    </div>
    <div class="sg" id="stat-cards"></div>
    <div class="cg">
-    <div class="cb"><div class="cbh"><div class="cbt"><i class="fas fa-chart-line"></i>মাসিক ভিজিটর</div></div><canvas id="vChart" height="110"></canvas></div>
-    <div class="cb"><div class="cbh"><div class="cbt"><i class="fas fa-chart-pie"></i>ফতোয়া বিভাগ</div></div><canvas id="cChart" height="140"></canvas><div style="margin-top:.85rem;" id="cat-bars"></div></div>
-   </div>
-   <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;">
-    <div class="cb">
-     <div class="cbh"><div class="cbt"><i class="fas fa-clock"></i>সাম্প্রতিক কার্যক্রম</div></div>
-     <div class="act-feed" id="act-feed"></div>
-    </div>
-    <div class="cb">
-     <div class="cbh"><div class="cbt"><i class="fas fa-inbox"></i>অপেক্ষমান প্রশ্ন</div><span class="cba" onclick="gV('questions',null)">সব দেখুন →</span></div>
-     <div id="pending-q"></div>
-    </div>
+    <div class="cb"><div class="cbh"><div class="cbt"><i class="fas fa-chart-pie"></i>ফতোয়া বিভাগ বিশ্লেষণ</div></div><canvas id="cChart" height="140"></canvas></div>
+    <div class="cb"><div class="cbh"><div class="cbt"><i class="fas fa-inbox"></i>অপেক্ষমান প্রশ্ন</div><span style="font-size:.7rem;color:var(--em);cursor:pointer;" onclick="gV('questions',null)">সব দেখুন →</span></div><div id="pending-q"></div></div>
    </div>
   </div>
 
-  <!-- FATWAS -->
   <div class="view" id="v-fatwas">
-   <div class="ph"><div><div class="pt"><i class="fas fa-scroll"></i>ফতোয়া ব্যবস্থাপনা</div><div class="ps">সকল ফতোয়া পরিচালনা</div></div></div>
+   <div class="ph"><div><div class="pt"><i class="fas fa-scroll"></i>ফতোয়া ব্যবস্থাপনা</div><div class="ps">নতুন ফতোয়া প্রকাশ করলে সাথে সাথে ফতোয়া আর্কাইভ পেজে দেখা যাবে</div></div></div>
    <div class="dtw">
-    <div class="ttb">
-     <div class="ttt"><i class="fas fa-scroll"></i>ফতোয়া তালিকা (<span id="f-cnt">0</span>)</div>
-     <div class="tsrc"><i class="fas fa-search"></i><input type="text" id="f-src" placeholder="ফতোয়া খুঁজুন..." oninput="filterTable('fatwas',this.value)"></div>
-     <select class="inp" style="width:auto;padding:.28rem .65rem;font-size:.78rem;" id="f-cat-filter" onchange="filterTable('fatwas',document.getElementById('f-src').value)">
-      <option value="">সব বিভাগ</option><option>আকিদাহ</option><option>তাহারাহ ও নামায</option><option>সিয়াম ও হজ</option><option>মুআমালাত</option><option>পারিবারিক</option><option>ব্যবসা</option><option>সমসাময়িক</option>
-     </select>
+    <div class="ttb"><div class="ttt"><i class="fas fa-scroll"></i>ফতোয়া তালিকা (<span id="f-cnt">0</span>)</div>
+     <div class="tsrc"><i class="fas fa-search" style="color:var(--tl);"></i><input type="text" id="f-src" placeholder="খুঁজুন..." oninput="renderFatwas(SiteDB.get(),this.value)"></div>
      <button class="badd" onclick="openModal('fatwa')"><i class="fas fa-plus"></i>নতুন ফতোয়া</button>
     </div>
-    <table><thead><tr><th>#</th><th>প্রশ্ন</th><th>বিভাগ</th><th>তারিখ</th><th>ভিউ</th><th>স্ট্যাটাস</th><th>অ্যাকশন</th></tr></thead>
-    <tbody id="f-tbody"></tbody></table>
-    <div class="tfoot"><span id="f-info"></span></div>
+    <table><thead><tr><th>#</th><th>প্রশ্ন</th><th>বিভাগ</th><th>তারিখ</th><th>ভিউ</th><th>স্ট্যাটাস</th><th>অ্যাকশন</th></tr></thead><tbody id="f-tbody"></tbody></table>
    </div>
   </div>
 
-  <!-- QUESTIONS -->
   <div class="view" id="v-questions">
-   <div class="ph"><div><div class="pt"><i class="fas fa-question-circle"></i>প্রশ্নসমূহ</div><div class="ps">দর্শকদের পাঠানো প্রশ্ন</div></div></div>
+   <div class="ph"><div><div class="pt"><i class="fas fa-question-circle"></i>প্রশ্নসমূহ</div><div class="ps">দর্শকদের পাঠানো প্রশ্ন — উত্তর দিলে সরাসরি ফতোয়া হিসেবে প্রকাশ করা যায়</div></div></div>
    <div class="dtw">
-    <div class="ttb">
-     <div class="ttt"><i class="fas fa-inbox"></i>ইনবক্স (<span id="q-cnt">0</span>)</div>
-     <div class="tsrc"><i class="fas fa-search"></i><input type="text" id="q-src" placeholder="প্রশ্ন খুঁজুন..." oninput="filterTable('questions',this.value)"></div>
-     <select class="inp" style="width:auto;padding:.28rem .65rem;font-size:.78rem;" id="q-stat-filter" onchange="filterTable('questions','')">
-      <option value="">সব স্ট্যাটাস</option><option value="new">নতুন</option><option value="pending">পর্যালোচনা</option><option value="answered">উত্তর দেওয়া</option>
-     </select>
-    </div>
-    <table><thead><tr><th>#</th><th>প্রশ্নকারী</th><th>বিষয়</th><th>বিভাগ</th><th>তারিখ</th><th>স্ট্যাটাস</th><th>অ্যাকশন</th></tr></thead>
-    <tbody id="q-tbody"></tbody></table>
-    <div class="tfoot"><span id="q-info"></span></div>
+    <div class="ttb"><div class="ttt"><i class="fas fa-inbox"></i>ইনবক্স (<span id="q-cnt">0</span>)</div><div class="tsrc"><i class="fas fa-search" style="color:var(--tl);"></i><input type="text" placeholder="খুঁজুন..." oninput="renderQuestions(SiteDB.get(),this.value)"></div></div>
+    <table><thead><tr><th>#</th><th>প্রশ্নকারী</th><th>বিষয়</th><th>বিভাগ</th><th>তারিখ</th><th>স্ট্যাটাস</th><th>অ্যাকশন</th></tr></thead><tbody id="q-tbody"></tbody></table>
    </div>
   </div>
 
-  <!-- ARTICLES -->
   <div class="view" id="v-articles">
-   <div class="ph"><div><div class="pt"><i class="fas fa-pen-nib"></i>প্রবন্ধ ব্যবস্থাপনা</div><div class="ps">সকল প্রবন্ধ</div></div></div>
+   <div class="ph"><div><div class="pt"><i class="fas fa-pen-nib"></i>প্রবন্ধ ব্যবস্থাপনা</div><div class="ps">PDF আপলোড করুন অথবা PDF লিংক দিন — তাৎক্ষণিক হোমপেজে প্রকাশিত হবে</div></div></div>
    <div class="dtw">
-    <div class="ttb"><div class="ttt"><i class="fas fa-file-alt"></i>প্রবন্ধ তালিকা (<span id="a-cnt">0</span>)</div><div class="tsrc"><i class="fas fa-search"></i><input type="text" placeholder="প্রবন্ধ খুঁজুন..." oninput="filterTable('articles',this.value)"></div><button class="badd" onclick="openModal('article')"><i class="fas fa-plus"></i>নতুন প্রবন্ধ</button></div>
-    <table><thead><tr><th>#</th><th>শিরোনাম</th><th>বিভাগ</th><th>তারিখ</th><th>ভিউ</th><th>স্ট্যাটাস</th><th>অ্যাকশন</th></tr></thead>
-    <tbody id="a-tbody"></tbody></table>
-    <div class="tfoot"><span id="a-info"></span></div>
+    <div class="ttb"><div class="ttt"><i class="fas fa-file-alt"></i>প্রবন্ধ তালিকা (<span id="a-cnt">0</span>)</div><div class="tsrc"><i class="fas fa-search" style="color:var(--tl);"></i><input type="text" placeholder="খুঁজুন..." oninput="renderArticles(SiteDB.get(),this.value)"></div><button class="badd" onclick="openModal('article')"><i class="fas fa-plus"></i>নতুন প্রবন্ধ</button></div>
+    <table><thead><tr><th>#</th><th>শিরোনাম</th><th>বিভাগ</th><th>PDF</th><th>ভিউ</th><th>স্ট্যাটাস</th><th>অ্যাকশন</th></tr></thead><tbody id="a-tbody"></tbody></table>
    </div>
   </div>
 
-  <!-- BOOKS -->
   <div class="view" id="v-books">
-   <div class="ph"><div><div class="pt"><i class="fas fa-book"></i>বই ব্যবস্থাপনা</div><div class="ps">প্রকাশিত বই ও গ্রন্থ</div></div></div>
+   <div class="ph"><div><div class="pt"><i class="fas fa-book"></i>বই ব্যবস্থাপনা</div><div class="ps">PDF আপলোড/লিংক ও অনলাইন রিডার লিংক যোগ করুন — books.html পেজে সরাসরি কাজ করবে</div></div></div>
    <div class="dtw">
-    <div class="ttb"><div class="ttt"><i class="fas fa-book-open"></i>বইয়ের তালিকা</div><div class="tsrc"><i class="fas fa-search"></i><input type="text" placeholder="বই খুঁজুন..."></div><button class="badd" onclick="openModal('book')"><i class="fas fa-plus"></i>নতুন বই</button></div>
-    <table><thead><tr><th>#</th><th>বইয়ের নাম</th><th>আরবি নাম</th><th>সংস্করণ</th><th>পৃষ্ঠা</th><th>সাল</th><th>স্ট্যাটাস</th><th>অ্যাকশন</th></tr></thead>
-    <tbody id="b-tbody"></tbody></table>
+    <div class="ttb"><div class="ttt"><i class="fas fa-book-open"></i>বইয়ের তালিকা</div><div class="tsrc"><i class="fas fa-search" style="color:var(--tl);"></i><input type="text" placeholder="খুঁজুন..."></div><button class="badd" onclick="openModal('book')"><i class="fas fa-plus"></i>নতুন বই</button></div>
+    <table><thead><tr><th>#</th><th>বইয়ের নাম</th><th>PDF</th><th>অনলাইন রিড</th><th>সাল</th><th>স্ট্যাটাস</th><th>অ্যাকশন</th></tr></thead><tbody id="b-tbody"></tbody></table>
    </div>
   </div>
 
-  <!-- VIDEOS -->
   <div class="view" id="v-videos">
-   <div class="ph"><div><div class="pt"><i class="fas fa-video"></i>ভিডিও ও অডিও</div><div class="ps">মিডিয়া কনটেন্ট</div></div></div>
+   <div class="ph"><div><div class="pt"><i class="fas fa-video"></i>ভিডিও ও অডিও</div><div class="ps">YouTube লিংক যোগ করুন — হোমপেজে সরাসরি প্লে হবে</div></div></div>
    <div class="dtw">
-    <div class="ttb"><div class="ttt"><i class="fas fa-play-circle"></i>মিডিয়া তালিকা</div><div class="tsrc"><i class="fas fa-search"></i><input type="text" placeholder="ভিডিও খুঁজুন..."></div><button class="badd" onclick="openModal('video')"><i class="fas fa-plus"></i>নতুন ভিডিও</button></div>
-    <table><thead><tr><th>#</th><th>শিরোনাম</th><th>ধরন</th><th>সময়কাল</th><th>ভিউ</th><th>তারিখ</th><th>অ্যাকশন</th></tr></thead>
-    <tbody id="vid-tbody"></tbody></table>
+    <div class="ttb"><div class="ttt"><i class="fas fa-play-circle"></i>মিডিয়া তালিকা</div><button class="badd" onclick="openModal('video')"><i class="fas fa-plus"></i>নতুন ভিডিও</button></div>
+    <table><thead><tr><th>#</th><th>শিরোনাম</th><th>লিংক</th><th>সময়কাল</th><th>ভিউ</th><th>অ্যাকশন</th></tr></thead><tbody id="vid-tbody"></tbody></table>
    </div>
   </div>
 
-  <!-- SCHOLAR BIO EDITOR -->
   <div class="view" id="v-scholar">
-   <div class="ph"><div><div class="pt"><i class="fas fa-user-tie"></i>জীবনী সম্পাদনা</div><div class="ps">মুফতি সাহেবের তথ্য আপডেট করুন</div></div></div>
+   <div class="ph"><div><div class="pt"><i class="fas fa-user-tie"></i>জীবনী সম্পাদনা</div><div class="ps">মুফতি সাহেবের তথ্য আপডেট করুন — সরাসরি হোমপেজে দেখা যাবে</div></div></div>
    <div class="sg2">
     <div class="cb">
      <div class="cbh"><div class="cbt"><i class="fas fa-user"></i>ব্যক্তিগত তথ্য</div></div>
      <div class="frs"><label class="lbl">নাম (বাংলা)</label><input class="inp" id="sc-name-bn"></div>
      <div class="frs"><label class="lbl">নাম (আরবি)</label><input class="inp" id="sc-name-ar" dir="rtl" style="font-family:'Amiri',serif;"></div>
-     <div class="frs"><label class="lbl">নাম (ইংরেজি)</label><input class="inp" id="sc-name-en"></div>
      <div class="fr"><div><label class="lbl">পিতার নাম</label><input class="inp" id="sc-father"></div><div><label class="lbl">মাতার নাম</label><input class="inp" id="sc-mother"></div></div>
      <div class="fr"><div><label class="lbl">জন্ম তারিখ</label><input class="inp" id="sc-dob"></div><div><label class="lbl">মোবাইল</label><input class="inp" id="sc-mobile"></div></div>
      <div class="frs"><label class="lbl">বর্তমান ঠিকানা</label><textarea class="inp" id="sc-addr" rows="2"></textarea></div>
-     <div class="frs"><label class="lbl">স্থায়ী ঠিকানা</label><textarea class="inp" id="sc-perm" rows="2"></textarea></div>
      <div class="frs"><label class="lbl">সংক্ষিপ্ত পরিচিতি</label><textarea class="inp" id="sc-bio" rows="3"></textarea></div>
      <button class="bsv" onclick="saveScholar()"><i class="fas fa-save"></i>পরিবর্তন সংরক্ষণ করুন</button>
     </div>
-    <div>
-     <div class="cb" style="margin-bottom:1.1rem;">
-      <div class="cbh"><div class="cbt"><i class="fas fa-chart-bar"></i>পরিসংখ্যান</div></div>
-      <div class="frs"><label class="lbl">মোট ফতোয়া</label><input class="inp" id="st-fatwas" type="number"></div>
-      <div class="frs"><label class="lbl">মোট প্রবন্ধ</label><input class="inp" id="st-articles" type="number"></div>
-      <div class="frs"><label class="lbl">মোট বই</label><input class="inp" id="st-books" type="number"></div>
-      <div class="frs"><label class="lbl">অভিজ্ঞতা (বছর)</label><input class="inp" id="st-exp" type="number"></div>
-      <button class="bsv" onclick="saveStats()"><i class="fas fa-save"></i>সংরক্ষণ</button>
-     </div>
-     <div class="cb">
-      <div class="cbh"><div class="cbt"><i class="fas fa-graduation-cap"></i>শিক্ষাগত যোগ্যতা</div></div>
-      <div id="edu-list" style="font-size:.8rem;color:var(--tm);"></div>
-     </div>
+    <div class="cb">
+     <div class="cbh"><div class="cbt"><i class="fas fa-chart-bar"></i>পরিসংখ্যান (হোমপেজে দেখানো)</div></div>
+     <div class="frs"><label class="lbl">মোট ফতোয়া</label><input class="inp" id="st-fatwas" type="number"></div>
+     <div class="frs"><label class="lbl">মোট প্রবন্ধ</label><input class="inp" id="st-articles" type="number"></div>
+     <div class="frs"><label class="lbl">মোট বই</label><input class="inp" id="st-books" type="number"></div>
+     <div class="frs"><label class="lbl">অভিজ্ঞতা (বছর)</label><input class="inp" id="st-exp" type="number"></div>
+     <button class="bsv" onclick="saveStats()"><i class="fas fa-save"></i>সংরক্ষণ</button>
     </div>
    </div>
   </div>
 
-  <!-- USERS -->
   <div class="view" id="v-users">
-   <div class="ph"><div><div class="pt"><i class="fas fa-users"></i>ব্যবহারকারী</div><div class="ps">রোল ও অ্যাক্সেস</div></div></div>
+   <div class="ph"><div><div class="pt"><i class="fas fa-users"></i>ব্যবহারকারী</div><div class="ps">লগইন রোল ও অ্যাক্সেস নিয়ন্ত্রণ (শুধু সুপার অ্যাডমিন)</div></div></div>
    <div class="dtw">
-    <div class="ttb"><div class="ttt"><i class="fas fa-user-friends"></i>ব্যবহারকারী তালিকা</div><div class="tsrc"><i class="fas fa-search"></i><input type="text" placeholder="খুঁজুন..."></div><button class="badd" onclick="openModal('user')"><i class="fas fa-plus"></i>নতুন</button></div>
-    <table><thead><tr><th>#</th><th>নাম</th><th>ইমেইল</th><th>রোল</th><th>যোগদান</th><th>স্ট্যাটাস</th><th>অ্যাকশন</th></tr></thead>
-    <tbody id="u-tbody"></tbody></table>
+    <div class="ttb"><div class="ttt"><i class="fas fa-user-friends"></i>ব্যবহারকারী তালিকা</div><button class="badd" onclick="openModal('user')"><i class="fas fa-plus"></i>নতুন</button></div>
+    <table><thead><tr><th>#</th><th>নাম</th><th>ইমেইল</th><th>রোল</th><th>যোগদান</th><th>স্ট্যাটাস</th><th>অ্যাকশন</th></tr></thead><tbody id="u-tbody"></tbody></table>
    </div>
   </div>
 
-  <!-- SETTINGS -->
   <div class="view" id="v-settings">
    <div class="ph"><div><div class="pt"><i class="fas fa-cog"></i>সেটিংস</div><div class="ps">ওয়েবসাইট কনফিগারেশন</div></div></div>
    <div class="sg2">
-    <div class="cb">
-     <div class="cbh"><div class="cbt"><i class="fas fa-globe"></i>সাইট সেটিংস</div></div>
+    <div class="cb"><div class="cbh"><div class="cbt"><i class="fas fa-globe"></i>সাইট সেটিংস</div></div>
      <div class="frs"><label class="lbl">সাইটের নাম</label><input class="inp" id="site-name"></div>
-     <div class="frs"><label class="lbl">ট্যাগলাইন</label><input class="inp" id="site-tag"></div>
      <div class="frs"><label class="lbl">ইমেইল</label><input class="inp" id="site-email" type="email"></div>
      <div class="frs"><label class="lbl">ফোন</label><input class="inp" id="site-phone"></div>
      <button class="bsv" onclick="saveSiteSettings()"><i class="fas fa-save"></i>সংরক্ষণ করুন</button>
     </div>
-    <div class="cb">
-     <div class="cbh"><div class="cbt"><i class="fas fa-shield-alt"></i>নিরাপত্তা</div></div>
-     <div class="frs"><label class="lbl">বর্তমান পাসওয়ার্ড</label><input class="inp" type="password" placeholder="••••••••"></div>
-     <div class="frs"><label class="lbl">নতুন পাসওয়ার্ড</label><input class="inp" type="password" placeholder="••••••••"></div>
-     <div class="frs"><label class="lbl">নিশ্চিত করুন</label><input class="inp" type="password" placeholder="••••••••"></div>
-     <button class="bsv" onclick="toast('পাসওয়ার্ড পরিবর্তন হয়েছে','ok')"><i class="fas fa-lock"></i>পরিবর্তন করুন</button>
+    <div class="cb"><div class="cbh"><div class="cbt"><i class="fas fa-shield-alt"></i>নিরাপত্তা</div></div>
+     <div class="frs"><label class="lbl">নতুন পাসওয়ার্ড</label><input class="inp" type="password" id="new-pass" placeholder="••••••••"></div>
+     <div class="frs"><label class="lbl">নিশ্চিত করুন</label><input class="inp" type="password" id="confirm-pass" placeholder="••••••••"></div>
+     <button class="bsv" onclick="changePassword()"><i class="fas fa-lock"></i>পরিবর্তন করুন</button>
+     <hr style="margin:1.1rem 0;border-color:var(--bd);">
+     <button class="bcn" style="width:100%;color:#dc2626;border-color:#fca5a5;" onclick="doLogout()"><i class="fas fa-sign-out-alt" style="margin-right:.4rem;"></i>লগআউট করুন</button>
     </div>
    </div>
   </div>
 
- </div><!-- /pc -->
-</div><!-- /main -->
-
-<!-- MODAL -->
-<div class="mo" id="modal" onclick="if(event.target===this)closeModal()">
- <div class="mc">
-  <div class="mh"><div class="mt2" id="m-title"><i class="fas fa-plus"></i><span>নতুন যোগ করুন</span></div><button class="mcl" onclick="closeModal()"><i class="fas fa-times"></i></button></div>
-  <div class="mb2" id="m-body"></div>
  </div>
+</div>
+
+<div class="mo" id="modal" onclick="if(event.target===this)closeModal()">
+ <div class="mc"><div class="mh"><div class="mt2" id="m-title"><i class="fas fa-plus"></i><span>নতুন</span></div><button class="mcl" onclick="closeModal()"><i class="fas fa-times"></i></button></div><div class="mb2" id="m-body"></div></div>
 </div>
 <div id="tw"></div>
 
 <script src="db.js"></script>
 <script>
-// ── STATUS BADGES ──
-const SB={
-  published:'<span class="bs bp"><i class="fas fa-check-circle"></i>প্রকাশিত</span>',
-  pending:  '<span class="bs bpe"><i class="fas fa-clock"></i>পর্যালোচনা</span>',
-  draft:    '<span class="bs bd"><i class="fas fa-file"></i>খসড়া</span>',
-  answered: '<span class="bs ba2"><i class="fas fa-check"></i>উত্তর দেওয়া</span>',
-  new:      '<span class="bs bn"><i class="fas fa-exclamation-circle"></i>নতুন</span>',
-  active:   '<span class="bs bp"><i class="fas fa-circle"></i>সক্রিয়</span>',
-  inactive: '<span class="bs bd"><i class="fas fa-circle"></i>নিষ্ক্রিয়</span>',
-};
-
-// ── RENDER ALL ──
-function renderAll(){
-  const db=SiteDB.get();
-  renderDash(db); renderFatwas(db); renderQuestions(db);
-  renderArticles(db); renderBooks(db); renderVideos(db);
-  renderUsers(db); loadScholarForm(db); loadSettings(db);
-  updateBadges(db);
+/* ===== AUTH GUARD ===== */
+let currentSession = SiteDB.getSession();
+if (!currentSession) {
+  document.getElementById('auth-overlay').style.display = 'flex';
+} else {
+  document.getElementById('sf-name').textContent = currentSession.name;
+  document.getElementById('sf-role').textContent = currentSession.roleLabel;
+  const wrap = document.getElementById('session-info-wrap');
+  wrap.innerHTML = `<div id="session-info"><i class="fas fa-user-circle"></i><strong>${currentSession.name}</strong><button onclick="doLogout()" style="background:#fef2f2;border:1px solid #fca5a5;border-radius:5px;padding:.1rem .4rem;font-size:.62rem;color:#dc2626;cursor:pointer;margin-left:.25rem;" title="লগআউট"><i class="fas fa-sign-out-alt"></i></button></div>`;
+  // Hide user-management nav for non-super-admins
+  if (currentSession.role !== 'super_admin') document.getElementById('nav-users').style.display='none';
+}
+function doLogout(){
+  if(!confirm('লগআউট করবেন?')) return;
+  SiteDB.logout();
+  window.location.href='login.html';
+}
+function requireAuth(){
+  if(!currentSession){ window.location.href='login.html'; return false; }
+  return true;
 }
 
-function updateBadges(db){
+const SB={
+  published:'<span class="bs bp"><i class="fas fa-check-circle"></i>প্রকাশিত</span>',
+  pending:'<span class="bs bpe"><i class="fas fa-clock"></i>পর্যালোচনা</span>',
+  draft:'<span class="bs bd"><i class="fas fa-file"></i>খসড়া</span>',
+  answered:'<span class="bs ba2"><i class="fas fa-check"></i>উত্তর দেওয়া</span>',
+  new:'<span class="bs bn"><i class="fas fa-exclamation-circle"></i>নতুন</span>',
+  active:'<span class="bs bp"><i class="fas fa-circle"></i>সক্রিয়</span>',
+  inactive:'<span class="bs bd"><i class="fas fa-circle"></i>নিষ্ক্রিয়</span>',
+};
+
+function renderAll(){
+  if(!requireAuth()) return;
+  const db=SiteDB.get();
+  renderDash(db); renderFatwas(db); renderQuestions(db); renderArticles(db);
+  renderBooks(db); renderVideos(db); renderUsers(db); loadScholarForm(db); loadSettings(db);
   document.getElementById('bdg-fatwas').textContent=db.fatwas.length;
   document.getElementById('bdg-q').textContent=db.questions.filter(q=>q.status==='new').length;
 }
 
-// ── DASHBOARD ──
 function renderDash(db){
   const cols=[
-    {ic:'fas fa-eye',   v:28642,  l:'মাসিক ভিজিটর', col:'#0a4a3a',bg:'#e8f5f0', tr:'↑ +12.4%'},
-    {ic:'fas fa-scroll',v:db.stats.fatwas,l:'মোট ফতোয়া',   col:'#c9a227',bg:'#fdf6e3', tr:'↑ +38 এই মাসে'},
-    {ic:'fas fa-inbox', v:db.questions.filter(q=>q.status==='new').length,l:'নতুন প্রশ্ন',col:'#be185d',bg:'#fce7f3',tr:'আজকে'},
-    {ic:'fas fa-pen-nib',v:db.stats.articles,l:'প্রবন্ধ',   col:'#0369a1',bg:'#e0f2fe', tr:'↑ +8 এই সপ্তাহে'},
-    {ic:'fas fa-book',  v:db.stats.books,   l:'প্রকাশিত বই',col:'#7c3aed',bg:'#f3e8ff', tr:''},
-    {ic:'fas fa-video', v:db.stats.videos,  l:'মোট ভিডিও',  col:'#059669',bg:'#d1fae5', tr:''},
+    {ic:'fas fa-scroll',v:db.stats.fatwas,l:'মোট ফতোয়া',col:'#c9a227',bg:'#fdf6e3'},
+    {ic:'fas fa-inbox',v:db.questions.filter(q=>q.status==='new').length,l:'নতুন প্রশ্ন',col:'#be185d',bg:'#fce7f3'},
+    {ic:'fas fa-pen-nib',v:db.stats.articles,l:'প্রবন্ধ',col:'#0369a1',bg:'#e0f2fe'},
+    {ic:'fas fa-book',v:db.stats.books,l:'প্রকাশিত বই',col:'#7c3aed',bg:'#f3e8ff'},
+    {ic:'fas fa-video',v:db.stats.videos,l:'মোট ভিডিও',col:'#059669',bg:'#d1fae5'},
+    {ic:'fas fa-users',v:db.users.length,l:'ব্যবহারকারী',col:'#0a4a3a',bg:'#e8f5f0'},
   ];
-  document.getElementById('stat-cards').innerHTML=cols.map(c=>`
-    <div class="ds" style="--sc-col:${c.col};--sc-bg:${c.bg};">
-      <div class="ds-ic"><i class="${c.ic}"></i></div>
-      <div><div class="ds-v dsv" data-t="${c.v}">০</div><div class="ds-l">${c.l}</div>${c.tr?`<div class="ds-tr tu">${c.tr}</div>`:''}</div>
-    </div>`).join('');
-  setTimeout(()=>{
-    document.querySelectorAll('.dsv[data-t]').forEach(el=>{
-      const t=parseInt(el.dataset.t);let cur=0;const step=t/(1800/16);
-      const ti=setInterval(()=>{cur+=step;if(cur>=t){el.textContent=t.toLocaleString('bn-BD');clearInterval(ti);}else el.textContent=Math.floor(cur).toLocaleString('bn-BD');},16);
-    });
-  },100);
+  document.getElementById('stat-cards').innerHTML=cols.map(c=>`<div class="ds" style="--sc-col:${c.col};--sc-bg:${c.bg};"><div class="ds-ic"><i class="${c.ic}"></i></div><div><div class="ds-v">${c.v.toLocaleString('bn-BD')}</div><div class="ds-l">${c.l}</div></div></div>`).join('');
 
-  // category chart
-  const cats=['মুআমালাত','পারিবারিক','সমসাময়িক','তাহারাহ','সিয়াম','যাকাত','অন্যান্য'];
-  const vals=[880,740,735,640,510,390,905];
+  const catCounts={};
+  db.fatwas.filter(f=>f.status==='published').forEach(f=>catCounts[f.category]=(catCounts[f.category]||0)+1);
+  const labels=Object.keys(catCounts), vals=Object.values(catCounts);
   if(window._cChart) window._cChart.destroy();
-  window._cChart=new Chart(document.getElementById('cChart'),{
-    type:'doughnut',data:{labels:cats,datasets:[{data:vals,backgroundColor:['#0a4a3a','#c9a227','#1a7a5e','#e4b84a','#2d5a8e','#7c3aed','#e8f5f0'],borderWidth:2,borderColor:'#fff'}]},
-    options:{responsive:true,cutout:'65%',plugins:{legend:{display:false}}}
-  });
-  document.getElementById('cat-bars').innerHTML=[['মুআমালাত',18.3],['পারিবারিক',15.4],['সমসাময়িক',15.3]].map(([n,p])=>`
-    <div class="cbi"><div class="cbl"><span>${n}</span><span>${p}%</span></div><div class="cbt2"><div class="cbf" style="width:${p}%"></div></div></div>`).join('');
+  window._cChart=new Chart(document.getElementById('cChart'),{type:'doughnut',data:{labels,datasets:[{data:vals,backgroundColor:['#0a4a3a','#c9a227','#1a7a5e','#e4b84a','#2d5a8e','#7c3aed','#be185d','#0369a1'],borderWidth:2,borderColor:'#fff'}]},options:{responsive:true,cutout:'62%',plugins:{legend:{position:'bottom',labels:{font:{size:9}}}}}});
 
-  // visitors chart
-  if(window._vChart) window._vChart.destroy();
-  window._vChart=new Chart(document.getElementById('vChart'),{
-    type:'line',
-    data:{labels:['জানু','ফেব্রু','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট','সেপ্টে','অক্টো','নভে','ডিসে'],
-      datasets:[{label:'ভিজিটর',data:[12400,14200,15800,13900,18200,21000,19500,23400,22100,25600,24800,28000],borderColor:'#0a4a3a',backgroundColor:'rgba(10,74,58,.08)',tension:.4,fill:true,pointRadius:4,pointBackgroundColor:'#c9a227',pointBorderColor:'#fff',pointBorderWidth:2}]},
-    options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{font:{size:10}}},y:{grid:{color:'rgba(0,0,0,.04)'},ticks:{font:{size:10}}}}}
-  });
-
-  // activity feed
-  document.getElementById('act-feed').innerHTML=[
-    {dot:'#16a34a',t:'নতুন ফতোয়া প্রকাশিত',tm:'২ মিনিট আগে'},
-    {dot:'#c9a227',t:'নতুন প্রশ্ন এসেছে',tm:'১৫ মিনিট আগে'},
-    {dot:'#0369a1',t:'প্রবন্ধ আপডেট হয়েছে',tm:'১ ঘণ্টা আগে'},
-    {dot:'#7c3aed',t:'নতুন ভিডিও আপলোড',tm:'৩ ঘণ্টা আগে'},
-  ].map(a=>`<div class="ai"><div class="adot" style="background:${a.dot};"></div><div><div class="at">${a.t}</div><div class="atime">${a.tm}</div></div></div>`).join('');
-
-  // pending questions
-  document.getElementById('pending-q').innerHTML=db.questions.filter(q=>q.status==='new').slice(0,4).map(q=>`
-    <div class="ai">
-      <div class="adot" style="background:#be185d;margin-top:.38rem;"></div>
-      <div style="flex:1;"><div class="at" style="font-weight:600;">${q.subject}</div><div class="atime">${q.name} · ${q.category||'সাধারণ'} · ${q.date}</div></div>
-      ${SB[q.status]||''}
-    </div>`).join('') || '<p style="font-size:.8rem;color:var(--tl);padding:.5rem 0;">কোনো নতুন প্রশ্ন নেই</p>';
+  document.getElementById('pending-q').innerHTML=db.questions.filter(q=>q.status==='new').slice(0,5).map(q=>`<div style="display:flex;gap:.6rem;padding:.55rem 0;border-bottom:1px solid var(--bd);align-items:flex-start;"><div style="width:6px;height:6px;background:#be185d;border-radius:50%;margin-top:.4rem;flex-shrink:0;"></div><div style="flex:1;"><div style="font-size:.78rem;font-weight:600;color:var(--td);">${q.subject}</div><div style="font-size:.68rem;color:var(--tl);">${q.name} · ${q.category} · ${q.date}</div></div></div>`).join('') || '<p style="font-size:.8rem;color:var(--tl);padding:.5rem 0;">কোনো নতুন প্রশ্ন নেই</p>';
 }
 
-// ── FATWAS ──
-function renderFatwas(db, filter='', catFilter=''){
+function renderFatwas(db, filter=''){
   let data=db.fatwas;
-  if(catFilter) data=data.filter(f=>f.category===catFilter);
   if(filter) data=data.filter(f=>f.question.toLowerCase().includes(filter.toLowerCase()));
   document.getElementById('f-cnt').textContent=data.length;
-  document.getElementById('f-info').textContent=`মোট ${data.length}টি ফতোয়া`;
-  document.getElementById('f-tbody').innerHTML=data.map(f=>`
-    <tr>
-      <td class="tid">#${f.id}</td>
-      <td><div class="tbold ttr">${f.question}</div></td>
-      <td><span class="bs bd">${f.category}</span></td>
-      <td style="font-size:.75rem;white-space:nowrap;">${f.date}</td>
-      <td style="font-size:.75rem;">${(f.views||0).toLocaleString()}</td>
-      <td>${SB[f.status]||''}</td>
-      <td><div class="acts">
-        <button class="ba3" title="সম্পাদনা" onclick="openEditFatwa(${f.id})"><i class="fas fa-pen"></i></button>
-        <button class="ba3 del" title="মুছুন" onclick="delRecord('fatwas',${f.id},this)"><i class="fas fa-trash"></i></button>
-      </div></td>
-    </tr>`).join('') || '<tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--tl);">কোনো ডেটা নেই</td></tr>';
+  document.getElementById('f-tbody').innerHTML=data.map(f=>`<tr><td class="tid">#${f.id}</td><td><div class="tbold ttr">${f.question}</div></td><td><span class="bs bd">${f.category}</span></td><td style="font-size:.72rem;white-space:nowrap;">${f.date}</td><td style="font-size:.72rem;">${(f.views||0).toLocaleString()}</td><td>${SB[f.status]||''}</td><td><div class="acts"><button class="ba3" onclick="openEditFatwa(${f.id})"><i class="fas fa-pen"></i></button><button class="ba3 del" onclick="delRecord('fatwas',${f.id},this)"><i class="fas fa-trash"></i></button></div></td></tr>`).join('') || '<tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--tl);">কোনো ডেটা নেই</td></tr>';
 }
 
-function filterTable(col, val){
-  const db=SiteDB.get();
-  const catF=col==='fatwas'?document.getElementById('f-cat-filter')?.value:'';
-  const stF=col==='questions'?document.getElementById('q-stat-filter')?.value:'';
-  if(col==='fatwas') renderFatwas(db,val,catF);
-  else if(col==='questions') renderQuestions(db,val,stF);
-  else if(col==='articles') renderArticles(db,val);
-}
-
-// ── QUESTIONS ──
-function renderQuestions(db, filter='', statusFilter=''){
+function renderQuestions(db, filter=''){
   let data=db.questions;
-  if(statusFilter) data=data.filter(q=>q.status===statusFilter);
   if(filter) data=data.filter(q=>(q.subject+q.name).toLowerCase().includes(filter.toLowerCase()));
   document.getElementById('q-cnt').textContent=data.length;
-  document.getElementById('q-info').textContent=`মোট ${data.length}টি প্রশ্ন (নতুন: ${db.questions.filter(q=>q.status==='new').length})`;
-  document.getElementById('q-tbody').innerHTML=data.map(q=>`
-    <tr>
-      <td class="tid">#${q.id}</td>
-      <td><div class="tbold">${q.name}</div>${q.email?`<div style="font-size:.72rem;color:var(--tl);">${q.email}</div>`:''}</td>
-      <td><div class="ttr">${q.subject}</div></td>
-      <td><span class="bs bd">${q.category||'সাধারণ'}</span></td>
-      <td style="font-size:.75rem;white-space:nowrap;">${q.date}</td>
-      <td>${SB[q.status]||''}</td>
-      <td><div class="acts">
-        <button class="ba3" title="উত্তর দিন" onclick="openAnswerQ(${q.id})"><i class="fas fa-reply"></i></button>
-        <button class="ba3 del" title="মুছুন" onclick="delRecord('questions',${q.id},this)"><i class="fas fa-trash"></i></button>
-      </div></td>
-    </tr>`).join('') || '<tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--tl);">কোনো প্রশ্ন নেই</td></tr>';
+  document.getElementById('q-tbody').innerHTML=data.map(q=>`<tr><td class="tid">#${q.id}</td><td><div class="tbold">${q.name}</div></td><td><div class="ttr">${q.subject}</div></td><td><span class="bs bd">${q.category||'সাধারণ'}</span></td><td style="font-size:.72rem;">${q.date}</td><td>${SB[q.status]||''}</td><td><div class="acts"><button class="ba3" onclick="openAnswerQ(${q.id})"><i class="fas fa-reply"></i></button><button class="ba3 del" onclick="delRecord('questions',${q.id},this)"><i class="fas fa-trash"></i></button></div></td></tr>`).join('') || '<tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--tl);">কোনো প্রশ্ন নেই</td></tr>';
 }
 
-// ── ARTICLES ──
 function renderArticles(db, filter=''){
   let data=db.articles;
   if(filter) data=data.filter(a=>a.title.toLowerCase().includes(filter.toLowerCase()));
   document.getElementById('a-cnt').textContent=data.length;
-  document.getElementById('a-info').textContent=`মোট ${data.length}টি প্রবন্ধ`;
-  document.getElementById('a-tbody').innerHTML=data.map(a=>`
-    <tr>
-      <td class="tid">#${a.id}</td>
-      <td><div class="tbold ttr">${a.title}</div></td>
-      <td><span class="bs bd">${a.category}</span></td>
-      <td style="font-size:.75rem;">${a.date}</td>
-      <td style="font-size:.75rem;">${(a.views||0).toLocaleString()}</td>
-      <td>${SB[a.status]||''}</td>
-      <td><div class="acts">
-        <button class="ba3" onclick="openEditArticle(${a.id})"><i class="fas fa-pen"></i></button>
-        <button class="ba3 del" onclick="delRecord('articles',${a.id},this)"><i class="fas fa-trash"></i></button>
-      </div></td>
-    </tr>`).join('');
+  document.getElementById('a-tbody').innerHTML=data.map(a=>`<tr><td class="tid">#${a.id}</td><td><div class="tbold ttr">${a.title}</div></td><td><span class="bs bd">${a.category}</span></td><td>${a.pdf_url?'<span class="bs bp"><i class="fas fa-check"></i> যুক্ত</span>':'<span class="bs bd">নেই</span>'}</td><td style="font-size:.72rem;">${(a.views||0).toLocaleString()}</td><td>${SB[a.status]||''}</td><td><div class="acts"><button class="ba3" onclick="openEditArticle(${a.id})"><i class="fas fa-pen"></i></button><button class="ba3 del" onclick="delRecord('articles',${a.id},this)"><i class="fas fa-trash"></i></button></div></td></tr>`).join('');
 }
 
-// ── BOOKS ──
 function renderBooks(db){
-  document.getElementById('b-tbody').innerHTML=db.books.map(b=>`
-    <tr>
-      <td class="tid">#${b.id}</td>
-      <td><div class="tbold">${b.title_bn}</div></td>
-      <td style="font-family:'Amiri',serif;direction:rtl;">${b.title_ar}</td>
-      <td>${b.edition} সংস্করণ</td>
-      <td>${b.pages}</td>
-      <td>${b.year}</td>
-      <td>${SB[b.status]||''}</td>
-      <td><div class="acts">
-        <button class="ba3" onclick="openEditBook(${b.id})"><i class="fas fa-pen"></i></button>
-        <button class="ba3 del" onclick="delRecord('books',${b.id},this)"><i class="fas fa-trash"></i></button>
-      </div></td>
-    </tr>`).join('');
+  document.getElementById('b-tbody').innerHTML=db.books.map(b=>`<tr><td class="tid">#${b.id}</td><td><div class="tbold">${b.title_bn}</div></td><td>${b.pdf_url?'<span class="bs bp"><i class="fas fa-check"></i></span>':'<span class="bs bd">নেই</span>'}</td><td>${b.read_url?'<span class="bs bp"><i class="fas fa-check"></i></span>':'<span class="bs bd">নেই</span>'}</td><td>${b.year}</td><td>${SB[b.status]||''}</td><td><div class="acts"><button class="ba3" onclick="openEditBook(${b.id})"><i class="fas fa-pen"></i></button><button class="ba3 del" onclick="delRecord('books',${b.id},this)"><i class="fas fa-trash"></i></button></div></td></tr>`).join('');
 }
 
-// ── VIDEOS ──
 function renderVideos(db){
-  document.getElementById('vid-tbody').innerHTML=db.videos.map(v=>`
-    <tr>
-      <td class="tid">#${v.id}</td>
-      <td><div class="tbold ttr">${v.title}</div></td>
-      <td><span class="bs ba2">${v.type}</span></td>
-      <td style="font-size:.75rem;">${v.duration}</td>
-      <td style="font-size:.75rem;">${(v.views||0).toLocaleString()}</td>
-      <td style="font-size:.75rem;white-space:nowrap;">${v.date}</td>
-      <td><div class="acts">
-        <button class="ba3" onclick="openEditVideo(${v.id})"><i class="fas fa-pen"></i></button>
-        <button class="ba3 del" onclick="delRecord('videos',${v.id},this)"><i class="fas fa-trash"></i></button>
-      </div></td>
-    </tr>`).join('');
+  document.getElementById('vid-tbody').innerHTML=db.videos.map(v=>`<tr><td class="tid">#${v.id}</td><td><div class="tbold ttr">${v.title}</div></td><td>${v.yt_url?'<span class="bs bp"><i class="fas fa-check"></i> যুক্ত</span>':'<span class="bs bd">নেই</span>'}</td><td style="font-size:.72rem;">${v.duration}</td><td style="font-size:.72rem;">${(v.views||0).toLocaleString()}</td><td><div class="acts"><button class="ba3" onclick="openEditVideo(${v.id})"><i class="fas fa-pen"></i></button><button class="ba3 del" onclick="delRecord('videos',${v.id},this)"><i class="fas fa-trash"></i></button></div></td></tr>`).join('');
 }
 
-// ── USERS ──
 function renderUsers(db){
-  document.getElementById('u-tbody').innerHTML=db.users.map(u=>`
-    <tr>
-      <td class="tid">#${u.id}</td>
-      <td><div style="display:flex;align-items:center;gap:.55rem;"><div style="width:30px;height:30px;background:linear-gradient(135deg,var(--em3),var(--em));border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gdl);font-size:.75rem;"><i class="fas fa-user"></i></div><div class="tbold">${u.name}</div></div></td>
-      <td style="font-size:.76rem;">${u.email}</td>
-      <td><span class="bs bpe">${u.role_label}</span></td>
-      <td style="font-size:.75rem;">${u.joined}</td>
-      <td>${SB[u.status]||''}</td>
-      <td><div class="acts">
-        <button class="ba3" onclick="openModal('user')"><i class="fas fa-pen"></i></button>
-        <button class="ba3 del" onclick="${u.id===1?'toast(\'সুপার অ্যাডমিন মুছা যাবে না\',\'wn\')':'delRecord(\'users\','+u.id+',this)'}"><i class="fas fa-trash"></i></button>
-      </div></td>
-    </tr>`).join('');
+  document.getElementById('u-tbody').innerHTML=db.users.map(u=>`<tr><td class="tid">#${u.id}</td><td><div class="tbold">${u.name}</div></td><td style="font-size:.74rem;">${u.email}</td><td><span class="bs bpe">${u.role_label}</span></td><td style="font-size:.72rem;">${u.joined}</td><td>${SB[u.status]||''}</td><td><div class="acts"><button class="ba3" onclick="openModal('user')"><i class="fas fa-pen"></i></button><button class="ba3 del" onclick="${u.id===1?'toast(\'সুপার অ্যাডমিন মুছা যাবে না\',\'wn\')':'delRecord(\'users\','+u.id+',this)'}"><i class="fas fa-trash"></i></button></div></td></tr>`).join('');
 }
 
-// ── SCHOLAR FORM ──
 function loadScholarForm(db){
   const s=db.scholar;
   document.getElementById('sc-name-bn').value=s.name_bn||'';
   document.getElementById('sc-name-ar').value=s.name_ar||'';
-  document.getElementById('sc-name-en').value=s.name_en||'';
   document.getElementById('sc-father').value=s.father||'';
   document.getElementById('sc-mother').value=s.mother||'';
   document.getElementById('sc-dob').value=s.dob||'';
   document.getElementById('sc-mobile').value=s.mobile||'';
   document.getElementById('sc-addr').value=s.present_addr||'';
-  document.getElementById('sc-perm').value=s.permanent_addr||'';
   document.getElementById('sc-bio').value=s.bio_short||'';
   document.getElementById('st-fatwas').value=db.stats.fatwas;
   document.getElementById('st-articles').value=db.stats.articles;
   document.getElementById('st-books').value=db.stats.books;
   document.getElementById('st-exp').value=db.stats.experience;
-  document.getElementById('edu-list').innerHTML=db.education.map(e=>`
-    <div style="display:flex;justify-content:space-between;padding:.45rem 0;border-bottom:1px solid var(--bd);font-size:.78rem;">
-      <span style="font-weight:600;">${e.exam}</span>
-      <span style="color:var(--tl);">${e.year} · ${e.result}</span>
-    </div>`).join('');
 }
-
 function saveScholar(){
   const db=SiteDB.get();
   db.scholar.name_bn=document.getElementById('sc-name-bn').value;
   db.scholar.name_ar=document.getElementById('sc-name-ar').value;
-  db.scholar.name_en=document.getElementById('sc-name-en').value;
   db.scholar.father=document.getElementById('sc-father').value;
   db.scholar.mother=document.getElementById('sc-mother').value;
   db.scholar.dob=document.getElementById('sc-dob').value;
   db.scholar.mobile=document.getElementById('sc-mobile').value;
   db.scholar.present_addr=document.getElementById('sc-addr').value;
-  db.scholar.permanent_addr=document.getElementById('sc-perm').value;
   db.scholar.bio_short=document.getElementById('sc-bio').value;
   SiteDB.set(db);
   toast('জীবনী তথ্য সংরক্ষিত হয়েছে! ওয়েবসাইটে তাৎক্ষণিক আপডেট হবে।','ok');
 }
-
 function saveStats(){
   const db=SiteDB.get();
   db.stats.fatwas=parseInt(document.getElementById('st-fatwas').value)||0;
@@ -629,141 +431,194 @@ function saveStats(){
   db.stats.experience=parseInt(document.getElementById('st-exp').value)||0;
   SiteDB.set(db); toast('পরিসংখ্যান আপডেট হয়েছে!','ok');
 }
-
-// ── SETTINGS ──
 function loadSettings(db){
-  const si=db.site;
-  document.getElementById('site-name').value=si.name||'';
-  document.getElementById('site-tag').value=si.tagline||'';
-  document.getElementById('site-email').value=si.email||'';
-  document.getElementById('site-phone').value=si.phone||'';
+  document.getElementById('site-name').value=db.site.name||'';
+  document.getElementById('site-email').value=db.site.email||'';
+  document.getElementById('site-phone').value=db.site.phone||'';
 }
 function saveSiteSettings(){
   const db=SiteDB.get();
   db.site.name=document.getElementById('site-name').value;
-  db.site.tagline=document.getElementById('site-tag').value;
   db.site.email=document.getElementById('site-email').value;
   db.site.phone=document.getElementById('site-phone').value;
   SiteDB.set(db); toast('সাইট সেটিংস সংরক্ষিত!','ok');
 }
+function changePassword(){
+  const p1=document.getElementById('new-pass').value, p2=document.getElementById('confirm-pass').value;
+  if(!p1||p1.length<6){toast('পাসওয়ার্ড কমপক্ষে ৬ অক্ষরের হতে হবে','wn');return;}
+  if(p1!==p2){toast('পাসওয়ার্ড দুটি মিলছে না','wn');return;}
+  const db=SiteDB.get();
+  const idx=db.users.findIndex(u=>u.id===currentSession.id);
+  if(idx>=0){db.users[idx].password=p1;SiteDB.set(db);toast('পাসওয়ার্ড পরিবর্তন হয়েছে','ok');document.getElementById('new-pass').value='';document.getElementById('confirm-pass').value='';}
+}
 
-// ── DELETE ──
 function delRecord(col,id,btn){
-  if(!confirm('এই রেকর্ডটি মুছে ফেলবেন?')) return;
+  if(!confirm('এই রেকর্ডটি মুছে ফেলবেন? এটি সাথে সাথে ওয়েবসাইট থেকেও সরে যাবে।')) return;
   SiteDB.delete(col,id);
   const row=btn.closest('tr');
   row.style.transition='all .3s';row.style.opacity='0';row.style.transform='translateX(20px)';
-  setTimeout(()=>{row.remove();renderAll();toast('রেকর্ড মুছে ফেলা হয়েছে','wn');},300);
+  setTimeout(()=>{row.remove();renderAll();toast('রেকর্ড মুছে ফেলা হয়েছে এবং ওয়েবসাইট থেকে সরানো হয়েছে','wn');},300);
 }
 
-// ── MODALS ──
+/* ===== FILE UPLOAD HELPERS (base64 data-URL storage for instant publish, no server needed) ===== */
+function setupFileUpload(zoneId, inputId, previewId, hiddenUrlId, hiddenNameId, accept){
+  const zone=document.getElementById(zoneId), input=document.getElementById(inputId);
+  zone.addEventListener('click', ()=>input.click());
+  zone.addEventListener('dragover', e=>{e.preventDefault();zone.classList.add('drag');});
+  zone.addEventListener('dragleave', ()=>zone.classList.remove('drag'));
+  zone.addEventListener('drop', e=>{
+    e.preventDefault();zone.classList.remove('drag');
+    if(e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+  });
+  input.addEventListener('change', e=>{ if(e.target.files.length) handleFile(e.target.files[0]); });
+
+  function handleFile(file){
+    const maxMB = 8;
+    if(file.size > maxMB*1024*1024){
+      toast(`ফাইল সাইজ ${maxMB}MB এর কম হতে হবে। বড় ফাইলের জন্য নিচে URL ব্যবহার করুন।`,'wn');
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = function(ev){
+      document.getElementById(hiddenUrlId).value = ev.target.result; // base64 data URL — works as href/src directly
+      document.getElementById(hiddenNameId).value = file.name;
+      document.getElementById(previewId).innerHTML = `<i class="fas fa-file-pdf"></i><span class="uf-name">${file.name} (${(file.size/1024).toFixed(0)} KB)</span><button onclick="clearUpload('${previewId}','${hiddenUrlId}','${hiddenNameId}')" type="button"><i class="fas fa-times"></i></button>`;
+      document.getElementById(previewId).style.display='flex';
+      toast('ফাইল যুক্ত হয়েছে — এখন সংরক্ষণ করুন','ok');
+    };
+    reader.readAsDataURL(file);
+  }
+}
+function clearUpload(previewId, urlId, nameId){
+  document.getElementById(urlId).value='';
+  document.getElementById(nameId).value='';
+  document.getElementById(previewId).style.display='none';
+  document.getElementById(previewId).innerHTML='';
+}
+
+/* ===== MODAL FORMS ===== */
 const MFORMS={
   fatwa:{
-    title:'<i class="fas fa-scroll"></i><span>নতুন ফতোয়া</span>',
+    title:'<i class="fas fa-scroll"></i><span>নতুন ফতোয়া প্রকাশ করুন</span>',
     body:`<div class="frs"><label class="lbl">প্রশ্ন</label><textarea class="inp" id="m-q" rows="2" placeholder="ফতোয়ার প্রশ্ন..."></textarea></div>
-      <div class="frs"><label class="lbl">বিভাগ</label><select class="inp" id="m-cat"><option>মুআমালাত</option><option>আকিদাহ</option><option>তাহারাহ ও নামায</option><option>সিয়াম ও হজ</option><option>পারিবারিক</option><option>ব্যবসা</option><option>সমসাময়িক</option></select></div>
+      <div class="frs"><label class="lbl">বিভাগ</label><select class="inp" id="m-cat"><option>মুআমালাত</option><option>আকিদাহ</option><option>তাহারাহ</option><option>সিয়াম</option><option>যাকাত</option><option>পারিবারিক</option><option>ব্যবসা</option><option>সমসাময়িক</option></select></div>
       <div class="frs"><label class="lbl">উত্তর</label><textarea class="inp" id="m-ans" rows="4" placeholder="বিস্তারিত উত্তর..."></textarea></div>
       <div class="frs"><label class="lbl">দলিল</label><input class="inp" id="m-ev" placeholder="সূরা / হাদিস রেফারেন্স"></div>
-      <div class="fr"><div><label class="lbl">স্ট্যাটাস</label><select class="inp" id="m-st"><option value="published">প্রকাশিত</option><option value="draft">খসড়া</option><option value="pending">পর্যালোচনা</option></select></div></div>
-      <div style="display:flex;gap:.7rem;justify-content:flex-end;margin-top:.5rem;"><button class="bcn" onclick="closeModal()">বাতিল</button><button class="bsv" onclick="saveFatwa()"><i class="fas fa-check"></i>প্রকাশ করুন</button></div>`
+      <div class="frs"><label class="lbl">স্ট্যাটাস</label><select class="inp" id="m-st"><option value="published">প্রকাশিত (এখনই ওয়েবসাইটে যাবে)</option><option value="draft">খসড়া (গোপন থাকবে)</option></select></div>
+      <div style="display:flex;gap:.6rem;justify-content:flex-end;margin-top:.5rem;"><button class="bcn" onclick="closeModal()">বাতিল</button><button class="bsv" onclick="saveFatwa()"><i class="fas fa-check"></i>প্রকাশ করুন</button></div>`
   },
   article:{
-    title:'<i class="fas fa-pen-nib"></i><span>নতুন প্রবন্ধ</span>',
+    title:'<i class="fas fa-pen-nib"></i><span>নতুন প্রবন্ধ প্রকাশ করুন</span>',
     body:`<div class="frs"><label class="lbl">শিরোনাম</label><input class="inp" id="m-title-ar" placeholder="প্রবন্ধের শিরোনাম"></div>
-      <div class="fr"><div><label class="lbl">বিভাগ</label><select class="inp" id="m-a-cat"><option>সমসাময়িক</option><option>ফিকহ</option><option>আকিদাহ</option><option>হাদিস</option></select></div><div><label class="lbl">স্ট্যাটাস</label><select class="inp" id="m-a-st"><option value="published">প্রকাশিত</option><option value="draft">খসড়া</option></select></div></div>
-      <div class="frs"><label class="lbl">সারসংক্ষেপ</label><textarea class="inp" id="m-a-exc" rows="3" placeholder="সংক্ষিপ্ত বিবরণ..."></textarea></div>
-      <div style="display:flex;gap:.7rem;justify-content:flex-end;margin-top:.5rem;"><button class="bcn" onclick="closeModal()">বাতিল</button><button class="bsv" onclick="saveArticle()"><i class="fas fa-check"></i>প্রকাশ করুন</button></div>`
+      <div class="frs"><label class="lbl">বিভাগ</label><select class="inp" id="m-a-cat"><option>সমসাময়িক</option><option>ফিকহ</option><option>আকিদাহ</option><option>হাদিস</option></select></div>
+      <div class="frs"><label class="lbl">সারসংক্ষেপ</label><textarea class="inp" id="m-a-exc" rows="2" placeholder="সংক্ষিপ্ত বিবরণ..."></textarea></div>
+      <div class="frs"><label class="lbl">পূর্ণ বিষয়বস্তু</label><textarea class="inp" id="m-a-content" rows="4" placeholder="সম্পূর্ণ প্রবন্ধের লেখা..."></textarea></div>
+      <div class="frs"><label class="lbl">PDF ফাইল আপলোড করুন (ঐচ্ছিক)</label>
+        <div class="upload-zone" id="a-upload-zone"><i class="fas fa-cloud-upload-alt"></i><div class="uz-text">ক্লিক করুন অথবা ফাইল টেনে আনুন</div><div class="uz-sub">সর্বোচ্চ 8MB, শুধু PDF</div></div>
+        <input type="file" id="a-upload-input" accept="application/pdf" style="display:none;">
+        <div class="upload-preview" id="a-upload-preview" style="display:none;"></div>
+        <div class="url-alt"><hr>অথবা URL দিন<hr></div>
+        <input class="inp" id="m-a-pdf" placeholder="https://example.com/article.pdf">
+        <input type="hidden" id="m-a-pdfname">
+      </div>
+      <div class="frs"><label class="lbl">স্ট্যাটাস</label><select class="inp" id="m-a-st"><option value="published">প্রকাশিত (এখনই হোমপেজে যাবে)</option><option value="draft">খসড়া</option></select></div>
+      <div style="display:flex;gap:.6rem;justify-content:flex-end;margin-top:.5rem;"><button class="bcn" onclick="closeModal()">বাতিল</button><button class="bsv" onclick="saveArticle()"><i class="fas fa-check"></i>প্রকাশ করুন</button></div>`
   },
   book:{
-    title:'<i class="fas fa-book"></i><span>নতুন বই</span>',
+    title:'<i class="fas fa-book"></i><span>নতুন বই যোগ করুন</span>',
     body:`<div class="frs"><label class="lbl">বইয়ের নাম (বাংলা)</label><input class="inp" id="m-b-bn" placeholder="বাংলা নাম"></div>
       <div class="frs"><label class="lbl">আরবি নাম</label><input class="inp" id="m-b-ar" dir="rtl" style="font-family:'Amiri',serif;" placeholder="الاسم بالعربية"></div>
       <div class="fr"><div><label class="lbl">সংস্করণ</label><input class="inp" id="m-b-ed" placeholder="১ম"></div><div><label class="lbl">পৃষ্ঠাসংখ্যা</label><input class="inp" id="m-b-pg" type="number" placeholder="০"></div></div>
       <div class="fr"><div><label class="lbl">প্রকাশ সাল</label><input class="inp" id="m-b-yr" placeholder="২০২৪"></div><div><label class="lbl">স্ট্যাটাস</label><select class="inp" id="m-b-st"><option value="published">প্রকাশিত</option><option value="draft">খসড়া</option></select></div></div>
       <div class="frs"><label class="lbl">বিবরণ</label><textarea class="inp" id="m-b-desc" rows="2"></textarea></div>
-      <div style="display:flex;gap:.7rem;justify-content:flex-end;margin-top:.5rem;"><button class="bcn" onclick="closeModal()">বাতিল</button><button class="bsv" onclick="saveBook()"><i class="fas fa-check"></i>সংরক্ষণ</button></div>`
+      <div class="frs"><label class="lbl">PDF ফাইল আপলোড করুন (ডাউনলোডের জন্য)</label>
+        <div class="upload-zone" id="b-upload-zone"><i class="fas fa-cloud-upload-alt"></i><div class="uz-text">ক্লিক করুন অথবা ফাইল টেনে আনুন</div><div class="uz-sub">সর্বোচ্চ 8MB, শুধু PDF</div></div>
+        <input type="file" id="b-upload-input" accept="application/pdf" style="display:none;">
+        <div class="upload-preview" id="b-upload-preview" style="display:none;"></div>
+        <div class="url-alt"><hr>অথবা URL দিন<hr></div>
+        <input class="inp" id="m-b-pdf" placeholder="https://example.com/book.pdf">
+        <input type="hidden" id="m-b-pdfname">
+      </div>
+      <div class="frs"><label class="lbl">অনলাইনে পড়ার লিংক (embed/viewer URL, ঐচ্ছিক)</label><input class="inp" id="m-b-read" placeholder="https://example.com/read-online"></div>
+      <div style="display:flex;gap:.6rem;justify-content:flex-end;margin-top:.5rem;"><button class="bcn" onclick="closeModal()">বাতিল</button><button class="bsv" onclick="saveBook()"><i class="fas fa-check"></i>সংরক্ষণ ও প্রকাশ</button></div>`
   },
   video:{
-    title:'<i class="fas fa-video"></i><span>নতুন ভিডিও</span>',
+    title:'<i class="fas fa-video"></i><span>নতুন ভিডিও যোগ করুন</span>',
     body:`<div class="frs"><label class="lbl">শিরোনাম</label><input class="inp" id="m-v-ti" placeholder="ভিডিওর শিরোনাম"></div>
       <div class="frs"><label class="lbl">YouTube লিংক</label><input class="inp" id="m-v-yt" placeholder="https://youtube.com/watch?v=..."></div>
       <div class="fr"><div><label class="lbl">বিভাগ</label><select class="inp" id="m-v-cat"><option>সিয়াম</option><option>হজ</option><option>পারিবারিক</option><option>আকিদাহ</option></select></div><div><label class="lbl">সময়কাল</label><input class="inp" id="m-v-dur" placeholder="45:22"></div></div>
-      <div style="display:flex;gap:.7rem;justify-content:flex-end;margin-top:.5rem;"><button class="bcn" onclick="closeModal()">বাতিল</button><button class="bsv" onclick="saveVideo()"><i class="fas fa-check"></i>যোগ করুন</button></div>`
+      <div style="display:flex;gap:.6rem;justify-content:flex-end;margin-top:.5rem;"><button class="bcn" onclick="closeModal()">বাতিল</button><button class="bsv" onclick="saveVideo()"><i class="fas fa-check"></i>যোগ করুন</button></div>`
   },
   user:{
     title:'<i class="fas fa-user-plus"></i><span>নতুন ব্যবহারকারী</span>',
     body:`<div class="fr"><div><label class="lbl">সম্পূর্ণ নাম</label><input class="inp" id="m-u-n" placeholder="নাম"></div><div><label class="lbl">ইমেইল</label><input class="inp" id="m-u-e" type="email" placeholder="email@example.com"></div></div>
-      <div class="fr"><div><label class="lbl">রোল</label><select class="inp" id="m-u-r"><option value="editor" data-l="এডিটর">এডিটর</option><option value="admin" data-l="অ্যাডমিন">অ্যাডমিন</option><option value="mufti" data-l="মুফতি">মুফতি</option></select></div><div><label class="lbl">পাসওয়ার্ড</label><input class="inp" id="m-u-p" type="password" placeholder="••••••••"></div></div>
-      <div style="display:flex;gap:.7rem;justify-content:flex-end;margin-top:.5rem;"><button class="bcn" onclick="closeModal()">বাতিল</button><button class="bsv" onclick="saveUser()"><i class="fas fa-check"></i>তৈরি করুন</button></div>`
+      <div class="fr"><div><label class="lbl">রোল</label><select class="inp" id="m-u-r"><option value="editor" data-l="এডিটর">এডিটর</option><option value="admin" data-l="অ্যাডমিন">অ্যাডমিন</option><option value="mufti" data-l="মুফতি">মুফতি</option></select></div><div><label class="lbl">পাসওয়ার্ড</label><input class="inp" id="m-u-p" type="password" placeholder="কমপক্ষে ৬ অক্ষর"></div></div>
+      <div style="display:flex;gap:.6rem;justify-content:flex-end;margin-top:.5rem;"><button class="bcn" onclick="closeModal()">বাতিল</button><button class="bsv" onclick="saveUser()"><i class="fas fa-check"></i>তৈরি করুন</button></div>`
   }
 };
 
 function openModal(type){
+  if(!requireAuth()) return;
   const f=MFORMS[type]||MFORMS.fatwa;
   document.getElementById('m-title').innerHTML=f.title;
   document.getElementById('m-body').innerHTML=f.body;
   document.getElementById('modal').classList.add('open');
+  if(type==='article') setupFileUpload('a-upload-zone','a-upload-input','a-upload-preview','m-a-pdf','m-a-pdfname');
+  if(type==='book') setupFileUpload('b-upload-zone','b-upload-input','b-upload-preview','m-b-pdf','m-b-pdfname');
 }
 function closeModal(){document.getElementById('modal').classList.remove('open');}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 
-// ── SAVE HELPERS ──
 function saveFatwa(){
   const db=SiteDB.get();
   const q=document.getElementById('m-q').value.trim();
   if(!q){toast('প্রশ্ন লিখুন','wn');return;}
   db.fatwas.unshift({id:Date.now(),question:q,category:document.getElementById('m-cat').value,answer:document.getElementById('m-ans').value,evidence:document.getElementById('m-ev').value,date:new Date().toLocaleDateString('bn-BD'),views:0,status:document.getElementById('m-st').value});
-  SiteDB.set(db);closeModal();renderAll();toast('ফতোয়া সফলভাবে যোগ হয়েছে','ok');
+  SiteDB.set(db);closeModal();renderAll();toast('ফতোয়া সফলভাবে প্রকাশিত হয়েছে — ওয়েবসাইটে দেখুন','ok');
 }
 function saveArticle(){
   const db=SiteDB.get();
   const t=document.getElementById('m-title-ar').value.trim();
   if(!t){toast('শিরোনাম লিখুন','wn');return;}
-  db.articles.unshift({id:Date.now(),title:t,category:document.getElementById('m-a-cat').value,excerpt:document.getElementById('m-a-exc').value,date:new Date().toLocaleDateString('bn-BD'),views:0,status:document.getElementById('m-a-st').value});
-  SiteDB.set(db);closeModal();renderAll();toast('প্রবন্ধ যোগ হয়েছে','ok');
+  db.articles.unshift({id:Date.now(),title:t,category:document.getElementById('m-a-cat').value,excerpt:document.getElementById('m-a-exc').value,content:document.getElementById('m-a-content').value,pdf_url:document.getElementById('m-a-pdf').value,file_name:document.getElementById('m-a-pdfname').value,date:new Date().toLocaleDateString('bn-BD'),views:0,status:document.getElementById('m-a-st').value});
+  SiteDB.set(db);closeModal();renderAll();toast('প্রবন্ধ প্রকাশিত হয়েছে — হোমপেজে দেখুন','ok');
 }
 function saveBook(){
   const db=SiteDB.get();
   const bn=document.getElementById('m-b-bn').value.trim();
   if(!bn){toast('বইয়ের নাম লিখুন','wn');return;}
-  db.books.push({id:Date.now(),title_bn:bn,title_ar:document.getElementById('m-b-ar').value,edition:document.getElementById('m-b-ed').value,pages:parseInt(document.getElementById('m-b-pg').value)||0,year:document.getElementById('m-b-yr').value,desc:document.getElementById('m-b-desc').value,status:document.getElementById('m-b-st').value});
-  SiteDB.set(db);closeModal();renderAll();toast('বই যোগ হয়েছে','ok');
+  db.books.push({id:Date.now(),title_bn:bn,title_ar:document.getElementById('m-b-ar').value,edition:document.getElementById('m-b-ed').value,pages:parseInt(document.getElementById('m-b-pg').value)||0,year:document.getElementById('m-b-yr').value,desc:document.getElementById('m-b-desc').value,status:document.getElementById('m-b-st').value,pdf_url:document.getElementById('m-b-pdf').value,file_name:document.getElementById('m-b-pdfname').value,read_url:document.getElementById('m-b-read').value,toc:[],cover_color:db.books.length});
+  SiteDB.set(db);closeModal();renderAll();toast('বই প্রকাশিত হয়েছে — books.html পেজে দেখুন','ok');
 }
 function saveVideo(){
   const db=SiteDB.get();
   const t=document.getElementById('m-v-ti').value.trim();
   if(!t){toast('শিরোনাম লিখুন','wn');return;}
   db.videos.unshift({id:Date.now(),title:t,yt_url:document.getElementById('m-v-yt').value,type:'YouTube',category:document.getElementById('m-v-cat').value,duration:document.getElementById('m-v-dur').value,views:0,date:new Date().toLocaleDateString('bn-BD')});
-  SiteDB.set(db);closeModal();renderAll();toast('ভিডিও যোগ হয়েছে','ok');
+  SiteDB.set(db);closeModal();renderAll();toast('ভিডিও যোগ হয়েছে — হোমপেজে দেখুন','ok');
 }
 function saveUser(){
+  if(currentSession.role!=='super_admin'){toast('শুধু সুপার অ্যাডমিন ব্যবহারকারী তৈরি করতে পারেন','wn');return;}
   const db=SiteDB.get();
   const n=document.getElementById('m-u-n').value.trim();
   const e=document.getElementById('m-u-e').value.trim();
-  if(!n||!e){toast('নাম ও ইমেইল দিন','wn');return;}
+  const p=document.getElementById('m-u-p').value;
+  if(!n||!e||!p||p.length<6){toast('সব তথ্য পূরণ করুন (পাসওয়ার্ড কমপক্ষে ৬ অক্ষর)','wn');return;}
   const sel=document.getElementById('m-u-r');
   const rl=sel.options[sel.selectedIndex].getAttribute('data-l')||sel.value;
-  db.users.push({id:Date.now(),name:n,email:e,role:sel.value,role_label:rl,joined:new Date().toLocaleDateString('bn-BD'),status:'active'});
+  db.users.push({id:Date.now(),name:n,email:e,password:p,role:sel.value,role_label:rl,joined:new Date().toLocaleDateString('bn-BD'),status:'active'});
   SiteDB.set(db);closeModal();renderAll();toast('ব্যবহারকারী তৈরি হয়েছে','ok');
 }
 
-// ── EDIT MODALS ──
 function openEditFatwa(id){
   const db=SiteDB.get();const f=db.fatwas.find(x=>x.id===id);if(!f)return;
   document.getElementById('m-title').innerHTML='<i class="fas fa-pen"></i><span>ফতোয়া সম্পাদনা</span>';
   document.getElementById('m-body').innerHTML=`
     <div class="frs"><label class="lbl">প্রশ্ন</label><textarea class="inp" id="e-q" rows="2">${f.question}</textarea></div>
-    <div class="frs"><label class="lbl">উত্তর</label><textarea class="inp" id="e-ans" rows="4">${f.answer}</textarea></div>
+    <div class="frs"><label class="lbl">উত্তর</label><textarea class="inp" id="e-ans" rows="4">${f.answer||''}</textarea></div>
     <div class="frs"><label class="lbl">দলিল</label><input class="inp" id="e-ev" value="${f.evidence||''}"></div>
-    <div class="fr"><div><label class="lbl">স্ট্যাটাস</label><select class="inp" id="e-st">
-      <option value="published" ${f.status==='published'?'selected':''}>প্রকাশিত</option>
-      <option value="draft" ${f.status==='draft'?'selected':''}>খসড়া</option>
-      <option value="pending" ${f.status==='pending'?'selected':''}>পর্যালোচনা</option>
-    </select></div></div>
-    <div style="display:flex;gap:.7rem;justify-content:flex-end;margin-top:.5rem;">
-      <button class="bcn" onclick="closeModal()">বাতিল</button>
-      <button class="bsv" onclick="updateFatwa(${id})"><i class="fas fa-save"></i>আপডেট করুন</button>
-    </div>`;
+    <div class="frs"><label class="lbl">স্ট্যাটাস</label><select class="inp" id="e-st"><option value="published" ${f.status==='published'?'selected':''}>প্রকাশিত</option><option value="draft" ${f.status==='draft'?'selected':''}>খসড়া</option></select></div>
+    <div style="display:flex;gap:.6rem;justify-content:flex-end;margin-top:.5rem;"><button class="bcn" onclick="closeModal()">বাতিল</button><button class="bsv" onclick="updateFatwa(${id})"><i class="fas fa-save"></i>আপডেট</button></div>`;
   document.getElementById('modal').classList.add('open');
 }
 function updateFatwa(id){
@@ -779,27 +634,19 @@ function openAnswerQ(id){
   const db=SiteDB.get();const q=db.questions.find(x=>x.id===id);if(!q)return;
   document.getElementById('m-title').innerHTML='<i class="fas fa-reply"></i><span>প্রশ্নের উত্তর</span>';
   document.getElementById('m-body').innerHTML=`
-    <div class="frs" style="background:var(--bg);border-radius:8px;padding:1rem;border:1.5px solid var(--bd);">
-      <div style="font-size:.7rem;color:var(--tl);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.1em;">প্রশ্ন</div>
-      <div style="font-size:.88rem;font-weight:600;color:var(--td);">${q.subject}</div>
-      ${q.detail?`<div style="font-size:.8rem;color:var(--tm);margin-top:.4rem;">${q.detail}</div>`:''}
+    <div class="frs" style="background:var(--bg);border-radius:8px;padding:.9rem;border:1.5px solid var(--bd);">
+      <div style="font-size:.68rem;color:var(--tl);margin-bottom:.35rem;text-transform:uppercase;">প্রশ্ন</div>
+      <div style="font-size:.85rem;font-weight:600;color:var(--td);">${q.subject}</div>
+      ${q.detail?`<div style="font-size:.78rem;color:var(--tm);margin-top:.35rem;">${q.detail}</div>`:''}
     </div>
     <div class="frs"><label class="lbl">উত্তর</label><textarea class="inp" id="ans-txt" rows="5" placeholder="বিস্তারিত উত্তর লিখুন..."></textarea></div>
     <div class="frs"><label class="lbl">দলিল</label><input class="inp" id="ans-ev" placeholder="কুরআন ও হাদিসের রেফারেন্স"></div>
-    <div style="margin-bottom:.85rem;">
-      <label style="display:flex;align-items:center;gap:.4rem;font-size:.8rem;cursor:pointer;">
-        <input type="checkbox" id="ans-pub" style="accent-color:var(--em);"> ফতোয়া হিসেবে প্রকাশ করুন
-      </label>
-    </div>
-    <div style="display:flex;gap:.7rem;justify-content:flex-end;">
-      <button class="bcn" onclick="closeModal()">বাতিল</button>
-      <button class="bsv" onclick="answerQuestion(${id})"><i class="fas fa-paper-plane"></i>উত্তর পাঠান</button>
-    </div>`;
+    <label style="display:flex;align-items:center;gap:.4rem;font-size:.78rem;cursor:pointer;margin-bottom:.8rem;"><input type="checkbox" id="ans-pub" style="accent-color:var(--em);"> ফতোয়া হিসেবে ওয়েবসাইটে প্রকাশ করুন</label>
+    <div style="display:flex;gap:.6rem;justify-content:flex-end;"><button class="bcn" onclick="closeModal()">বাতিল</button><button class="bsv" onclick="answerQuestion(${id})"><i class="fas fa-paper-plane"></i>উত্তর পাঠান</button></div>`;
   document.getElementById('modal').classList.add('open');
 }
 function answerQuestion(id){
-  const db=SiteDB.get();const idx=db.questions.findIndex(q=>q.id===id);
-  if(idx<0)return;
+  const db=SiteDB.get();const idx=db.questions.findIndex(q=>q.id===id);if(idx<0)return;
   const ans=document.getElementById('ans-txt').value.trim();
   if(!ans){toast('উত্তর লিখুন','wn');return;}
   db.questions[idx].status='answered';db.questions[idx].answer=ans;
@@ -807,7 +654,7 @@ function answerQuestion(id){
     const q=db.questions[idx];
     db.fatwas.unshift({id:Date.now(),question:q.subject,answer:ans,evidence:document.getElementById('ans-ev').value,category:q.category||'সাধারণ',date:new Date().toLocaleDateString('bn-BD'),views:0,status:'published'});
   }
-  SiteDB.set(db);closeModal();renderAll();toast('উত্তর পাঠানো হয়েছে এবং ফতোয়া প্রকাশিত হয়েছে!','ok');
+  SiteDB.set(db);closeModal();renderAll();toast('উত্তর পাঠানো হয়েছে'+(document.getElementById('ans-pub')?.checked?' এবং ফতোয়া প্রকাশিত হয়েছে':''),'ok');
 }
 
 function openEditArticle(id){
@@ -815,17 +662,20 @@ function openEditArticle(id){
   document.getElementById('m-title').innerHTML='<i class="fas fa-pen"></i><span>প্রবন্ধ সম্পাদনা</span>';
   document.getElementById('m-body').innerHTML=`
     <div class="frs"><label class="lbl">শিরোনাম</label><input class="inp" id="ea-ti" value="${a.title}"></div>
-    <div class="fr"><div><label class="lbl">বিভাগ</label><input class="inp" id="ea-cat" value="${a.category}"></div><div><label class="lbl">স্ট্যাটাস</label><select class="inp" id="ea-st"><option value="published" ${a.status==='published'?'selected':''}>প্রকাশিত</option><option value="draft" ${a.status==='draft'?'selected':''}>খসড়া</option></select></div></div>
-    <div class="frs"><label class="lbl">সারসংক্ষেপ</label><textarea class="inp" id="ea-exc" rows="3">${a.excerpt||''}</textarea></div>
-    <div style="display:flex;gap:.7rem;justify-content:flex-end;margin-top:.5rem;"><button class="bcn" onclick="closeModal()">বাতিল</button><button class="bsv" onclick="updateArticle(${id})"><i class="fas fa-save"></i>আপডেট</button></div>`;
+    <div class="frs"><label class="lbl">বিভাগ</label><input class="inp" id="ea-cat" value="${a.category}"></div>
+    <div class="frs"><label class="lbl">সারসংক্ষেপ</label><textarea class="inp" id="ea-exc" rows="2">${a.excerpt||''}</textarea></div>
+    <div class="frs"><label class="lbl">PDF URL</label><input class="inp" id="ea-pdf" value="${a.pdf_url||''}" placeholder="https://..."></div>
+    <div class="frs"><label class="lbl">স্ট্যাটাস</label><select class="inp" id="ea-st"><option value="published" ${a.status==='published'?'selected':''}>প্রকাশিত</option><option value="draft" ${a.status==='draft'?'selected':''}>খসড়া</option></select></div>
+    <div style="display:flex;gap:.6rem;justify-content:flex-end;margin-top:.5rem;"><button class="bcn" onclick="closeModal()">বাতিল</button><button class="bsv" onclick="updateArticle(${id})"><i class="fas fa-save"></i>আপডেট</button></div>`;
   document.getElementById('modal').classList.add('open');
 }
 function updateArticle(id){
   const db=SiteDB.get();const idx=db.articles.findIndex(a=>a.id===id);if(idx<0)return;
   db.articles[idx].title=document.getElementById('ea-ti').value;
   db.articles[idx].category=document.getElementById('ea-cat').value;
-  db.articles[idx].status=document.getElementById('ea-st').value;
   db.articles[idx].excerpt=document.getElementById('ea-exc').value;
+  db.articles[idx].pdf_url=document.getElementById('ea-pdf').value;
+  db.articles[idx].status=document.getElementById('ea-st').value;
   SiteDB.set(db);closeModal();renderAll();toast('প্রবন্ধ আপডেট হয়েছে','ok');
 }
 
@@ -834,16 +684,20 @@ function openEditBook(id){
   document.getElementById('m-title').innerHTML='<i class="fas fa-book"></i><span>বই সম্পাদনা</span>';
   document.getElementById('m-body').innerHTML=`
     <div class="frs"><label class="lbl">বাংলা নাম</label><input class="inp" id="eb-bn" value="${b.title_bn}"></div>
-    <div class="frs"><label class="lbl">আরবি নাম</label><input class="inp" id="eb-ar" dir="rtl" style="font-family:'Amiri',serif;" value="${b.title_ar}"></div>
-    <div class="fr"><div><label class="lbl">বিবরণ</label><textarea class="inp" id="eb-desc" rows="3">${b.desc||''}</textarea></div></div>
-    <div style="display:flex;gap:.7rem;justify-content:flex-end;margin-top:.5rem;"><button class="bcn" onclick="closeModal()">বাতিল</button><button class="bsv" onclick="updateBook(${id})"><i class="fas fa-save"></i>আপডেট</button></div>`;
+    <div class="frs"><label class="lbl">বিবরণ</label><textarea class="inp" id="eb-desc" rows="3">${b.desc||''}</textarea></div>
+    <div class="frs"><label class="lbl">PDF URL</label><input class="inp" id="eb-pdf" value="${b.pdf_url||''}" placeholder="https://..."></div>
+    <div class="frs"><label class="lbl">অনলাইন রিড URL</label><input class="inp" id="eb-read" value="${b.read_url||''}" placeholder="https://..."></div>
+    <div class="frs"><label class="lbl">স্ট্যাটাস</label><select class="inp" id="eb-st"><option value="published" ${b.status==='published'?'selected':''}>প্রকাশিত</option><option value="draft" ${b.status==='draft'?'selected':''}>খসড়া</option></select></div>
+    <div style="display:flex;gap:.6rem;justify-content:flex-end;margin-top:.5rem;"><button class="bcn" onclick="closeModal()">বাতিল</button><button class="bsv" onclick="updateBook(${id})"><i class="fas fa-save"></i>আপডেট</button></div>`;
   document.getElementById('modal').classList.add('open');
 }
 function updateBook(id){
   const db=SiteDB.get();const idx=db.books.findIndex(b=>b.id===id);if(idx<0)return;
   db.books[idx].title_bn=document.getElementById('eb-bn').value;
-  db.books[idx].title_ar=document.getElementById('eb-ar').value;
   db.books[idx].desc=document.getElementById('eb-desc').value;
+  db.books[idx].pdf_url=document.getElementById('eb-pdf').value;
+  db.books[idx].read_url=document.getElementById('eb-read').value;
+  db.books[idx].status=document.getElementById('eb-st').value;
   SiteDB.set(db);closeModal();renderAll();toast('বই আপডেট হয়েছে','ok');
 }
 
@@ -852,499 +706,76 @@ function openEditVideo(id){
   document.getElementById('m-title').innerHTML='<i class="fas fa-video"></i><span>ভিডিও সম্পাদনা</span>';
   document.getElementById('m-body').innerHTML=`
     <div class="frs"><label class="lbl">শিরোনাম</label><input class="inp" id="ev-ti" value="${v.title}"></div>
-    <div style="display:flex;gap:.7rem;justify-content:flex-end;margin-top:.5rem;"><button class="bcn" onclick="closeModal()">বাতিল</button><button class="bsv" onclick="updateVideo(${id})"><i class="fas fa-save"></i>আপডেট</button></div>`;
+    <div class="frs"><label class="lbl">YouTube URL</label><input class="inp" id="ev-yt" value="${v.yt_url||''}"></div>
+    <div style="display:flex;gap:.6rem;justify-content:flex-end;margin-top:.5rem;"><button class="bcn" onclick="closeModal()">বাতিল</button><button class="bsv" onclick="updateVideo(${id})"><i class="fas fa-save"></i>আপডেট</button></div>`;
   document.getElementById('modal').classList.add('open');
 }
 function updateVideo(id){
   const db=SiteDB.get();const idx=db.videos.findIndex(v=>v.id===id);if(idx<0)return;
   db.videos[idx].title=document.getElementById('ev-ti').value;
+  db.videos[idx].yt_url=document.getElementById('ev-yt').value;
   SiteDB.set(db);closeModal();renderAll();toast('ভিডিও আপডেট হয়েছে','ok');
 }
 
-// ── NAVIGATION ──
-const vtitles={dashboard:'ড্যাশবোর্ড',fatwas:'ফতোয়া ব্যবস্থাপনা',questions:'প্রশ্নসমূহ',articles:'প্রবন্ধ',books:'বই',videos:'ভিডিও',scholar:'জীবনী সম্পাদনা',users:'ব্যবহারকারী',settings:'সেটিংস'};
+/* ===== NAVIGATION ===== */
+const vtitles={dashboard:'ড্যাশবোর্ড',fatwas:'ফতোয়া',questions:'প্রশ্নসমূহ',articles:'প্রবন্ধ',books:'বই',videos:'ভিডিও',scholar:'জীবনী সম্পাদনা',users:'ব্যবহারকারী',settings:'সেটিংস'};
 function gV(n,btn){
+  if(!requireAuth()) return;
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('act'));
   document.getElementById('v-'+n).classList.add('act');
   document.querySelectorAll('.sl-btn').forEach(b=>b.classList.remove('act'));
   if(btn) btn.classList.add('act');
-  document.getElementById('bc-top').innerHTML=`<span>অ্যাডমিন</span><span style="color:var(--bd);">/</span><span class="cur">${vtitles[n]||n}</span>`;
+  document.getElementById('bc-top').innerHTML=`<span class="cur">${vtitles[n]||n}</span>`;
   renderAll();
+  // close mobile sidebar after nav
+  if(window.innerWidth<768){ document.getElementById('sb').classList.remove('mob-open'); document.getElementById('sb-overlay')?.classList.remove('vis'); }
 }
 
-// ── SIDEBAR TOGGLE ──
 let collapsed=false;
-function togSB(){collapsed=!collapsed;document.getElementById('sb').classList.toggle('col',collapsed);document.getElementById('main').classList.toggle('exp',collapsed);}
+function togSB(){
+  if(window.innerWidth<768){
+    document.getElementById('sb').classList.toggle('mob-open');
+    let ov=document.getElementById('sb-overlay');
+    if(!ov){ ov=document.createElement('div'); ov.id='sb-overlay'; document.body.appendChild(ov); ov.onclick=()=>{document.getElementById('sb').classList.remove('mob-open');ov.classList.remove('vis');}; }
+    ov.classList.toggle('vis');
+  } else {
+    collapsed=!collapsed;
+    document.getElementById('sb').classList.toggle('col',collapsed);
+    document.getElementById('main').classList.toggle('exp',collapsed);
+  }
+}
 
-// ── TOAST ──
 function toast(msg,type='ok'){
   const w=document.getElementById('tw'),t=document.createElement('div');
-  t.className=`tm3 ${type}`;t.innerHTML=`<i class="fas fa-${type==='ok'?'check-circle':'exclamation-circle'}"></i>${msg}`;
-  w.appendChild(t);setTimeout(()=>{t.style.opacity='0';t.style.transition='opacity .3s';setTimeout(()=>t.remove(),300);},3000);
+  t.className=`tm3 ${type}`;t.innerHTML=`<i class="fas fa-${type==='ok'?'check-circle':'exclamation-circle'}"></i><span>${msg}</span>`;
+  w.appendChild(t);setTimeout(()=>{t.style.opacity='0';t.style.transition='opacity .3s';setTimeout(()=>t.remove(),300);},3500);
 }
-
 function refreshAll(){renderAll();toast('ডেটা রিফ্রেশ হয়েছে','ok');}
 
-// ── INIT ──
+/* ===== REPORT GENERATOR ===== */
+function openReport(){
+  const db=SiteDB.get();
+  const now=new Date().toLocaleDateString('bn-BD');
+  const style=`<style>body{font-family:Arial,sans-serif;color:#1a1a2e;padding:2rem;max-width:900px;margin:0 auto;}h1{color:#0a4a3a;border-bottom:3px solid #c9a227;padding-bottom:.5rem;}h2{color:#0a4a3a;margin-top:1.5rem;border-left:4px solid #c9a227;padding-left:.7rem;}table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.82rem;}th{background:#0a4a3a;color:#e4b84a;padding:.5rem .7rem;text-align:left;}td{padding:.45rem .7rem;border-bottom:1px solid #ede8df;}tr:nth-child(even){background:#f7f3ec;}.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1rem 0;}.stat-box{background:#e8f5f0;border-radius:8px;padding:1rem;text-align:center;}.stat-num{font-size:2rem;font-weight:700;color:#0a4a3a;}@media print{body{padding:1rem;}}</style>`;
+  const html=`<!DOCTYPE html><html lang="bn"><head><meta charset="UTF-8"><title>সারসংক্ষেপ রিপোর্ট</title>${style}</head><body>
+    <h1>সারসংক্ষেপ রিপোর্ট</h1><p>তারিখ: ${now} | তৈরি করেছেন: ${currentSession?currentSession.name:db.scholar.name_bn}</p>
+    <div class="stat-grid">
+      <div class="stat-box"><div class="stat-num">${db.fatwas.length}</div>মোট ফতোয়া</div>
+      <div class="stat-box"><div class="stat-num">${db.questions.length}</div>মোট প্রশ্ন</div>
+      <div class="stat-box"><div class="stat-num">${db.books.length}</div>মোট বই</div>
+    </div>
+    <h2>ফতোয়া তালিকা</h2>
+    <table><thead><tr><th>#</th><th>প্রশ্ন</th><th>বিভাগ</th><th>স্ট্যাটাস</th></tr></thead><tbody>
+    ${db.fatwas.map((f,i)=>`<tr><td>${i+1}</td><td>${f.question}</td><td>${f.category}</td><td>${f.status}</td></tr>`).join('')}
+    </tbody></table></body></html>`;
+  const win=window.open('','_blank','width=900,height=700');
+  if(!win){ toast('পপ-আপ ব্লক করা আছে — ব্রাউজার সেটিংসে পপ-আপ অনুমতি দিন','wn'); return; }
+  win.document.write(html); win.document.close();
+  setTimeout(()=>win.print(), 500);
+  toast('রিপোর্ট তৈরি হয়েছে — নতুন উইন্ডোতে দেখুন','ok');
+}
+
 renderAll();
-document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();document.querySelector('.tb-src input').focus();}});
 </script>
 </body>
 </html>
-<!-- RESPONSIVE PATCH - Admin -->
-<style>
-/* ============================================================
-   ADMIN DASHBOARD — Fully Responsive
-   Mobile 320px → Tablet 768px → Laptop 1024px → Desktop 1440px+
-   ============================================================ */
-
-/* ── MOBILE SIDEBAR OVERLAY ── */
-@media (max-width: 767.98px) {
-  #sb {
-    transform: translateX(-100%);
-    transition: transform 0.3s cubic-bezier(.4,0,.2,1), width 0.3s;
-    z-index: 300;
-    box-shadow: 4px 0 24px rgba(0,0,0,0.35);
-  }
-  #sb.mob-open {
-    transform: translateX(0);
-    width: var(--sw) !important;
-  }
-  #sb.col { width: var(--sw) !important; } /* don't collapse on mobile, just hide/show */
-
-  /* Overlay backdrop */
-  #sb-overlay {
-    display: none;
-    position: fixed; inset: 0;
-    background: rgba(0,0,0,0.5);
-    z-index: 299;
-    backdrop-filter: blur(2px);
-  }
-  #sb-overlay.vis { display: block; }
-
-  #main {
-    margin-left: 0 !important;
-    width: 100% !important;
-  }
-
-  /* Topbar */
-  #tb { padding: 0 0.85rem; gap: 0.5rem; }
-  .tb-src { display: none; }
-
-  /* Page content */
-  #pc { padding: 1rem; }
-
-  /* Stat grid */
-  .sg { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-  .ds { padding: 1rem; gap: 0.65rem; }
-  .ds-ic { width: 38px; height: 38px; font-size: 0.95rem; }
-  .ds-v  { font-size: 1.4rem; }
-  .ds-l  { font-size: 0.7rem; }
-  .ds-tr { font-size: 0.62rem; }
-
-  /* Charts stacked */
-  .cg { grid-template-columns: 1fr; gap: 0.85rem; }
-
-  /* Bottom row dashboard */
-  #v-dashboard > div:last-child {
-    grid-template-columns: 1fr !important;
-    gap: 0.85rem;
-  }
-
-  /* Tables */
-  .dtw { border-radius: 10px; overflow-x: auto; }
-  .ttb { padding: 0.8rem 1rem; flex-wrap: wrap; gap: 0.5rem; }
-  .ttt { font-size: 0.82rem; }
-  .tsrc input { width: 120px; }
-  table { min-width: 580px; }
-  th, td { padding: 0.6rem 0.75rem; font-size: 0.73rem; }
-  .ttr { max-width: 130px; }
-  .tfoot { padding: 0.65rem 1rem; font-size: 0.7rem; }
-  .pgb .pb { width: 24px; height: 24px; font-size: 0.68rem; }
-
-  /* Page header */
-  .ph { margin-bottom: 1.1rem; }
-  .pt { font-size: 1.1rem; }
-  .ps { font-size: 0.7rem; }
-
-  /* Activity feed */
-  .act-feed { max-height: 240px; }
-  .at   { font-size: 0.74rem; }
-  .atime { font-size: 0.64rem; }
-
-  /* Chart boxes */
-  .cb { padding: 1.1rem; }
-  .cbh { margin-bottom: 0.85rem; }
-  .cbt { font-size: 0.85rem; }
-  .cba { font-size: 0.7rem; }
-
-  /* Modal */
-  .mc { max-width: calc(100vw - 1.5rem); margin: 0 0.75rem; max-height: 92vh; }
-  .mh { padding: 1rem 1.1rem; }
-  .mt2 { font-size: 0.88rem; }
-  .mb2 { padding: 1.25rem; }
-  .fr { grid-template-columns: 1fr; }
-  .inp { font-size: 0.82rem; padding: 0.52rem 0.78rem; }
-  .lbl { font-size: 0.75rem; }
-  .bsv, .bcn { font-size: 0.82rem; padding: 0.55rem 1rem; }
-
-  /* Scholar form */
-  .sg2 { grid-template-columns: 1fr; }
-
-  /* Settings */
-  #v-settings > .sg2 { grid-template-columns: 1fr; }
-
-  /* Sidebar logo */
-  .sl-logo { padding: 0.9rem 1rem; }
-  .logo-ti { font-size: 0.72rem; }
-  .logo-su { font-size: 0.48rem; }
-
-  /* Sidebar links */
-  .sl-btn { padding: 0.58rem 1rem; font-size: 0.8rem; }
-  .sfoot  { padding: 0.75rem 1rem; }
-  .unm { font-size: 0.73rem; }
-  .url { font-size: 0.6rem; }
-  .uav { width: 30px; height: 30px; font-size: 0.76rem; }
-
-  /* Toast */
-  #tw { right: 0.75rem; bottom: 0.75rem; }
-  .tm3 { font-size: 0.76rem; padding: 0.5rem 0.9rem; }
-
-  /* Badge buttons */
-  .badd { font-size: 0.74rem; padding: 0.32rem 0.7rem; }
-  .ba3  { width: 26px; height: 26px; font-size: 0.68rem; }
-}
-
-/* ── SMALL MOBILE (320px – 399px) ── */
-@media (max-width: 399.98px) {
-  .sg { grid-template-columns: 1fr; }
-  .ds { flex-direction: row; }
-  #tb { padding: 0 0.6rem; }
-  #pc { padding: 0.75rem; }
-  .ph { gap: 0.5rem; }
-  .pt { font-size: 1rem; gap: 0.4rem; }
-}
-
-/* ── TABLET (768px – 1023px) ── */
-@media (min-width: 768px) and (max-width: 1023.98px) {
-  #sb { width: var(--sc); }
-  #sb .sl-lb, #sb .sl-bdg, #sb .slbl,
-  #sb .logo-txt, #sb .uav + div { display: none; }
-  #sb.mob-open { width: var(--sw); }
-  #sb.mob-open .sl-lb,
-  #sb.mob-open .sl-bdg,
-  #sb.mob-open .slbl,
-  #sb.mob-open .logo-txt,
-  #sb.mob-open .uav + div { display: block; }
-
-  #main { margin-left: var(--sc); width: calc(100% - var(--sc)); }
-  #main.exp { margin-left: 0; width: 100%; }
-
-  .sg { grid-template-columns: repeat(3, 1fr); gap: 0.85rem; }
-  .cg { grid-template-columns: 1fr 1fr; }
-  #v-dashboard > div:last-child { grid-template-columns: 1fr 1fr; }
-  .sg2 { grid-template-columns: 1fr; }
-  #v-settings > .sg2 { grid-template-columns: 1fr; }
-  #pc { padding: 1.25rem; }
-  table { min-width: 0; }
-  .ttr { max-width: 160px; }
-  .fr { grid-template-columns: 1fr 1fr; }
-}
-
-/* ── LAPTOP (1024px – 1279px) ── */
-@media (min-width: 1024px) and (max-width: 1279.98px) {
-  :root { --sw: 230px; }
-  .sg { grid-template-columns: repeat(3, 1fr); }
-  #pc { padding: 1.4rem; }
-  .ds-v { font-size: 1.65rem; }
-}
-
-/* ── LARGE DESKTOP (1440px+) ── */
-@media (min-width: 1440px) {
-  :root { --sw: 280px; }
-  .sg  { grid-template-columns: repeat(6, 1fr); }
-  .ds-v { font-size: 2rem; }
-  #pc { padding: 2rem; }
-  .pt  { font-size: 1.5rem; }
-}
-
-/* ── TOUCH IMPROVEMENTS ── */
-@media (hover: none) and (pointer: coarse) {
-  .ds:hover, .cb:hover { transform: none; }
-  .sl-btn { min-height: 44px; } /* bigger touch target */
-  .ba3    { min-width: 36px; min-height: 36px; }
-  .badd   { min-height: 36px; }
-}
-
-/* ── TABLE HORIZONTAL SCROLL on small screens ── */
-.dtw { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-.dtw table { min-width: 560px; }
-
-/* ── TOPBAR RESPONSIVE ── */
-@media (max-width: 575.98px) {
-  .tb-bc span:first-child,
-  .tb-bc span:nth-child(2) { display: none; }
-  .tb-bc .cur { font-size: 0.82rem; }
-  .tb-av { width: 30px; height: 30px; font-size: 0.75rem; }
-  .tb-btn { width: 30px; height: 30px; font-size: 0.78rem; }
-  .ndot { width: 6px; height: 6px; }
-}
-
-/* ── SIDEBAR SECTION LABEL ── */
-@media (min-width: 768px) {
-  #sb.col .sl-btn { justify-content: center; }
-  #sb.col .sl-ic  { width: auto; }
-}
-</style>
-
-<script>
-// ── MOBILE SIDEBAR TOGGLE ──
-(function(){
-  const sb = document.getElementById('sb');
-  const togBtn = document.querySelector('.tb-tog');
-
-  // Create overlay
-  const overlay = document.createElement('div');
-  overlay.id = 'sb-overlay';
-  document.body.appendChild(overlay);
-
-  function isMobile(){ return window.innerWidth < 768; }
-  function isTablet(){ return window.innerWidth >= 768 && window.innerWidth < 1024; }
-
-  // Override togSB for responsive
-  window.togSB = function(){
-    if(isMobile()){
-      sb.classList.toggle('mob-open');
-      overlay.classList.toggle('vis');
-    } else {
-      const col = sb.classList.toggle('col');
-      document.getElementById('main').classList.toggle('exp', col);
-    }
-  };
-
-  overlay.addEventListener('click', function(){
-    sb.classList.remove('mob-open');
-    overlay.classList.remove('vis');
-  });
-
-  // On resize, cleanup state
-  window.addEventListener('resize', function(){
-    if(!isMobile()){
-      sb.classList.remove('mob-open');
-      overlay.classList.remove('vis');
-    }
-  });
-
-  // Swipe to open sidebar on mobile
-  let touchStartX = 0;
-  document.addEventListener('touchstart', function(e){ touchStartX = e.touches[0].clientX; }, {passive:true});
-  document.addEventListener('touchend', function(e){
-    if(!isMobile()) return;
-    const dx = e.changedTouches[0].clientX - touchStartX;
-    if(touchStartX < 30 && dx > 60) { sb.classList.add('mob-open'); overlay.classList.add('vis'); }
-    if(dx < -60 && sb.classList.contains('mob-open')) { sb.classList.remove('mob-open'); overlay.classList.remove('vis'); }
-  }, {passive:true});
-})();
-</script>
-<style>
-/* Auth overlay */
-#auth-overlay{position:fixed;inset:0;background:rgba(7,30,24,0.98);z-index:9999;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px);}
-.auth-box{background:rgba(255,255,255,0.05);border:1px solid rgba(201,162,39,0.25);border-radius:16px;padding:2.5rem;text-align:center;max-width:360px;width:90%;}
-.auth-box .em2{width:60px;height:60px;background:linear-gradient(135deg,#c9a227,#e4b84a);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-family:'Amiri',serif;font-size:1.6rem;color:#0a4a3a;font-weight:700;}
-.auth-box h3{color:#fff;font-size:1rem;margin-bottom:0.4rem;}
-.auth-box p{color:rgba(255,255,255,0.5);font-size:0.8rem;margin-bottom:1.5rem;}
-.auth-box a{background:linear-gradient(135deg,#c9a227,#e4b84a);color:#0a4a3a;padding:0.7rem 2rem;border-radius:50px;font-weight:700;text-decoration:none;font-size:0.9rem;display:inline-block;transition:all 0.2s;}
-.auth-box a:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(201,162,39,0.4);color:#0a4a3a;}
-/* User info in topbar */
-#session-info{display:flex;align-items:center;gap:0.5rem;font-size:0.78rem;color:rgba(255,255,255,0.7);background:rgba(201,162,39,0.1);border:1px solid rgba(201,162,39,0.2);border-radius:8px;padding:0.28rem 0.75rem;}
-#session-info strong{color:var(--gdl);}
-/* Report modal */
-#report-modal{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:600;display:none;align-items:center;justify-content:center;padding:1rem;backdrop-filter:blur(4px);}
-#report-modal.open{display:flex;}
-.report-box{background:#fff;border-radius:16px;width:100%;max-width:520px;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
-.report-header{background:linear-gradient(135deg,#0a4a3a,#0d5c49);padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;}
-.report-header h3{color:#fff;font-size:0.95rem;display:flex;align-items:center;gap:0.5rem;}
-.report-header h3 i{color:#c9a227;}
-.report-body{padding:1.5rem;}
-.report-type-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.65rem;margin-bottom:1.25rem;}
-.rt-btn{border:1.5px solid #e2ece9;border-radius:10px;padding:0.85rem 0.75rem;cursor:pointer;transition:all 0.2s;background:none;text-align:center;}
-.rt-btn.sel{border-color:#0a4a3a;background:#e8f5f0;}
-.rt-btn i{display:block;font-size:1.4rem;margin-bottom:0.4rem;color:#0a4a3a;}
-.rt-btn span{font-size:0.78rem;color:#3d3d56;font-family:'Noto Serif Bengali',serif;}
-.rt-btn.sel span{font-weight:600;color:#0a4a3a;}
-.report-preview{background:#f7f3ec;border-radius:10px;padding:1rem;margin-bottom:1.25rem;font-size:0.8rem;color:#3d3d56;line-height:1.7;border:1px solid #ede8df;}
-.btn-gen-report{width:100%;background:linear-gradient(135deg,#c9a227,#e4b84a);color:#0a4a3a;border:none;border-radius:50px;padding:0.8rem;font-family:'Noto Serif Bengali',serif;font-size:0.92rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:0.5rem;transition:all 0.2s;}
-.btn-gen-report:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(201,162,39,0.4);}
-</style>
-
-<!-- Auth Overlay (shown if not logged in) -->
-<div id="auth-overlay" style="display:none;">
-  <div class="auth-box">
-    <div class="em2">م</div>
-    <h3>অ্যাক্সেস নিষিদ্ধ</h3>
-    <p>এই পেজ দেখতে হলে অ্যাডমিন লগইন করতে হবে</p>
-    <a href="login.html"><i class="fas fa-sign-in-alt" style="margin-right:0.4rem;"></i>লগইন করুন</a>
-  </div>
-</div>
-
-<!-- Report Modal -->
-<div id="report-modal">
-  <div class="report-box">
-    <div class="report-header">
-      <h3><i class="fas fa-file-alt"></i> রিপোর্ট তৈরি করুন</h3>
-      <button style="background:rgba(255,255,255,0.15);border:none;width:28px;height:28px;border-radius:6px;color:#fff;cursor:pointer;font-size:0.82rem;display:flex;align-items:center;justify-content:center;" onclick="document.getElementById('report-modal').classList.remove('open')"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="report-body">
-      <p style="font-size:0.8rem;color:#6b7280;margin-bottom:1rem;">রিপোর্টের ধরন নির্বাচন করুন:</p>
-      <div class="report-type-grid">
-        <button class="rt-btn sel" data-type="summary" onclick="selReport(this,'summary')"><i class="fas fa-chart-pie"></i><span>সারসংক্ষেপ রিপোর্ট</span></button>
-        <button class="rt-btn" data-type="fatwas" onclick="selReport(this,'fatwas')"><i class="fas fa-scroll"></i><span>ফতোয়া রিপোর্ট</span></button>
-        <button class="rt-btn" data-type="questions" onclick="selReport(this,'questions')"><i class="fas fa-question-circle"></i><span>প্রশ্ন রিপোর্ট</span></button>
-        <button class="rt-btn" data-type="full" onclick="selReport(this,'full')"><i class="fas fa-database"></i><span>সম্পূর্ণ রিপোর্ট</span></button>
-      </div>
-      <div class="report-preview" id="report-preview">সারসংক্ষেপ রিপোর্টে সাইটের সামগ্রিক পরিসংখ্যান অন্তর্ভুক্ত থাকবে।</div>
-      <button class="btn-gen-report" onclick="generateReport()"><i class="fas fa-download"></i> রিপোর্ট ডাউনলোড করুন</button>
-    </div>
-  </div>
-</div>
-
-<script>
-// ── AUTH GUARD ──
-(function(){
-  const s = localStorage.getItem('adminSession') || sessionStorage.getItem('adminSession');
-  if(!s){
-    document.getElementById('auth-overlay').style.display='flex';
-    return;
-  }
-  try{
-    const d = JSON.parse(s);
-    if(!d.loggedIn){ document.getElementById('auth-overlay').style.display='flex'; return; }
-    // Show session info in topbar
-    const tb = document.getElementById('tb');
-    const info = document.createElement('div');
-    info.id = 'session-info';
-    info.innerHTML = `<i class="fas fa-user-circle" style="color:var(--gdl);"></i><strong>${d.name}</strong> (${d.roleLabel}) <button onclick="doLogout()" style="background:rgba(220,38,38,0.15);border:1px solid rgba(220,38,38,0.3);border-radius:6px;padding:0.15rem 0.5rem;font-size:0.68rem;color:#fca5a5;cursor:pointer;margin-left:0.3rem;" title="লগআউট"><i class="fas fa-sign-out-alt"></i></button>`;
-    tb.appendChild(info);
-  }catch(e){
-    document.getElementById('auth-overlay').style.display='flex';
-  }
-})();
-
-function doLogout(){
-  if(!confirm('লগআউট করবেন?')) return;
-  localStorage.removeItem('adminSession');
-  sessionStorage.removeItem('adminSession');
-  window.location.href='login.html';
-}
-
-// ── REPORT SYSTEM ──
-let reportType = 'summary';
-const reportDesc = {
-  summary: 'সারসংক্ষেপ রিপোর্টে সাইটের সামগ্রিক পরিসংখ্যান, মোট ফতোয়া, প্রশ্ন, বই ও ভিডিওর সংখ্যা অন্তর্ভুক্ত থাকবে।',
-  fatwas:  'ফতোয়া রিপোর্টে সকল প্রকাশিত ফতোয়ার তালিকা, বিভাগ বিভাজন ও পরিসংখ্যান থাকবে।',
-  questions:'প্রশ্ন রিপোর্টে সব প্রশ্নের তালিকা, স্ট্যাটাস বিশ্লেষণ ও বিভাগ বিভাজন থাকবে।',
-  full:    'সম্পূর্ণ রিপোর্টে সাইটের সব ডেটা — ফতোয়া, প্রশ্ন, প্রবন্ধ, বই ও ব্যবহারকারী অন্তর্ভুক্ত থাকবে।',
-};
-
-function selReport(btn, type){
-  document.querySelectorAll('.rt-btn').forEach(b=>b.classList.remove('sel'));
-  btn.classList.add('sel');
-  reportType = type;
-  document.getElementById('report-preview').textContent = reportDesc[type];
-}
-
-function openReport(){
-  document.getElementById('report-modal').classList.add('open');
-}
-
-function generateReport(){
-  const db = SiteDB.get();
-  const now = new Date().toLocaleDateString('bn-BD');
-  let html = '';
-  const style = `<style>
-    body{font-family:'Noto Serif Bengali',Arial,sans-serif;color:#1a1a2e;padding:2rem;max-width:900px;margin:0 auto;}
-    h1{color:#0a4a3a;border-bottom:3px solid #c9a227;padding-bottom:0.5rem;font-size:1.5rem;}
-    h2{color:#0a4a3a;font-size:1.1rem;margin-top:1.5rem;border-left:4px solid #c9a227;padding-left:0.75rem;}
-    table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:0.82rem;}
-    th{background:#0a4a3a;color:#e4b84a;padding:0.55rem 0.75rem;text-align:left;}
-    td{padding:0.5rem 0.75rem;border-bottom:1px solid #ede8df;}
-    tr:nth-child(even){background:#f7f3ec;}
-    .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1rem 0;}
-    .stat-box{background:#e8f5f0;border-radius:8px;padding:1rem;text-align:center;border:1px solid rgba(10,74,58,0.15);}
-    .stat-num{font-size:2rem;font-weight:700;color:#0a4a3a;}
-    .stat-lbl{font-size:0.78rem;color:#6b7280;margin-top:0.2rem;}
-    .footer{margin-top:2rem;font-size:0.75rem;color:#9ca3af;border-top:1px solid #ede8df;padding-top:1rem;text-align:center;}
-    .badge{display:inline-block;padding:0.15rem 0.5rem;border-radius:50px;font-size:0.7rem;font-weight:600;}
-    .pub{background:#dcfce7;color:#16a34a;} .pend{background:#fef9c3;color:#ca8a04;} .dr{background:#f1f5f9;color:#64748b;} .new{background:#fce7f3;color:#be185d;} .ans{background:#e0f2fe;color:#0369a1;}
-    @media print{body{padding:1rem;}h1,h2{color:#000 !important;}}
-  </style>`;
-
-  if(reportType === 'summary'){
-    html = `<!DOCTYPE html><html lang="bn"><head><meta charset="UTF-8"><title>সারসংক্ষেপ রিপোর্ট</title>${style}</head><body>
-    <h1>📊 সারসংক্ষেপ রিপোর্ট</h1>
-    <p style="color:#6b7280;font-size:0.82rem;">তারিখ: ${now} | তৈরি করেছেন: ${db.scholar.name_bn}</p>
-    <h2>পরিসংখ্যান</h2>
-    <div class="stat-grid">
-      <div class="stat-box"><div class="stat-num">${db.fatwas.length}</div><div class="stat-lbl">মোট ফতোয়া</div></div>
-      <div class="stat-box"><div class="stat-num">${db.questions.length}</div><div class="stat-lbl">মোট প্রশ্ন</div></div>
-      <div class="stat-box"><div class="stat-num">${db.articles.length}</div><div class="stat-lbl">মোট প্রবন্ধ</div></div>
-      <div class="stat-box"><div class="stat-num">${db.books.length}</div><div class="stat-lbl">মোট বই</div></div>
-      <div class="stat-box"><div class="stat-num">${db.videos.length}</div><div class="stat-lbl">মোট ভিডিও</div></div>
-      <div class="stat-box"><div class="stat-num">${db.questions.filter(q=>q.status==='new').length}</div><div class="stat-lbl">অপেক্ষমান প্রশ্ন</div></div>
-    </div>
-    <div class="footer">মুফতি মুহাম্মদ আব্দুল লতিফ শেখ — Admin Dashboard · ${now}</div>
-    </body></html>`;
-  } else if(reportType === 'fatwas'){
-    html = `<!DOCTYPE html><html lang="bn"><head><meta charset="UTF-8"><title>ফতোয়া রিপোর্ট</title>${style}</head><body>
-    <h1>📜 ফতোয়া রিপোর্ট</h1>
-    <p style="color:#6b7280;font-size:0.82rem;">তারিখ: ${now} · মোট: ${db.fatwas.length}টি</p>
-    <h2>ফতোয়ার তালিকা</h2>
-    <table><thead><tr><th>#</th><th>প্রশ্ন</th><th>বিভাগ</th><th>তারিখ</th><th>ভিউ</th><th>স্ট্যাটাস</th></tr></thead><tbody>
-    ${db.fatwas.map((f,i)=>`<tr><td>${i+1}</td><td>${f.question}</td><td>${f.category}</td><td>${f.date||'-'}</td><td>${f.views||0}</td><td><span class="badge ${f.status==='published'?'pub':f.status==='pending'?'pend':'dr'}">${f.status}</span></td></tr>`).join('')}
-    </tbody></table>
-    <div class="footer">মুফতি মুহাম্মদ আব্দুল লতিফ শেখ — Admin Dashboard · ${now}</div>
-    </body></html>`;
-  } else if(reportType === 'questions'){
-    html = `<!DOCTYPE html><html lang="bn"><head><meta charset="UTF-8"><title>প্রশ্ন রিপোর্ট</title>${style}</head><body>
-    <h1>❓ প্রশ্ন রিপোর্ট</h1>
-    <p style="color:#6b7280;font-size:0.82rem;">তারিখ: ${now} · মোট: ${db.questions.length}টি</p>
-    <table><thead><tr><th>#</th><th>প্রশ্নকারী</th><th>বিষয়</th><th>বিভাগ</th><th>তারিখ</th><th>স্ট্যাটাস</th></tr></thead><tbody>
-    ${db.questions.map((q,i)=>`<tr><td>${i+1}</td><td>${q.name}</td><td>${q.subject}</td><td>${q.category||'-'}</td><td>${q.date||'-'}</td><td><span class="badge ${q.status==='new'?'new':q.status==='answered'?'ans':'pend'}">${q.status}</span></td></tr>`).join('')}
-    </tbody></table>
-    <div class="footer">মুফতি মুহাম্মদ আব্দুল লতিফ শেখ — Admin Dashboard · ${now}</div>
-    </body></html>`;
-  } else {
-    html = `<!DOCTYPE html><html lang="bn"><head><meta charset="UTF-8"><title>সম্পূর্ণ রিপোর্ট</title>${style}</head><body>
-    <h1>🗄️ সম্পূর্ণ ডেটা রিপোর্ট</h1>
-    <p style="color:#6b7280;font-size:0.82rem;">তারিখ: ${now}</p>
-    <h2>ফতোয়া (${db.fatwas.length})</h2>
-    <table><thead><tr><th>#</th><th>প্রশ্ন</th><th>বিভাগ</th><th>স্ট্যাটাস</th></tr></thead><tbody>
-    ${db.fatwas.slice(0,20).map((f,i)=>`<tr><td>${i+1}</td><td>${f.question.substring(0,60)}</td><td>${f.category}</td><td><span class="badge ${f.status==='published'?'pub':'dr'}">${f.status}</span></td></tr>`).join('')}
-    </tbody></table>
-    <h2>প্রশ্ন (${db.questions.length})</h2>
-    <table><thead><tr><th>#</th><th>প্রশ্নকারী</th><th>বিষয়</th><th>স্ট্যাটাস</th></tr></thead><tbody>
-    ${db.questions.slice(0,10).map((q,i)=>`<tr><td>${i+1}</td><td>${q.name}</td><td>${q.subject.substring(0,50)}</td><td><span class="badge ${q.status==='new'?'new':q.status==='answered'?'ans':'pend'}">${q.status}</span></td></tr>`).join('')}
-    </tbody></table>
-    <h2>বই (${db.books.length})</h2>
-    <table><thead><tr><th>#</th><th>নাম</th><th>সংস্করণ</th><th>পৃষ্ঠা</th><th>সাল</th></tr></thead><tbody>
-    ${db.books.map((b,i)=>`<tr><td>${i+1}</td><td>${b.title_bn}</td><td>${b.edition}</td><td>${b.pages}</td><td>${b.year}</td></tr>`).join('')}
-    </tbody></table>
-    <div class="footer">মুফতি মুহাম্মদ আব্দুল লতিফ শেখ — Admin Dashboard · ${now}</div>
-    </body></html>`;
-  }
-
-  // Open in new window and print/download
-  const win = window.open('','_blank','width=900,height=700');
-  win.document.write(html);
-  win.document.close();
-  setTimeout(()=>win.print(), 600);
-  document.getElementById('report-modal').classList.remove('open');
-  toast('রিপোর্ট তৈরি হয়েছে! নতুন উইন্ডোতে দেখুন।','ok');
-}
-
-// Override report button in dashboard
-document.addEventListener('DOMContentLoaded',()=>{
-  const rBtn = document.querySelector('[onclick*="রিপোর্ট"]');
-  if(rBtn) rBtn.setAttribute('onclick','openReport()');
-});
-</script>
