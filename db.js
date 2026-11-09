@@ -160,11 +160,32 @@ const DEFAULT_DB = {
 };
 
 const SiteDB = {
+  _clone(o) { return JSON.parse(JSON.stringify(o)); },
   _load() {
     try {
       const raw = localStorage.getItem(DB_KEY);
-      return raw ? JSON.parse(raw) : JSON.parse(JSON.stringify(DEFAULT_DB));
-    } catch { return JSON.parse(JSON.stringify(DEFAULT_DB)); }
+      if (!raw) return this._clone(DEFAULT_DB);
+      return this._migrate(JSON.parse(raw));
+    } catch { return this._clone(DEFAULT_DB); }
+  },
+  // Repairs data saved by older versions of the site (e.g. users saved without passwords)
+  _migrate(db) {
+    let changed = false;
+    for (const k of Object.keys(DEFAULT_DB)) {
+      if (db[k] === undefined) { db[k] = this._clone(DEFAULT_DB[k]); changed = true; }
+    }
+    db.users = (db.users || []).map(u => {
+      if (!u.password) {
+        const d = DEFAULT_DB.users.find(x => x.email === u.email);
+        if (d) { changed = true; return Object.assign({}, u, { password: d.password }); }
+      }
+      return u;
+    });
+    if (!db.users.some(u => u.role === 'super_admin')) {
+      db.users.unshift(this._clone(DEFAULT_DB.users[0])); changed = true;
+    }
+    if (changed) { try { localStorage.setItem(DB_KEY, JSON.stringify(db)); } catch(e) {} }
+    return db;
   },
   _save(db) {
     try { localStorage.setItem(DB_KEY, JSON.stringify(db)); return true; }
